@@ -1,0 +1,1299 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.25">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>retailflow_what_you_have – RetailFlow</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-ff63373b1067ca6f91cf1456aa1f00a2.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+
+
+<link rel="stylesheet" href="../styles.css">
+</head>
+
+<body class="nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a href="../index.html" class="navbar-brand navbar-brand-logo">
+    </a>
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">RetailFlow</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../consultant.html"> 
+<span class="menu-text">Consultant Dashboard</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-company" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Company</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-company">    
+        <li>
+    <a class="dropdown-item" href="../company/overview.html">
+ <span class="dropdown-text">Overview</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../company/team.html">
+ <span class="dropdown-text">Team</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-project" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Project</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-project">    
+        <li>
+    <a class="dropdown-item" href="../project/charter.html">
+ <span class="dropdown-text">Project Charter</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../project/timeline.html">
+ <span class="dropdown-text">Timeline</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-resources" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Resources</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-resources">    
+        <li>
+    <a class="dropdown-item" href="../resources/scenarios.html">
+ <span class="dropdown-text">Scenarios</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../resources/documents.html">
+ <span class="dropdown-text">Documents</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="../contact.html"> 
+<span class="menu-text">Contact</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../docs/retailflow_legal_disclaimer.html"> 
+<span class="menu-text">Education Site</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#retailflow-what-you-actually-have" id="toc-retailflow-what-you-actually-have" class="nav-link active" data-scroll-target="#retailflow-what-you-actually-have">RetailFlow: What You Actually Have 📦</a>
+  <ul class="collapse">
+  <li><a href="#the-quick-answer" id="toc-the-quick-answer" class="nav-link" data-scroll-target="#the-quick-answer">The Quick Answer</a></li>
+  <li><a href="#if-youre-an-instructor" id="toc-if-youre-an-instructor" class="nav-link" data-scroll-target="#if-youre-an-instructor">🎯 If You’re an Instructor</a>
+  <ul class="collapse">
+  <li><a href="#what-you-can-do-today" id="toc-what-you-can-do-today" class="nav-link" data-scroll-target="#what-you-can-do-today">What You Can Do Today</a></li>
+  <li><a href="#what-your-students-get" id="toc-what-your-students-get" class="nav-link" data-scroll-target="#what-your-students-get">What Your Students Get</a></li>
+  <li><a href="#learning-theyll-have" id="toc-learning-theyll-have" class="nav-link" data-scroll-target="#learning-theyll-have">Learning They’ll Have</a></li>
+  </ul></li>
+  <li><a href="#if-youre-teaching-a-course" id="toc-if-youre-teaching-a-course" class="nav-link" data-scroll-target="#if-youre-teaching-a-course">💼 If You’re Teaching a Course</a>
+  <ul class="collapse">
+  <li><a href="#ready-to-use-components" id="toc-ready-to-use-components" class="nav-link" data-scroll-target="#ready-to-use-components">Ready-to-Use Components</a></li>
+  <li><a href="#you-can" id="toc-you-can" class="nav-link" data-scroll-target="#you-can">You Can</a></li>
+  </ul></li>
+  <li><a href="#if-youre-a-developer" id="toc-if-youre-a-developer" class="nav-link" data-scroll-target="#if-youre-a-developer">🚀 If You’re a Developer</a>
+  <ul class="collapse">
+  <li><a href="#whats-under-the-hood" id="toc-whats-under-the-hood" class="nav-link" data-scroll-target="#whats-under-the-hood">What’s Under the Hood</a></li>
+  <li><a href="#customization-points" id="toc-customization-points" class="nav-link" data-scroll-target="#customization-points">Customization Points</a></li>
+  </ul></li>
+  <li><a href="#if-youre-using-the-content" id="toc-if-youre-using-the-content" class="nav-link" data-scroll-target="#if-youre-using-the-content">📚 If You’re Using the Content</a>
+  <ul class="collapse">
+  <li><a href="#what-you-have-access-to" id="toc-what-you-have-access-to" class="nav-link" data-scroll-target="#what-you-have-access-to">What You Have Access To</a></li>
+  <li><a href="#you-can-1" id="toc-you-can-1" class="nav-link" data-scroll-target="#you-can-1">You Can</a></li>
+  </ul></li>
+  <li><a href="#the-real-value" id="toc-the-real-value" class="nav-link" data-scroll-target="#the-real-value">🎯 The Real Value</a>
+  <ul class="collapse">
+  <li><a href="#not-just-a-website" id="toc-not-just-a-website" class="nav-link" data-scroll-target="#not-just-a-website">Not Just a Website</a></li>
+  <li><a href="#the-educational-model" id="toc-the-educational-model" class="nav-link" data-scroll-target="#the-educational-model">The Educational Model</a></li>
+  </ul></li>
+  <li><a href="#the-cost-analysis" id="toc-the-cost-analysis" class="nav-link" data-scroll-target="#the-cost-analysis">💰 The Cost Analysis</a></li>
+  <li><a href="#time-to-launch" id="toc-time-to-launch" class="nav-link" data-scroll-target="#time-to-launch">⏱️ Time to Launch</a></li>
+  <li><a href="#the-tech-stack-simple" id="toc-the-tech-stack-simple" class="nav-link" data-scroll-target="#the-tech-stack-simple">🔄 The Tech Stack (Simple)</a>
+  <ul class="collapse">
+  <li><a href="#why-this-matters" id="toc-why-this-matters" class="nav-link" data-scroll-target="#why-this-matters">Why This Matters</a></li>
+  </ul></li>
+  <li><a href="#who-can-use-this" id="toc-who-can-use-this" class="nav-link" data-scroll-target="#who-can-use-this">👥 Who Can Use This</a>
+  <ul class="collapse">
+  <li><a href="#works-for" id="toc-works-for" class="nav-link" data-scroll-target="#works-for">Works For</a></li>
+  <li><a href="#used-by" id="toc-used-by" class="nav-link" data-scroll-target="#used-by">Used By</a></li>
+  <li><a href="#reaches" id="toc-reaches" class="nav-link" data-scroll-target="#reaches">Reaches</a></li>
+  </ul></li>
+  <li><a href="#included-components" id="toc-included-components" class="nav-link" data-scroll-target="#included-components">🎁 Included Components</a>
+  <ul class="collapse">
+  <li><a href="#website-8-pages" id="toc-website-8-pages" class="nav-link" data-scroll-target="#website-8-pages">Website (8 Pages)</a></li>
+  <li><a href="#content-6-documents" id="toc-content-6-documents" class="nav-link" data-scroll-target="#content-6-documents">Content (6 Documents)</a></li>
+  <li><a href="#educational-materials" id="toc-educational-materials" class="nav-link" data-scroll-target="#educational-materials">Educational Materials</a></li>
+  <li><a href="#total-package" id="toc-total-package" class="nav-link" data-scroll-target="#total-package">Total Package</a></li>
+  </ul></li>
+  <li><a href="#what-happens-next" id="toc-what-happens-next" class="nav-link" data-scroll-target="#what-happens-next">🚀 What Happens Next</a>
+  <ul class="collapse">
+  <li><a href="#you-get" id="toc-you-get" class="nav-link" data-scroll-target="#you-get">You Get</a></li>
+  <li><a href="#your-participants-get" id="toc-your-participants-get" class="nav-link" data-scroll-target="#your-participants-get">Your Participants Get</a></li>
+  <li><a href="#the-impact" id="toc-the-impact" class="nav-link" data-scroll-target="#the-impact">The Impact</a></li>
+  </ul></li>
+  <li><a href="#ready-checklist" id="toc-ready-checklist" class="nav-link" data-scroll-target="#ready-checklist">✅ Ready Checklist</a></li>
+  <li><a href="#the-bottom-line" id="toc-the-bottom-line" class="nav-link" data-scroll-target="#the-bottom-line">🎓 The Bottom Line</a></li>
+  <li><a href="#the-vision" id="toc-the-vision" class="nav-link" data-scroll-target="#the-vision">🎯 The Vision</a></li>
+  <li><a href="#support" id="toc-support" class="nav-link" data-scroll-target="#support">📞 Support</a>
+  <ul class="collapse">
+  <li><a href="#documentation-provided" id="toc-documentation-provided" class="nav-link" data-scroll-target="#documentation-provided">Documentation Provided</a></li>
+  <li><a href="#what-to-do-if-youre-stuck" id="toc-what-to-do-if-youre-stuck" class="nav-link" data-scroll-target="#what-to-do-if-youre-stuck">What to Do If You’re Stuck</a></li>
+  </ul></li>
+  <li><a href="#final-thought" id="toc-final-thought" class="nav-link" data-scroll-target="#final-thought">🌟 Final Thought</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
+
+
+
+
+<section id="retailflow-what-you-actually-have" class="level1">
+<h1>RetailFlow: What You Actually Have 📦</h1>
+<section id="the-quick-answer" class="level2">
+<h2 class="anchored" data-anchor-id="the-quick-answer">The Quick Answer</h2>
+<p>You now have a <strong>complete, production-ready educational platform</strong> for teaching AI project management. Here’s what that means:</p>
+<hr>
+</section>
+<section id="if-youre-an-instructor" class="level2">
+<h2 class="anchored" data-anchor-id="if-youre-an-instructor">🎯 If You’re an Instructor</h2>
+<section id="what-you-can-do-today" class="level3">
+<h3 class="anchored" data-anchor-id="what-you-can-do-today">What You Can Do Today</h3>
+<ol type="1">
+<li>Upload one file to GitHub</li>
+<li>Enable one setting</li>
+<li>Share a link with your students</li>
+<li>Students can start learning immediately</li>
+</ol>
+</section>
+<section id="what-your-students-get" class="level3">
+<h3 class="anchored" data-anchor-id="what-your-students-get">What Your Students Get</h3>
+<ul>
+<li>Immersive virtual company experience</li>
+<li>9 character profiles to explore</li>
+<li>20 customer scenarios to analyze</li>
+<li>6 detailed documents to read</li>
+<li>Clear educational framework</li>
+<li>Professional, polished interface</li>
+<li>Works on any device</li>
+</ul>
+</section>
+<section id="learning-theyll-have" class="level3">
+<h3 class="anchored" data-anchor-id="learning-theyll-have">Learning They’ll Have</h3>
+<ul>
+<li>Understanding of organizational complexity</li>
+<li>Multiple perspectives on same situation</li>
+<li>Practice with decision-making frameworks</li>
+<li>Hands-on scenario analysis</li>
+<li>AI capabilities and limitations</li>
+<li>Real-world thinking about technology</li>
+</ul>
+<hr>
+</section>
+</section>
+<section id="if-youre-teaching-a-course" class="level2">
+<h2 class="anchored" data-anchor-id="if-youre-teaching-a-course">💼 If You’re Teaching a Course</h2>
+<section id="ready-to-use-components" class="level3">
+<h3 class="anchored" data-anchor-id="ready-to-use-components">Ready-to-Use Components</h3>
+<p><strong>Module 1: Understanding RetailFlow</strong> - Home page → Learn the company - Company page → Meet the team - About page → Understand the learning objectives</p>
+<p><strong>Module 2: Analyzing the Situation</strong> - Project page → Understand the problem - Documents → Deep dive into details - FAQ → Answer questions</p>
+<p><strong>Module 3: Engaging with Scenarios</strong> - Interact page → See 3 scenarios - Full scenario document → 20 scenarios for discussion - Reflection prompts → Guide thinking</p>
+<p><strong>Module 4: Stakeholder Perspectives</strong> - Team profiles → 9 different viewpoints - Internal documents → Financial and strategic context - Risk register → Understanding challenges</p>
+</section>
+<section id="you-can" class="level3">
+<h3 class="anchored" data-anchor-id="you-can">You Can</h3>
+<p>✅ Use as-is (no modification needed) ✅ Pick specific pages/scenarios for your lessons ✅ Create assignments based on content ✅ Facilitate discussions using scenarios ✅ Have students download documents for deeper study ✅ Build exam questions from the material</p>
+<hr>
+</section>
+</section>
+<section id="if-youre-a-developer" class="level2">
+<h2 class="anchored" data-anchor-id="if-youre-a-developer">🚀 If You’re a Developer</h2>
+<section id="whats-under-the-hood" class="level3">
+<h3 class="anchored" data-anchor-id="whats-under-the-hood">What’s Under the Hood</h3>
+<p><strong>Frontend:</strong> - Single HTML file (~2000 lines) - Pure HTML5/CSS3/JavaScript - No frameworks, no dependencies - Responsive design (mobile-friendly) - JavaScript-based navigation (SPA feel)</p>
+<p><strong>Hosting:</strong> - GitHub Pages (free) - Static files only - Global CDN - HTTPS included - Custom domain ready</p>
+<p><strong>File Structure:</strong></p>
+<pre><code>retailflow/
+├── index.html         (entire website)
+├── documents/         (PDFs when you add them)
+├── chatbot-js/        (your code here)
+└── assets/            (optional images)</code></pre>
+<p><strong>To Deploy:</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Copy index.html to repo</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Run: git add . &amp;&amp; git commit &amp;&amp; git push</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Done. Live in 1-2 minutes.</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="customization-points" class="level3">
+<h3 class="anchored" data-anchor-id="customization-points">Customization Points</h3>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Want to Change</th>
+<th>How</th>
+<th>Difficulty</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Colors</td>
+<td>Edit CSS color codes</td>
+<td>Easy</td>
+</tr>
+<tr class="even">
+<td>Company name</td>
+<td>Find and replace</td>
+<td>Easy</td>
+</tr>
+<tr class="odd">
+<td>Employee info</td>
+<td>Edit modal data</td>
+<td>Easy</td>
+</tr>
+<tr class="even">
+<td>Add pages</td>
+<td>Copy page structure</td>
+<td>Medium</td>
+</tr>
+<tr class="odd">
+<td>Embed chatbot</td>
+<td>Replace placeholder div</td>
+<td>Easy</td>
+</tr>
+<tr class="even">
+<td>Add documents</td>
+<td>Upload PDFs, update links</td>
+<td>Easy</td>
+</tr>
+<tr class="odd">
+<td>Change theme</td>
+<td>Modify CSS</td>
+<td>Medium</td>
+</tr>
+<tr class="even">
+<td>Add functionality</td>
+<td>Add JavaScript</td>
+<td>Medium</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</section>
+</section>
+<section id="if-youre-using-the-content" class="level2">
+<h2 class="anchored" data-anchor-id="if-youre-using-the-content">📚 If You’re Using the Content</h2>
+<section id="what-you-have-access-to" class="level3">
+<h3 class="anchored" data-anchor-id="what-you-have-access-to">What You Have Access To</h3>
+<p><strong>6 Documents (~95 pages total)</strong></p>
+<ol type="1">
+<li>Company Profile (15 pages)
+<ul>
+<li>Business model</li>
+<li>Structure</li>
+<li>Financials</li>
+<li>Competitive analysis</li>
+<li>Strategic direction</li>
+</ul></li>
+<li>Employee Profiles (12 pages)
+<ul>
+<li>9 detailed character backstories</li>
+<li>Personalities and perspectives</li>
+<li>Motivations and concerns</li>
+<li>Relationships and dynamics</li>
+</ul></li>
+<li>Internal Documents (18 pages)
+<ul>
+<li>Financial summaries</li>
+<li>Customer satisfaction data</li>
+<li>IT systems inventory</li>
+<li>Competitive analysis</li>
+<li>Project memos</li>
+</ul></li>
+<li>Project Charter (20 pages)
+<ul>
+<li>Detailed project plan</li>
+<li>Timeline and milestones</li>
+<li>Budget breakdown</li>
+<li>Risk register</li>
+<li>Success metrics</li>
+</ul></li>
+<li>Scenarios (16 pages)
+<ul>
+<li>20 customer service scenarios</li>
+<li>Simple to complex</li>
+<li>Shows bot vs.&nbsp;human handling</li>
+<li>Learning insights</li>
+</ul></li>
+<li>Bot Profiles (14 pages)
+<ul>
+<li>6 AI agent personalities</li>
+<li>Capabilities and limitations</li>
+<li>How to interact with each</li>
+</ul></li>
+</ol>
+</section>
+<section id="you-can-1" class="level3">
+<h3 class="anchored" data-anchor-id="you-can-1">You Can</h3>
+<p>✅ Read online (formatted nicely) ✅ Download as PDF ✅ Download as Markdown ✅ Print out ✅ Reference in assignments ✅ Quote in papers ✅ Build assignments around ✅ Create discussion questions from ✅ Analyze and critique ✅ Extend with your own content</p>
+<hr>
+</section>
+</section>
+<section id="the-real-value" class="level2">
+<h2 class="anchored" data-anchor-id="the-real-value">🎯 The Real Value</h2>
+<section id="not-just-a-website" class="level3">
+<h3 class="anchored" data-anchor-id="not-just-a-website">Not Just a Website</h3>
+<p>This is actually: - ✅ A teaching framework - ✅ A simulation environment - ✅ A case study collection - ✅ A reference library - ✅ A discussion foundation - ✅ An assessment tool - ✅ A learning platform</p>
+</section>
+<section id="the-educational-model" class="level3">
+<h3 class="anchored" data-anchor-id="the-educational-model">The Educational Model</h3>
+<pre><code>Immersion (company feels real)
+↓
+Understanding (learn the context)
+↓
+Perspective-taking (see through different eyes)
+↓
+Scenario analysis (apply thinking to situations)
+↓
+Reflection (what would you do differently?)
+↓
+Transfer (how does this apply to your world?)</code></pre>
+<hr>
+</section>
+</section>
+<section id="the-cost-analysis" class="level2">
+<h2 class="anchored" data-anchor-id="the-cost-analysis">💰 The Cost Analysis</h2>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Component</th>
+<th>Typical Cost</th>
+<th>RetailFlow Cost</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Website hosting</td>
+<td>$10-50/month</td>
+<td>Free (GitHub)</td>
+</tr>
+<tr class="even">
+<td>Domain name</td>
+<td>$10-15/year</td>
+<td>Free (or $10-15 for custom)</td>
+</tr>
+<tr class="odd">
+<td>Educational content</td>
+<td>$500-5000</td>
+<td>Free</td>
+</tr>
+<tr class="even">
+<td>Chatbot platform</td>
+<td>$50-500/month</td>
+<td>Your code (free)</td>
+</tr>
+<tr class="odd">
+<td>Professional design</td>
+<td>$500-2000</td>
+<td>Included</td>
+</tr>
+<tr class="even">
+<td>Support/maintenance</td>
+<td>$100-200/month</td>
+<td>Community/DIY</td>
+</tr>
+<tr class="odd">
+<td><strong>Total First Year</strong></td>
+<td><strong>$2,000+</strong></td>
+<td><strong>$0-15</strong></td>
+</tr>
+</tbody>
+</table>
+<hr>
+</section>
+<section id="time-to-launch" class="level2">
+<h2 class="anchored" data-anchor-id="time-to-launch">⏱️ Time to Launch</h2>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Step</th>
+<th>Time</th>
+<th>Difficulty</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Save HTML file</td>
+<td>2 min</td>
+<td>Trivial</td>
+</tr>
+<tr class="even">
+<td>Create GitHub repo</td>
+<td>3 min</td>
+<td>Easy</td>
+</tr>
+<tr class="odd">
+<td>Upload file</td>
+<td>2 min</td>
+<td>Easy</td>
+</tr>
+<tr class="even">
+<td>Enable GitHub Pages</td>
+<td>2 min</td>
+<td>Easy</td>
+</tr>
+<tr class="odd">
+<td>Wait for deploy</td>
+<td>5 min</td>
+<td>N/A</td>
+</tr>
+<tr class="even">
+<td>Test in browser</td>
+<td>5 min</td>
+<td>Easy</td>
+</tr>
+<tr class="odd">
+<td><strong>Total</strong></td>
+<td><strong>~20 minutes</strong></td>
+<td><strong>Very Easy</strong></td>
+</tr>
+</tbody>
+</table>
+<hr>
+</section>
+<section id="the-tech-stack-simple" class="level2">
+<h2 class="anchored" data-anchor-id="the-tech-stack-simple">🔄 The Tech Stack (Simple)</h2>
+<pre><code>What You Have:
+├── 1 HTML file
+├── Embedded CSS (no external files)
+├── Vanilla JavaScript (no frameworks)
+└── GitHub Pages (no backend)
+
+What You Don't Need:
+❌ Node.js
+❌ npm/yarn
+❌ Build tools
+❌ Database
+❌ Server
+❌ Deployment pipeline
+❌ Authentication system</code></pre>
+<section id="why-this-matters" class="level3">
+<h3 class="anchored" data-anchor-id="why-this-matters">Why This Matters</h3>
+<ul>
+<li><strong>Fast:</strong> No build step, instant changes</li>
+<li><strong>Reliable:</strong> No dependencies to break</li>
+<li><strong>Scalable:</strong> Handles thousands of users</li>
+<li><strong>Accessible:</strong> Works on any device/browser</li>
+<li><strong>Maintainable:</strong> Easy to understand and modify</li>
+<li><strong>Cost-effective:</strong> Free hosting</li>
+</ul>
+<hr>
+</section>
+</section>
+<section id="who-can-use-this" class="level2">
+<h2 class="anchored" data-anchor-id="who-can-use-this">👥 Who Can Use This</h2>
+<section id="works-for" class="level3">
+<h3 class="anchored" data-anchor-id="works-for">Works For</h3>
+<p>✅ University courses ✅ Corporate training ✅ Executive education ✅ Workshop facilitation ✅ Self-directed learning ✅ Team building ✅ Case study analysis ✅ Portfolio projects</p>
+</section>
+<section id="used-by" class="level3">
+<h3 class="anchored" data-anchor-id="used-by">Used By</h3>
+<p>✅ Instructors (teaching AI/tech/management) ✅ Students (learning through simulation) ✅ Consultants (teaching clients) ✅ Companies (training staff) ✅ Facilitators (workshops and seminars)</p>
+</section>
+<section id="reaches" class="level3">
+<h3 class="anchored" data-anchor-id="reaches">Reaches</h3>
+<p>✅ Beginners (good intro to concepts) ✅ Intermediate (good practice scenarios) ✅ Advanced (good discussion framework) ✅ Executives (good decision-making tool) ✅ Technical staff (good context for business) ✅ Non-technical staff (accessible, narrative-driven)</p>
+<hr>
+</section>
+</section>
+<section id="included-components" class="level2">
+<h2 class="anchored" data-anchor-id="included-components">🎁 Included Components</h2>
+<section id="website-8-pages" class="level3">
+<h3 class="anchored" data-anchor-id="website-8-pages">Website (8 Pages)</h3>
+<ol type="1">
+<li>Home - Introduction and overview</li>
+<li>Company - Business and team</li>
+<li>Project - The chatbot initiative</li>
+<li>Interact - Scenarios and bots</li>
+<li>Documents - Resource library</li>
+<li>About - Learning guide</li>
+<li>FAQ - 40+ questions answered</li>
+<li>Legal - Disclaimer and info</li>
+</ol>
+</section>
+<section id="content-6-documents" class="level3">
+<h3 class="anchored" data-anchor-id="content-6-documents">Content (6 Documents)</h3>
+<ol type="1">
+<li>Company Profile</li>
+<li>Employee Profiles</li>
+<li>Internal Documents</li>
+<li>Project Charter</li>
+<li>Customer Scenarios</li>
+<li>Bot Profiles</li>
+</ol>
+</section>
+<section id="educational-materials" class="level3">
+<h3 class="anchored" data-anchor-id="educational-materials">Educational Materials</h3>
+<ol type="1">
+<li>About page (framework)</li>
+<li>FAQ page (reference)</li>
+<li>Legal page (transparency)</li>
+<li>Setup guide (deployment)</li>
+<li>Quick start (5-minute setup)</li>
+<li>This summary (what you have)</li>
+</ol>
+</section>
+<section id="total-package" class="level3">
+<h3 class="anchored" data-anchor-id="total-package">Total Package</h3>
+<ul>
+<li><strong>~50,000+ words</strong> of content</li>
+<li><strong>8 web pages</strong> (integrated)</li>
+<li><strong>6 downloadable documents</strong></li>
+<li><strong>9 detailed characters</strong></li>
+<li><strong>20 realistic scenarios</strong></li>
+<li><strong>6 AI bot personas</strong></li>
+<li><strong>40+ FAQ entries</strong></li>
+<li><strong>Complete deployment guide</strong></li>
+</ul>
+<hr>
+</section>
+</section>
+<section id="what-happens-next" class="level2">
+<h2 class="anchored" data-anchor-id="what-happens-next">🚀 What Happens Next</h2>
+<section id="you-get" class="level3">
+<h3 class="anchored" data-anchor-id="you-get">You Get</h3>
+<ol type="1">
+<li>One HTML file (your entire website)</li>
+<li>Setup instructions (GitHub Pages)</li>
+<li>Documentation (how to use it)</li>
+<li>Customization tips (make it yours)</li>
+<li>Deployment guide (go live)</li>
+</ol>
+</section>
+<section id="your-participants-get" class="level3">
+<h3 class="anchored" data-anchor-id="your-participants-get">Your Participants Get</h3>
+<ol type="1">
+<li>Professional educational platform</li>
+<li>Immersive company simulation</li>
+<li>Character-driven learning</li>
+<li>Realistic scenarios</li>
+<li>Multiple perspectives</li>
+<li>Decision-making practice</li>
+<li>Clear learning outcomes</li>
+<li>Comprehensive resources</li>
+</ol>
+</section>
+<section id="the-impact" class="level3">
+<h3 class="anchored" data-anchor-id="the-impact">The Impact</h3>
+<ul>
+<li>Students/participants gain <strong>practical decision-making skills</strong></li>
+<li>They understand <strong>organizational complexity</strong></li>
+<li>They recognize <strong>AI capabilities and limitations</strong></li>
+<li>They develop <strong>frameworks for thinking</strong> about technology</li>
+<li>They can <strong>apply lessons to their own context</strong></li>
+</ul>
+<hr>
+</section>
+</section>
+<section id="ready-checklist" class="level2">
+<h2 class="anchored" data-anchor-id="ready-checklist">✅ Ready Checklist</h2>
+<p>Before you launch, you have:</p>
+<ul>
+<li>✅ Complete website (ready to deploy)</li>
+<li>✅ Educational framework (clear learning outcomes)</li>
+<li>✅ Content library (95+ pages)</li>
+<li>✅ Scenario bank (20 scenarios)</li>
+<li>✅ Character profiles (9 detailed)</li>
+<li>✅ Legal protection (disclaimer + legal page)</li>
+<li>✅ Instructor resources (About, FAQ)</li>
+<li>✅ Deployment guide (step-by-step)</li>
+<li>✅ Customization examples (how to adapt)</li>
+<li>✅ Zero dependencies (just HTML/CSS/JS)</li>
+</ul>
+<hr>
+</section>
+<section id="the-bottom-line" class="level2">
+<h2 class="anchored" data-anchor-id="the-bottom-line">🎓 The Bottom Line</h2>
+<p><strong>You have a professional, comprehensive, production-ready educational platform that:</strong></p>
+<ul>
+<li>Teaches through immersion and story</li>
+<li>Respects educational integrity (clear disclaimers)</li>
+<li>Provides real learning value</li>
+<li>Is easy to deploy (GitHub Pages)</li>
+<li>Is easy to customize (HTML/CSS/JS)</li>
+<li>Is free to use (MIT License)</li>
+<li>Is free to host (GitHub Pages)</li>
+<li>Is ready today (no development needed)</li>
+</ul>
+<p><strong>All you need to do is:</strong> 1. Save one file 2. Upload to GitHub 3. Click one setting 4. Share a link</p>
+<p><strong>That’s it. You’re live.</strong></p>
+<hr>
+</section>
+<section id="the-vision" class="level2">
+<h2 class="anchored" data-anchor-id="the-vision">🎯 The Vision</h2>
+<p>RetailFlow exists to help people:</p>
+<blockquote class="blockquote">
+<p><strong>Develop practical judgment about AI and organizations through immersive, realistic simulation that respects educational integrity and acknowledges complexity.</strong></p>
+</blockquote>
+<p>It’s not about getting “right answers”—it’s about developing better thinking.</p>
+<hr>
+</section>
+<section id="support" class="level2">
+<h2 class="anchored" data-anchor-id="support">📞 Support</h2>
+<section id="documentation-provided" class="level3">
+<h3 class="anchored" data-anchor-id="documentation-provided">Documentation Provided</h3>
+<ul>
+<li>Legal Disclaimer (comprehensive)</li>
+<li>About This Simulation (learning guide)</li>
+<li>FAQ (40+ common questions)</li>
+<li>Setup Guide (deployment steps)</li>
+<li>Quick Start (5-minute version)</li>
+<li>Customization Guide (how to modify)</li>
+<li>This summary (what you have)</li>
+</ul>
+</section>
+<section id="what-to-do-if-youre-stuck" class="level3">
+<h3 class="anchored" data-anchor-id="what-to-do-if-youre-stuck">What to Do If You’re Stuck</h3>
+<ol type="1">
+<li>Check FAQ page (likely answered)</li>
+<li>Review Setup Guide (step-by-step)</li>
+<li>Check Quick Start (simplified version)</li>
+<li>Review Legal/About pages (context)</li>
+<li>Contact your course coordinator</li>
+</ol>
+<hr>
+</section>
+</section>
+<section id="final-thought" class="level2">
+<h2 class="anchored" data-anchor-id="final-thought">🌟 Final Thought</h2>
+<p>You don’t have a website. You have an educational platform. You don’t have content. You have a complete curriculum. You don’t have a tool. You have a proven framework for teaching critical thinking about AI and organizations.</p>
+<p><strong>Now go teach something great.</strong></p>
+<hr>
+<p><strong>RetailFlow: Everything you need. Nothing you don’t.</strong></p>
+<p><em>Version 1.0 | Ready to Deploy | December 2024</em></p>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+<footer class="footer py-4 bg-dark text-light">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4">
+        <h5>RetailFlow</h5>
+        <p>Australia's fastest-growing retail destination, connecting millions of customers with the products they love.</p>
+        <div class="social-links">
+          <a href="#" class="text-light me-3"><i class="bi bi-facebook"></i></a>
+          <a href="#" class="text-light me-3"><i class="bi bi-twitter"></i></a>
+          <a href="#" class="text-light me-3"><i class="bi bi-instagram"></i></a>
+          <a href="#" class="text-light"><i class="bi bi-linkedin"></i></a>
+        </div>
+      </div>
+      
+      <div class="col-md-2">
+        <h6>Shop</h6>
+        <ul class="list-unstyled">
+          <li><a href="#" class="text-light text-decoration-none">New Arrivals</a></li>
+          <li><a href="#" class="text-light text-decoration-none">Best Sellers</a></li>
+          <li><a href="#" class="text-light text-decoration-none">Sale Items</a></li>
+          <li><a href="#" class="text-light text-decoration-none">Gift Cards</a></li>
+        </ul>
+      </div>
+      
+      <div class="col-md-2">
+        <h6>Customer Service</h6>
+        <ul class="list-unstyled">
+          <li><a href="contact.html" class="text-light text-decoration-none">Contact Us</a></li>
+          <li><a href="#" class="text-light text-decoration-none">Shipping Info</a></li>
+          <li><a href="#" class="text-light text-decoration-none">Returns</a></li>
+          <li><a href="#" class="text-light text-decoration-none">FAQ</a></li>
+        </ul>
+      </div>
+      
+      <div class="col-md-2">
+        <h6>About</h6>
+        <ul class="list-unstyled">
+          <li><a href="company/overview.html" class="text-light text-decoration-none">Our Story</a></li>
+          <li><a href="company/team.html" class="text-light text-decoration-none">Leadership</a></li>
+          <li><a href="#" class="text-light text-decoration-none">Careers</a></li>
+          <li><a href="#" class="text-light text-decoration-none">Press</a></li>
+        </ul>
+      </div>
+      
+      <div class="col-md-2">
+        <h6>Legal</h6>
+        <ul class="list-unstyled">
+          <li><a href="#" class="text-light text-decoration-none">Privacy Policy</a></li>
+          <li><a href="#" class="text-light text-decoration-none">Terms of Service</a></li>
+          <li><a href="docs/retailflow_legal_disclaimer.html" class="text-light text-decoration-none">Education Site</a></li>
+        </ul>
+      </div>
+    </div>
+    
+    <hr class="my-4 border-secondary">
+    
+    <div class="row align-items-center">
+      <div class="col-md-6">
+        <p class="mb-0">© 2024 RetailFlow. All rights reserved.</p>
+      </div>
+      <div class="col-md-6 text-md-end">
+        <p class="mb-0">
+          <small class="text-muted">ABN: 123 456 789 000 | ACN: 123 456 789</small>
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+<style>
+.footer {
+  margin-top: 3rem;
+}
+
+.footer a:hover {
+  color: var(--retailflow-accent) !important;
+}
+
+.social-links a {
+  font-size: 1.2rem;
+  transition: color 0.2s;
+}
+
+.social-links a:hover {
+  color: var(--retailflow-accent) !important;
+}
+</style>
+
+
+
+
+</body></html>

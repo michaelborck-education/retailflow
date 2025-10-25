@@ -1,0 +1,111 @@
+---
+title: "RetailFlow Leadership Team"
+---
+
+# Leadership Team
+
+## Executive Leadership
+
+### Emma Rodriguez - Chief Executive Officer
+**Background**: 15 years in retail, previously VP of Operations at a major electronics chain. MBA from Melbourne Business School.
+
+**AI Perspective**: "AI is essential for our survival, but we must maintain our human touch. Customer service is our differentiator."
+
+**Key Concerns**: Brand reputation, customer satisfaction, employee morale during transition.
+
+---
+
+### David Chen - Chief Financial Officer  
+**Background**: CPA with 12 years in retail finance. Previously at a national department store chain.
+
+**AI Perspective**: "We need clear ROI on this investment. Every dollar must show measurable returns within 18 months."
+
+**Key Concerns**: Budget adherence, cost savings, financial metrics, shareholder value.
+
+---
+
+### Sarah Thompson - Chief Operating Officer
+**Background**: Operations expert with 10 years at RetailFlow, started as store manager.
+
+**AI Perspective**: "Technology should support our teams, not replace them. We need to protect our service quality."
+
+**Key Concerns**: Operational efficiency, staff training, service consistency, change management.
+
+---
+
+### Marcus Kim - Chief Information Officer
+**Background**: 8 years as CIO, previously led digital transformation at a competing retailer.
+
+**AI Perspective**: "This is our opportunity to leapfrog competitors. We need to move fast but get the architecture right."
+
+**Key Concerns**: Technical implementation, data security, integration with existing systems, scalability.
+
+---
+
+### Lisa Nguyen - Chief Customer Officer
+**Background**: Customer experience expert, previously led CX at a major telecom company.
+
+**AI Perspective**: "AI must enhance, not replace, human empathy. We need the right balance of automation and personal touch."
+
+**Key Concerns**: Customer experience, brand consistency, feedback loops, service quality metrics.
+
+---
+
+## Key Department Heads
+
+### Sarah Chen - Customer Service Manager
+**Background**: 7 years at RetailFlow, promoted from frontline agent to manager.
+
+**AI Perspective**: "My team is overwhelmed. AI could help, but I worry about job security and quality loss."
+
+**Key Concerns**: Team morale, training needs, quality assurance, career development for staff.
+
+---
+
+### Dr. Priya Sharma - Data Scientist
+**Background**: PhD in Machine Learning, 3 years at RetailFlow building analytics capabilities.
+
+**AI Perspective**: "Finally! We have the data and mandate to build real AI solutions. This could transform how we understand customers."
+
+**Key Concerns**: Data quality, model accuracy, ethical AI use, technical feasibility.
+
+---
+
+### Rajesh Patel - IT Security Manager
+**Background**: Cybersecurity specialist, 5 years protecting RetailFlow's systems and customer data.
+
+**AI Perspective**: "AI introduces new attack surfaces. We must ensure security and privacy are built in from day one."
+
+**Key Concerns**: Data protection, AI security, compliance, risk management.
+
+---
+
+### Michael Torres - Store Manager (Flagship Location)
+**Background**: 12 years in retail, 6 years with RetailFlow, manages flagship Sydney store.
+
+**AI Perspective**: "Corporate solutions don't always work on the ground. We need tools that actually help our staff serve customers better."
+
+**Key Concerns**: Practical implementation, staff adoption, customer impact, store-level metrics.
+
+---
+
+## Team Dynamics
+
+### Collaborative Strengths
+- **Shared Vision**: All leaders agree customer service is critical
+- **Complementary Skills**: Balanced mix of technical, financial, and customer expertise
+- **Change Readiness**: Organization recognizes need for transformation
+
+### Potential Conflicts
+- **Speed vs. Quality**: Finance wants quick ROI, CIO wants robust architecture
+- **Automation vs. Human Touch**: CX wants personal service, operations wants efficiency
+- **Centralization vs. Autonomy**: Corporate control vs. store-level flexibility
+
+### Decision Making Style
+- **Consensus-Driven**: Executive team prefers unanimous decisions
+- **Data-Informed**: Growing reliance on analytics for strategic choices
+- **Risk-Averse**: Recent market challenges made leadership more cautious
+
+---
+
+[Back to Company Overview](overview.qmd) | [Project Charter](../project/charter.qmd) | [Consultant Dashboard](../consultant.qmd)

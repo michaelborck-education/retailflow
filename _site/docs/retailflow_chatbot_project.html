@@ -1,0 +1,1622 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.25">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>retailflow_chatbot_project – RetailFlow</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-ff63373b1067ca6f91cf1456aa1f00a2.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+
+
+<link rel="stylesheet" href="../styles.css">
+</head>
+
+<body class="nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a href="../index.html" class="navbar-brand navbar-brand-logo">
+    </a>
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">RetailFlow</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../consultant.html"> 
+<span class="menu-text">Consultant Dashboard</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-company" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Company</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-company">    
+        <li>
+    <a class="dropdown-item" href="../company/overview.html">
+ <span class="dropdown-text">Overview</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../company/team.html">
+ <span class="dropdown-text">Team</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-project" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Project</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-project">    
+        <li>
+    <a class="dropdown-item" href="../project/charter.html">
+ <span class="dropdown-text">Project Charter</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../project/timeline.html">
+ <span class="dropdown-text">Timeline</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-resources" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Resources</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-resources">    
+        <li>
+    <a class="dropdown-item" href="../resources/scenarios.html">
+ <span class="dropdown-text">Scenarios</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../resources/documents.html">
+ <span class="dropdown-text">Documents</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="../contact.html"> 
+<span class="menu-text">Contact</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../docs/retailflow_legal_disclaimer.html"> 
+<span class="menu-text">Education Site</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#retailflow-customer-service-chatbot-pilot-project" id="toc-retailflow-customer-service-chatbot-pilot-project" class="nav-link active" data-scroll-target="#retailflow-customer-service-chatbot-pilot-project">RetailFlow: Customer Service Chatbot Pilot Project</a>
+  <ul class="collapse">
+  <li><a href="#project-charter" id="toc-project-charter" class="nav-link" data-scroll-target="#project-charter">PROJECT CHARTER</a></li>
+  <li><a href="#project-objectives" id="toc-project-objectives" class="nav-link" data-scroll-target="#project-objectives">PROJECT OBJECTIVES</a>
+  <ul class="collapse">
+  <li><a href="#primary-objectives" id="toc-primary-objectives" class="nav-link" data-scroll-target="#primary-objectives">Primary Objectives</a></li>
+  <li><a href="#secondary-objectives" id="toc-secondary-objectives" class="nav-link" data-scroll-target="#secondary-objectives">Secondary Objectives</a></li>
+  </ul></li>
+  <li><a href="#success-metrics-detailed" id="toc-success-metrics-detailed" class="nav-link" data-scroll-target="#success-metrics-detailed">SUCCESS METRICS (DETAILED)</a>
+  <ul class="collapse">
+  <li><a href="#customer-experience-metrics" id="toc-customer-experience-metrics" class="nav-link" data-scroll-target="#customer-experience-metrics">Customer Experience Metrics</a></li>
+  <li><a href="#operational-metrics" id="toc-operational-metrics" class="nav-link" data-scroll-target="#operational-metrics">Operational Metrics</a></li>
+  <li><a href="#financial-metrics" id="toc-financial-metrics" class="nav-link" data-scroll-target="#financial-metrics">Financial Metrics</a></li>
+  <li><a href="#team-metrics" id="toc-team-metrics" class="nav-link" data-scroll-target="#team-metrics">Team Metrics</a></li>
+  </ul></li>
+  <li><a href="#project-timeline-milestones" id="toc-project-timeline-milestones" class="nav-link" data-scroll-target="#project-timeline-milestones">PROJECT TIMELINE &amp; MILESTONES</a>
+  <ul class="collapse">
+  <li><a href="#phase-1-discovery-planning-sept-1-15-2-weeks" id="toc-phase-1-discovery-planning-sept-1-15-2-weeks" class="nav-link" data-scroll-target="#phase-1-discovery-planning-sept-1-15-2-weeks">Phase 1: Discovery &amp; Planning (Sept 1-15, 2 weeks)</a></li>
+  <li><a href="#phase-2-development-training-sept-15---nov-30-10-weeks" id="toc-phase-2-development-training-sept-15---nov-30-10-weeks" class="nav-link" data-scroll-target="#phase-2-development-training-sept-15---nov-30-10-weeks">Phase 2: Development &amp; Training (Sept 15 - Nov 30, 10 weeks)</a></li>
+  <li><a href="#phase-3-pilot-launch-optimization-dec-9---feb-28-12-weeks" id="toc-phase-3-pilot-launch-optimization-dec-9---feb-28-12-weeks" class="nav-link" data-scroll-target="#phase-3-pilot-launch-optimization-dec-9---feb-28-12-weeks">Phase 3: Pilot Launch &amp; Optimization (Dec 9 - Feb 28, 12 weeks)</a></li>
+  </ul></li>
+  <li><a href="#stakeholder-map" id="toc-stakeholder-map" class="nav-link" data-scroll-target="#stakeholder-map">STAKEHOLDER MAP</a>
+  <ul class="collapse">
+  <li><a href="#governance" id="toc-governance" class="nav-link" data-scroll-target="#governance">Governance</a></li>
+  <li><a href="#core-team" id="toc-core-team" class="nav-link" data-scroll-target="#core-team">Core Team</a></li>
+  <li><a href="#stakeholders" id="toc-stakeholders" class="nav-link" data-scroll-target="#stakeholders">Stakeholders</a></li>
+  </ul></li>
+  <li><a href="#initial-risks-mitigation" id="toc-initial-risks-mitigation" class="nav-link" data-scroll-target="#initial-risks-mitigation">INITIAL RISKS &amp; MITIGATION</a>
+  <ul class="collapse">
+  <li><a href="#high-priority-risks" id="toc-high-priority-risks" class="nav-link" data-scroll-target="#high-priority-risks">High Priority Risks</a></li>
+  <li><a href="#medium-priority-risks" id="toc-medium-priority-risks" class="nav-link" data-scroll-target="#medium-priority-risks">Medium Priority Risks</a></li>
+  </ul></li>
+  <li><a href="#budget-breakdown-detailed" id="toc-budget-breakdown-detailed" class="nav-link" data-scroll-target="#budget-breakdown-detailed">BUDGET BREAKDOWN (DETAILED)</a>
+  <ul class="collapse">
+  <li><a href="#ai-platform-tools-aud-45000" id="toc-ai-platform-tools-aud-45000" class="nav-link" data-scroll-target="#ai-platform-tools-aud-45000">AI Platform &amp; Tools (AUD $45,000)</a></li>
+  <li><a href="#internal-labor-aud-35000" id="toc-internal-labor-aud-35000" class="nav-link" data-scroll-target="#internal-labor-aud-35000">Internal Labor (AUD $35,000)</a></li>
+  <li><a href="#external-consulting-aud-25000" id="toc-external-consulting-aud-25000" class="nav-link" data-scroll-target="#external-consulting-aud-25000">External Consulting (AUD $25,000)</a></li>
+  <li><a href="#training-documentation-aud-18000" id="toc-training-documentation-aud-18000" class="nav-link" data-scroll-target="#training-documentation-aud-18000">Training &amp; Documentation (AUD $18,000)</a></li>
+  <li><a href="#infrastructure-integration-aud-15000" id="toc-infrastructure-integration-aud-15000" class="nav-link" data-scroll-target="#infrastructure-integration-aud-15000">Infrastructure &amp; Integration (AUD $15,000)</a></li>
+  <li><a href="#contingency-aud-12000" id="toc-contingency-aud-12000" class="nav-link" data-scroll-target="#contingency-aud-12000">Contingency (AUD $12,000)</a></li>
+  </ul></li>
+  <li><a href="#customer-inquiry-types-target-for-chatbot" id="toc-customer-inquiry-types-target-for-chatbot" class="nav-link" data-scroll-target="#customer-inquiry-types-target-for-chatbot">CUSTOMER INQUIRY TYPES (TARGET FOR CHATBOT)</a>
+  <ul class="collapse">
+  <li><a href="#inquiry-category-breakdown" id="toc-inquiry-category-breakdown" class="nav-link" data-scroll-target="#inquiry-category-breakdown">Inquiry Category Breakdown</a></li>
+  <li><a href="#phase-1-scope-first-4-weeks" id="toc-phase-1-scope-first-4-weeks" class="nav-link" data-scroll-target="#phase-1-scope-first-4-weeks">Phase 1 Scope (First 4 weeks)</a></li>
+  <li><a href="#phase-2-scope-weeks-5-8" id="toc-phase-2-scope-weeks-5-8" class="nav-link" data-scroll-target="#phase-2-scope-weeks-5-8">Phase 2 Scope (Weeks 5-8)</a></li>
+  <li><a href="#phase-3-scope-weeks-9-12-onwards" id="toc-phase-3-scope-weeks-9-12-onwards" class="nav-link" data-scroll-target="#phase-3-scope-weeks-9-12-onwards">Phase 3 Scope (Weeks 9-12 onwards)</a></li>
+  <li><a href="#chatbot-cannot-effectively-handle" id="toc-chatbot-cannot-effectively-handle" class="nav-link" data-scroll-target="#chatbot-cannot-effectively-handle">Chatbot Cannot Effectively Handle</a></li>
+  </ul></li>
+  <li><a href="#sample-customer-inquiries-training-data" id="toc-sample-customer-inquiries-training-data" class="nav-link" data-scroll-target="#sample-customer-inquiries-training-data">SAMPLE CUSTOMER INQUIRIES (TRAINING DATA)</a>
+  <ul class="collapse">
+  <li><a href="#simple-queries-order-tracking" id="toc-simple-queries-order-tracking" class="nav-link" data-scroll-target="#simple-queries-order-tracking">Simple Queries (Order Tracking)</a></li>
+  <li><a href="#simple-queries-product-information" id="toc-simple-queries-product-information" class="nav-link" data-scroll-target="#simple-queries-product-information">Simple Queries (Product Information)</a></li>
+  <li><a href="#moderate-queries-returnsrefunds" id="toc-moderate-queries-returnsrefunds" class="nav-link" data-scroll-target="#moderate-queries-returnsrefunds">Moderate Queries (Returns/Refunds)</a></li>
+  <li><a href="#complex-queries-complaintsescalation" id="toc-complex-queries-complaintsescalation" class="nav-link" data-scroll-target="#complex-queries-complaintsescalation">Complex Queries (Complaints/Escalation)</a></li>
+  </ul></li>
+  <li><a href="#data-infrastructure" id="toc-data-infrastructure" class="nav-link" data-scroll-target="#data-infrastructure">DATA INFRASTRUCTURE</a>
+  <ul class="collapse">
+  <li><a href="#data-required-for-chatbot" id="toc-data-required-for-chatbot" class="nav-link" data-scroll-target="#data-required-for-chatbot">Data Required for Chatbot</a></li>
+  <li><a href="#data-quality-challenges-identified" id="toc-data-quality-challenges-identified" class="nav-link" data-scroll-target="#data-quality-challenges-identified">Data Quality Challenges Identified</a></li>
+  </ul></li>
+  <li><a href="#testing-strategy" id="toc-testing-strategy" class="nav-link" data-scroll-target="#testing-strategy">TESTING STRATEGY</a>
+  <ul class="collapse">
+  <li><a href="#unit-testing" id="toc-unit-testing" class="nav-link" data-scroll-target="#unit-testing">Unit Testing</a></li>
+  <li><a href="#integration-testing" id="toc-integration-testing" class="nav-link" data-scroll-target="#integration-testing">Integration Testing</a></li>
+  <li><a href="#user-acceptance-testing-uat" id="toc-user-acceptance-testing-uat" class="nav-link" data-scroll-target="#user-acceptance-testing-uat">User Acceptance Testing (UAT)</a></li>
+  <li><a href="#production-testing" id="toc-production-testing" class="nav-link" data-scroll-target="#production-testing">Production Testing</a></li>
+  <li><a href="#edge-cases-to-test" id="toc-edge-cases-to-test" class="nav-link" data-scroll-target="#edge-cases-to-test">Edge Cases to Test</a></li>
+  </ul></li>
+  <li><a href="#success-criteria-gono-go-decision" id="toc-success-criteria-gono-go-decision" class="nav-link" data-scroll-target="#success-criteria-gono-go-decision">SUCCESS CRITERIA &amp; GO/NO-GO DECISION</a>
+  <ul class="collapse">
+  <li><a href="#pre-launch-criteria-end-of-phase-2" id="toc-pre-launch-criteria-end-of-phase-2" class="nav-link" data-scroll-target="#pre-launch-criteria-end-of-phase-2">Pre-Launch Criteria (End of Phase 2)</a></li>
+  <li><a href="#gono-go-decision-dec-9" id="toc-gono-go-decision-dec-9" class="nav-link" data-scroll-target="#gono-go-decision-dec-9">Go/No-Go Decision (Dec 9)</a></li>
+  <li><a href="#pilot-success-criteria-month-4" id="toc-pilot-success-criteria-month-4" class="nav-link" data-scroll-target="#pilot-success-criteria-month-4">Pilot Success Criteria (Month 4)</a></li>
+  <li><a href="#extension-criteria-approve-broader-ai-roadmap" id="toc-extension-criteria-approve-broader-ai-roadmap" class="nav-link" data-scroll-target="#extension-criteria-approve-broader-ai-roadmap">Extension Criteria (Approve broader AI roadmap)</a></li>
+  </ul></li>
+  <li><a href="#communication-plan" id="toc-communication-plan" class="nav-link" data-scroll-target="#communication-plan">COMMUNICATION PLAN</a>
+  <ul class="collapse">
+  <li><a href="#key-messages" id="toc-key-messages" class="nav-link" data-scroll-target="#key-messages">Key Messages</a></li>
+  <li><a href="#communication-schedule" id="toc-communication-schedule" class="nav-link" data-scroll-target="#communication-schedule">Communication Schedule</a></li>
+  </ul></li>
+  <li><a href="#risk-response-plan" id="toc-risk-response-plan" class="nav-link" data-scroll-target="#risk-response-plan">RISK RESPONSE PLAN</a>
+  <ul class="collapse">
+  <li><a href="#if-chatbot-performance-is-poor" id="toc-if-chatbot-performance-is-poor" class="nav-link" data-scroll-target="#if-chatbot-performance-is-poor">If Chatbot Performance Is Poor</a></li>
+  <li><a href="#if-team-resistance-is-high" id="toc-if-team-resistance-is-high" class="nav-link" data-scroll-target="#if-team-resistance-is-high">If Team Resistance Is High</a></li>
+  <li><a href="#if-budget-is-at-risk" id="toc-if-budget-is-at-risk" class="nav-link" data-scroll-target="#if-budget-is-at-risk">If Budget Is At Risk</a></li>
+  <li><a href="#if-data-issues-prevent-progress" id="toc-if-data-issues-prevent-progress" class="nav-link" data-scroll-target="#if-data-issues-prevent-progress">If Data Issues Prevent Progress</a></li>
+  </ul></li>
+  <li><a href="#glossary-definitions" id="toc-glossary-definitions" class="nav-link" data-scroll-target="#glossary-definitions">GLOSSARY &amp; DEFINITIONS</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
+
+
+
+
+<section id="retailflow-customer-service-chatbot-pilot-project" class="level1">
+<h1>RetailFlow: Customer Service Chatbot Pilot Project</h1>
+<section id="project-charter" class="level2">
+<h2 class="anchored" data-anchor-id="project-charter">PROJECT CHARTER</h2>
+<p><strong>Project Name:</strong> RetailFlow Customer Service Chatbot Pilot <strong>Project Code:</strong> RFP-2024-CS-001 <strong>Executive Sponsor:</strong> Lisa Nguyen, Chief Customer Officer <strong>Project Manager:</strong> [Your role in the masterclass] <strong>Project Duration:</strong> 6 months (September 2024 - February 2025) <strong>Project Budget:</strong> AUD $150,000</p>
+<hr>
+</section>
+<section id="project-objectives" class="level2">
+<h2 class="anchored" data-anchor-id="project-objectives">PROJECT OBJECTIVES</h2>
+<section id="primary-objectives" class="level3">
+<h3 class="anchored" data-anchor-id="primary-objectives">Primary Objectives</h3>
+<ol type="1">
+<li><strong>Reduce Response Time</strong>
+<ul>
+<li>Current email response time: 26 hours</li>
+<li>Target: &lt;2 hours</li>
+<li>Success measure: 95% of emails responded to within 2 hours</li>
+</ul></li>
+<li><strong>Improve Customer Satisfaction</strong>
+<ul>
+<li>Current CSAT: 68%</li>
+<li>Target: 75% (within 3 months of launch)</li>
+<li>Success measure: Measured via post-interaction survey</li>
+</ul></li>
+<li><strong>Handle Routine Inquiries at Scale</strong>
+<ul>
+<li>Current: 25 customer service reps handling 2,640 inquiries/week</li>
+<li>Target: Chatbot handles 40% of inquiries independently</li>
+<li>Success measure: Resolution rate without human escalation</li>
+</ul></li>
+<li><strong>Validate AI Capability</strong>
+<ul>
+<li>Proof point for broader AI roadmap</li>
+<li>Organizational confidence building</li>
+<li>Success measure: Board approval for follow-on AI projects</li>
+</ul></li>
+</ol>
+</section>
+<section id="secondary-objectives" class="level3">
+<h3 class="anchored" data-anchor-id="secondary-objectives">Secondary Objectives</h3>
+<ol type="1">
+<li>Reduce customer service labor costs (20-25% reduction through efficiency)</li>
+<li>Improve team morale and retention (reduce burnout)</li>
+<li>Identify best practices for AI implementation (scaling knowledge)</li>
+<li>Build internal AI capability (team learning)</li>
+</ol>
+<hr>
+</section>
+</section>
+<section id="success-metrics-detailed" class="level2">
+<h2 class="anchored" data-anchor-id="success-metrics-detailed">SUCCESS METRICS (DETAILED)</h2>
+<section id="customer-experience-metrics" class="level3">
+<h3 class="anchored" data-anchor-id="customer-experience-metrics">Customer Experience Metrics</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 22%">
+<col style="width: 25%">
+<col style="width: 22%">
+<col style="width: 28%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Metric</th>
+<th>Current</th>
+<th>Target</th>
+<th>Timeline</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Email Response Time</strong></td>
+<td>26 hours</td>
+<td>&lt;2 hours</td>
+<td>By Month 2</td>
+</tr>
+<tr class="even">
+<td><strong>First Response Rate (Email)</strong></td>
+<td>8% by chatbot</td>
+<td>80% by chatbot</td>
+<td>By Month 3</td>
+</tr>
+<tr class="odd">
+<td><strong>Chat Response Time</strong></td>
+<td>4.2 min</td>
+<td>30 seconds</td>
+<td>By Month 2</td>
+</tr>
+<tr class="even">
+<td><strong>First Contact Resolution</strong></td>
+<td>64%</td>
+<td>75%</td>
+<td>By Month 3</td>
+</tr>
+<tr class="odd">
+<td><strong>Customer Satisfaction (CSAT)</strong></td>
+<td>68%</td>
+<td>75%</td>
+<td>By Month 4</td>
+</tr>
+<tr class="even">
+<td><strong>Net Promoter Score (NPS)</strong></td>
+<td>32</td>
+<td>38</td>
+<td>By Month 6</td>
+</tr>
+<tr class="odd">
+<td><strong>Escalation Rate</strong></td>
+<td>38%</td>
+<td>&lt;15% (for chatbot-handled)</td>
+<td>By Month 3</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="operational-metrics" class="level3">
+<h3 class="anchored" data-anchor-id="operational-metrics">Operational Metrics</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 28%">
+<col style="width: 25%">
+<col style="width: 21%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Metric</th>
+<th>Current</th>
+<th>Target</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Chatbot Handling Rate</strong></td>
+<td>0%</td>
+<td>40%</td>
+<td>% of inquiries fully resolved by chatbot</td>
+</tr>
+<tr class="even">
+<td><strong>Chatbot Escalation Rate</strong></td>
+<td>N/A</td>
+<td>&lt;15%</td>
+<td>% of chatbot interactions escalated to human</td>
+</tr>
+<tr class="odd">
+<td><strong>Human Time/Inquiry</strong></td>
+<td>22 min</td>
+<td>18 min</td>
+<td>Efficiency improvement from chatbot handling simple cases</td>
+</tr>
+<tr class="even">
+<td><strong>Team Capacity</strong></td>
+<td>95% utilized</td>
+<td>75% utilized</td>
+<td>Freeing team for complex work</td>
+</tr>
+<tr class="odd">
+<td><strong>After-Hours Response</strong></td>
+<td>0% immediate</td>
+<td>60% immediate</td>
+<td>Chatbot available 24/7</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="financial-metrics" class="level3">
+<h3 class="anchored" data-anchor-id="financial-metrics">Financial Metrics</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 21%">
+<col style="width: 34%">
+<col style="width: 44%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Metric</th>
+<th>Calculation</th>
+<th>Expected Impact</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Labor Cost Savings</strong></td>
+<td>25% team efficiency improvement</td>
+<td>AUD $300K annually</td>
+</tr>
+<tr class="even">
+<td><strong>Overtime Reduction</strong></td>
+<td>Less backlog, no need for overtime</td>
+<td>AUD $50K annually</td>
+</tr>
+<tr class="odd">
+<td><strong>Customer Lifetime Value</strong></td>
+<td>Satisfaction improvement → retention</td>
+<td>AUD $400K+ annually</td>
+</tr>
+<tr class="even">
+<td><strong>ROI</strong></td>
+<td>(Benefits - Costs) / Costs</td>
+<td>250% by Month 6</td>
+</tr>
+<tr class="odd">
+<td><strong>Payback Period</strong></td>
+<td>Investment / Monthly benefit</td>
+<td>4.5 months</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="team-metrics" class="level3">
+<h3 class="anchored" data-anchor-id="team-metrics">Team Metrics</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 28%">
+<col style="width: 25%">
+<col style="width: 21%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Metric</th>
+<th>Current</th>
+<th>Target</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Staff Turnover</strong></td>
+<td>35%</td>
+<td>25%</td>
+<td>Reduced burnout</td>
+</tr>
+<tr class="even">
+<td><strong>Sick Leave Rate</strong></td>
+<td>8.2%</td>
+<td>6%</td>
+<td>Improved wellbeing</td>
+</tr>
+<tr class="odd">
+<td><strong>Team Satisfaction</strong></td>
+<td>TBD (baseline)</td>
+<td>80%</td>
+<td>Feel supported by technology</td>
+</tr>
+<tr class="even">
+<td><strong>Retention Rate</strong></td>
+<td>65%</td>
+<td>80%</td>
+<td>Keep experienced staff</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</section>
+</section>
+<section id="project-timeline-milestones" class="level2">
+<h2 class="anchored" data-anchor-id="project-timeline-milestones">PROJECT TIMELINE &amp; MILESTONES</h2>
+<section id="phase-1-discovery-planning-sept-1-15-2-weeks" class="level3">
+<h3 class="anchored" data-anchor-id="phase-1-discovery-planning-sept-1-15-2-weeks">Phase 1: Discovery &amp; Planning (Sept 1-15, 2 weeks)</h3>
+<p><strong>Deliverables:</strong> - Detailed requirements document - Data inventory and quality assessment - Integration architecture - Testing strategy - Change management plan - Detailed project plan</p>
+<p><strong>Key Activities:</strong> - Stakeholder interviews (Emma, David, Sarah Chen, etc.) - Customer inquiry analysis (sample 500+ inquiries) - System integration planning - Team interviews (understand pain points, concerns)</p>
+<p><strong>Risks to Identify:</strong> - Data quality issues - System integration complexity - Team resistance/skepticism</p>
+</section>
+<section id="phase-2-development-training-sept-15---nov-30-10-weeks" class="level3">
+<h3 class="anchored" data-anchor-id="phase-2-development-training-sept-15---nov-30-10-weeks">Phase 2: Development &amp; Training (Sept 15 - Nov 30, 10 weeks)</h3>
+<p><strong>Sprints:</strong> 2-week development sprints</p>
+<p><strong>Sprint 1 (Sept 15-29):</strong> - Infrastructure setup and configuration - Chatbot platform deployment - Initial data loading and validation - Begin training data preparation</p>
+<p><strong>Sprint 2 (Sept 29 - Oct 13):</strong> - NLU (Natural Language Understanding) model training on customer inquiries - Intent classification for 20 common inquiry types - Initial response templates - Basic escalation rules</p>
+<p><strong>Sprint 3 (Oct 13-27):</strong> - Entity extraction (order numbers, dates, product names) - Multi-turn conversation capability - Context retention (customer history awareness) - Sentiment analysis (detect angry customers)</p>
+<p><strong>Sprint 4 (Oct 27 - Nov 10):</strong> - Integration with customer service system (Zendesk) - CRM integration (pull customer history) - Analytics and logging - Performance monitoring dashboard</p>
+<p><strong>Sprint 5 (Nov 10-24):</strong> - Test automation and QA - Edge case handling - Escalation to human handlers - Compliance review (data privacy, etc.)</p>
+<p><strong>Sprint 6 (Nov 24 - Dec 8):</strong> - UAT (User Acceptance Testing) with customer service team - Refinements based on feedback - Documentation completion - Training material preparation</p>
+<p><strong>Key Deliverables:</strong> - Trained chatbot model (production-ready) - Integration complete with existing systems - Testing complete (automated + manual) - Team training completed - Documentation and runbooks - Monitoring/alerting setup</p>
+</section>
+<section id="phase-3-pilot-launch-optimization-dec-9---feb-28-12-weeks" class="level3">
+<h3 class="anchored" data-anchor-id="phase-3-pilot-launch-optimization-dec-9---feb-28-12-weeks">Phase 3: Pilot Launch &amp; Optimization (Dec 9 - Feb 28, 12 weeks)</h3>
+<p><strong>Week 1 (Dec 9-15): Soft Launch</strong> - Deploy chatbot to 25% of incoming chat volume - Monitor closely for issues - Chatbot handles only the simplest inquiries initially - Daily standup meetings</p>
+<p><strong>Weeks 2-4 (Dec 16 - Jan 6): Gradual Ramp</strong> - Expand chatbot to 50% of chat volume - Expand to simple email handling (order tracking) - Monitor metrics closely - Refinement based on real-world performance</p>
+<p><strong>Weeks 5-8 (Jan 6-31): Full Deployment</strong> - All chat volume handled by chatbot triage - All email volume: chatbot initial response/triage - Chatbot attempts resolution on 40% of cases - Human escalation on 60% of cases (more complex)</p>
+<p><strong>Weeks 9-12 (Feb 1-28): Optimization &amp; Learning</strong> - Refinements based on performance data - Additional intent categories added (based on data) - Escalation rules refined - Final documentation and handoff</p>
+<p><strong>Key Deliverables:</strong> - Live chatbot in production - 40% of inquiries handled end-to-end by chatbot - Customer satisfaction maintained or improved - Team trained and supporting - Monitoring dashboard live and reported on - Final project report</p>
+<hr>
+</section>
+</section>
+<section id="stakeholder-map" class="level2">
+<h2 class="anchored" data-anchor-id="stakeholder-map">STAKEHOLDER MAP</h2>
+<section id="governance" class="level3">
+<h3 class="anchored" data-anchor-id="governance">Governance</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 17%">
+<col style="width: 22%">
+<col style="width: 31%">
+<col style="width: 28%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Role</th>
+<th>Person</th>
+<th>Involvement</th>
+<th>Meetings</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Executive Sponsor</td>
+<td>Lisa Nguyen</td>
+<td>Strategic oversight, removes blockers</td>
+<td>Monthly</td>
+</tr>
+<tr class="even">
+<td>Project Manager</td>
+<td>[Your role]</td>
+<td>Day-to-day execution</td>
+<td>Daily standup</td>
+</tr>
+<tr class="odd">
+<td>CFO (Budget)</td>
+<td>David Chen</td>
+<td>Financial oversight, ROI tracking</td>
+<td>Monthly</td>
+</tr>
+<tr class="even">
+<td>CIO</td>
+<td>Marcus Kim</td>
+<td>Technology enablement</td>
+<td>Weekly</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="core-team" class="level3">
+<h3 class="anchored" data-anchor-id="core-team">Core Team</h3>
+<div class="line-block">Role | Person | Responsibility | Hours/Week |<br>
+Data Scientist | Dr.&nbsp;Priya Sharma | Model development, training, optimization | 30 |<br>
+Developer | Marcus Kim’s team | Chatbot platform setup, integrations | 20 |<br>
+QA/Tester | Marcus Kim’s team | Testing, quality assurance | 15 |<br>
+Customer Service Manager | Sarah Chen | Team coordination, feedback, escalations | 25 |<br>
+Change Manager | External consultant | Training, communication, adoption | 15 |</div>
+</section>
+<section id="stakeholders" class="level3">
+<h3 class="anchored" data-anchor-id="stakeholders">Stakeholders</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 31%">
+<col style="width: 24%">
+<col style="width: 26%">
+<col style="width: 17%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Stakeholder</th>
+<th>Interest</th>
+<th>Involvement</th>
+<th>Risks</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Customer Service Team</strong></td>
+<td>Job security, workload relief</td>
+<td>High (daily users)</td>
+<td>Resistance if not managed well</td>
+</tr>
+<tr class="even">
+<td><strong>CEO (Emma)</strong></td>
+<td>Strategic proof point, results</td>
+<td>High (monthly check-ins)</td>
+<td>May push too hard too fast</td>
+</tr>
+<tr class="odd">
+<td><strong>CFO (David)</strong></td>
+<td>ROI, cost control</td>
+<td>Medium (budget oversight)</td>
+<td>May cut budget if ROI unclear</td>
+</tr>
+<tr class="even">
+<td><strong>COO (Sarah Thompson)</strong></td>
+<td>Operational impact</td>
+<td>Medium (staff concerns)</td>
+<td>May advocate for team over project</td>
+</tr>
+<tr class="odd">
+<td><strong>Store Managers</strong></td>
+<td>Customer experience impact</td>
+<td>Low (receive feedback)</td>
+<td>Will report satisfaction issues</td>
+</tr>
+<tr class="even">
+<td><strong>Customers</strong></td>
+<td>Service quality</td>
+<td>High (user experience)</td>
+<td>Could damage brand if goes wrong</td>
+</tr>
+<tr class="odd">
+<td><strong>Board</strong></td>
+<td>Strategic significance</td>
+<td>Medium (quarterly reports)</td>
+<td>Outcome affects AI roadmap approval</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</section>
+</section>
+<section id="initial-risks-mitigation" class="level2">
+<h2 class="anchored" data-anchor-id="initial-risks-mitigation">INITIAL RISKS &amp; MITIGATION</h2>
+<section id="high-priority-risks" class="level3">
+<h3 class="anchored" data-anchor-id="high-priority-risks">High Priority Risks</h3>
+<p><strong>Risk 1: Poor Data Quality</strong> - Likelihood: High - Impact: High (poor chatbot performance) - Mitigation: Data audit in Phase 1; data cleansing process; accept some data limitations - Owner: Priya Sharma</p>
+<p><strong>Risk 2: Team Resistance/Low Adoption</strong> - Likelihood: High - Impact: High (project fails if team doesn’t support) - Mitigation: Change management plan; transparent communication; involve team in design; protect jobs - Owner: Sarah Chen + External Change Manager</p>
+<p><strong>Risk 3: Chatbot Performance Below Expectations</strong> - Likelihood: Medium - Impact: High (affects satisfaction, credibility) - Mitigation: Realistic initial scope; start with simple queries; continuous refinement; clear success criteria - Owner: Priya Sharma</p>
+<p><strong>Risk 4: Integration Complexity</strong> - Likelihood: Medium - Impact: Medium (delays, costs) - Mitigation: Early integration planning; API documentation review; vendor support; contingency timeline - Owner: Marcus Kim</p>
+<p><strong>Risk 5: Budget Overrun</strong> - Likelihood: Medium - Impact: Medium (funding cuts, timeline compression) - Mitigation: Detailed budget plan; weekly spend tracking; contingency reserve (AUD $12K built in) - Owner: Project Manager</p>
+</section>
+<section id="medium-priority-risks" class="level3">
+<h3 class="anchored" data-anchor-id="medium-priority-risks">Medium Priority Risks</h3>
+<p><strong>Risk 6: Key Person Dependency (Priya)</strong> - Mitigation: Documentation; knowledge sharing; backup resource identified</p>
+<p><strong>Risk 7: External Vendor Issues</strong> - Mitigation: Vendor SLA agreements; contingency vendor identified; escrow on payments</p>
+<p><strong>Risk 8: Regulatory/Compliance Issues</strong> - Mitigation: Rajesh Patel (IT Security) involved from start; privacy review; customer data handling protocols</p>
+<p><strong>Risk 9: Negative Customer Reactions</strong> - Mitigation: Clear communication; human escalation always available; quality monitoring</p>
+<p><strong>Risk 10: Competitive Intelligence</strong> - Mitigation: Limited external communication; focus on internal success; controlled announcement</p>
+<hr>
+</section>
+</section>
+<section id="budget-breakdown-detailed" class="level2">
+<h2 class="anchored" data-anchor-id="budget-breakdown-detailed">BUDGET BREAKDOWN (DETAILED)</h2>
+<p><strong>Total Budget: AUD $150,000</strong></p>
+<section id="ai-platform-tools-aud-45000" class="level3">
+<h3 class="anchored" data-anchor-id="ai-platform-tools-aud-45000">AI Platform &amp; Tools (AUD $45,000)</h3>
+<ul>
+<li>Chatbot platform license (12 months): AUD $15,000
+<ul>
+<li>Options: Intercom, Zendesk AI, custom OpenAI integration</li>
+<li>Selection criteria: Cost, features, integration capability</li>
+</ul></li>
+<li>LLM API usage (inference costs): AUD $18,000
+<ul>
+<li>Estimated 50K-100K API calls monthly</li>
+<li>Costs scale with volume</li>
+</ul></li>
+<li>Deployment &amp; hosting: AUD $8,000
+<ul>
+<li>Cloud infrastructure (AWS, Azure, or similar)</li>
+<li>Database, storage, compute</li>
+<li>Monthly: ~AUD $1,300</li>
+</ul></li>
+<li>Tools &amp; licenses (monitoring, analytics): AUD $4,000
+<ul>
+<li>Datadog or similar for performance monitoring</li>
+<li>Analytics tools for usage tracking</li>
+</ul></li>
+</ul>
+</section>
+<section id="internal-labor-aud-35000" class="level3">
+<h3 class="anchored" data-anchor-id="internal-labor-aud-35000">Internal Labor (AUD $35,000)</h3>
+<ul>
+<li>Data Scientist (Priya): AUD $15,000
+<ul>
+<li>3 FTE-months at market rate</li>
+<li>Model development, training, optimization</li>
+</ul></li>
+<li>Developer (Marcus’s team): AUD $12,000
+<ul>
+<li>Integration, platform setup</li>
+<li>2 FTE-months</li>
+</ul></li>
+<li>QA/Tester: AUD $5,000
+<ul>
+<li>Testing, quality assurance</li>
+<li>1 FTE-month</li>
+</ul></li>
+<li>Project coordination: AUD $3,000
+<ul>
+<li>PM time tracking, weekly reporting</li>
+</ul></li>
+</ul>
+</section>
+<section id="external-consulting-aud-25000" class="level3">
+<h3 class="anchored" data-anchor-id="external-consulting-aud-25000">External Consulting (AUD $25,000)</h3>
+<ul>
+<li>Implementation partner: AUD $18,000
+<ul>
+<li>Chatbot platform implementation</li>
+<li>System integration support</li>
+<li>6 weeks consulting engagement</li>
+</ul></li>
+<li>Change management support: AUD $7,000
+<ul>
+<li>Change communication plan</li>
+<li>Training delivery</li>
+<li>Adoption support</li>
+</ul></li>
+</ul>
+</section>
+<section id="training-documentation-aud-18000" class="level3">
+<h3 class="anchored" data-anchor-id="training-documentation-aud-18000">Training &amp; Documentation (AUD $18,000)</h3>
+<ul>
+<li>Team training program: AUD $8,000
+<ul>
+<li>Develop training curriculum</li>
+<li>Conduct training sessions (online + in-person)</li>
+<li>Training materials</li>
+</ul></li>
+<li>Documentation &amp; processes: AUD $6,000
+<ul>
+<li>User guides</li>
+<li>Runbooks for support</li>
+<li>Technical documentation</li>
+</ul></li>
+<li>Change communication: AUD $4,000
+<ul>
+<li>Internal communications (emails, meetings, announcements)</li>
+<li>FAQ documents</li>
+<li>Change story and messaging</li>
+</ul></li>
+</ul>
+</section>
+<section id="infrastructure-integration-aud-15000" class="level3">
+<h3 class="anchored" data-anchor-id="infrastructure-integration-aud-15000">Infrastructure &amp; Integration (AUD $15,000)</h3>
+<ul>
+<li>System integration work: AUD $8,000
+<ul>
+<li>API connections to Zendesk, Salesforce, CRM</li>
+<li>Data migration</li>
+<li>Testing environments</li>
+</ul></li>
+<li>Security &amp; compliance setup: AUD $4,000
+<ul>
+<li>Data privacy controls</li>
+<li>Audit trails</li>
+<li>Compliance review</li>
+</ul></li>
+<li>Monitoring &amp; alerting: AUD $3,000
+<ul>
+<li>Performance dashboards</li>
+<li>Alert configuration</li>
+<li>Health checks</li>
+</ul></li>
+</ul>
+</section>
+<section id="contingency-aud-12000" class="level3">
+<h3 class="anchored" data-anchor-id="contingency-aud-12000">Contingency (AUD $12,000)</h3>
+<ul>
+<li>Reserve for unexpected costs</li>
+<li>Allocated for mid-project adjustments</li>
+<li>Approval required from David Chen to spend</li>
+</ul>
+<hr>
+</section>
+</section>
+<section id="customer-inquiry-types-target-for-chatbot" class="level2">
+<h2 class="anchored" data-anchor-id="customer-inquiry-types-target-for-chatbot">CUSTOMER INQUIRY TYPES (TARGET FOR CHATBOT)</h2>
+<section id="inquiry-category-breakdown" class="level3">
+<h3 class="anchored" data-anchor-id="inquiry-category-breakdown">Inquiry Category Breakdown</h3>
+<p>Based on current volume analysis, customer service team handles ~2,640 inquiries/week:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Category</th>
+<th>Volume</th>
+<th>%</th>
+<th>Complexity</th>
+<th>Chatbot Suitability</th>
+<th>Priority</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Order Status/Tracking</strong></td>
+<td>740</td>
+<td>28%</td>
+<td>Simple</td>
+<td>Excellent</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td><strong>Return Instructions</strong></td>
+<td>440</td>
+<td>17%</td>
+<td>Moderate</td>
+<td>Good</td>
+<td>2</td>
+</tr>
+<tr class="odd">
+<td><strong>Product Information</strong></td>
+<td>475</td>
+<td>18%</td>
+<td>Simple</td>
+<td>Excellent</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td><strong>Refund Status</strong></td>
+<td>180</td>
+<td>7%</td>
+<td>Moderate</td>
+<td>Fair</td>
+<td>3</td>
+</tr>
+<tr class="odd">
+<td><strong>Shipping/Delivery Issues</strong></td>
+<td>185</td>
+<td>7%</td>
+<td>Moderate</td>
+<td>Fair</td>
+<td>3</td>
+</tr>
+<tr class="even">
+<td><strong>Technical Problems</strong></td>
+<td>315</td>
+<td>12%</td>
+<td>Complex</td>
+<td>Poor</td>
+<td>4</td>
+</tr>
+<tr class="odd">
+<td><strong>Complaints/Feedback</strong></td>
+<td>180</td>
+<td>7%</td>
+<td>Complex</td>
+<td>Poor</td>
+<td>4</td>
+</tr>
+<tr class="even">
+<td><strong>Other</strong></td>
+<td>125</td>
+<td>5%</td>
+<td>Variable</td>
+<td>Variable</td>
+<td>5</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="phase-1-scope-first-4-weeks" class="level3">
+<h3 class="anchored" data-anchor-id="phase-1-scope-first-4-weeks">Phase 1 Scope (First 4 weeks)</h3>
+<p><strong>Target: Handle 20-25% of volume</strong> - Order status/tracking: 740 inquiries - Product information: 150 inquiries (simple subset) - Shipping estimations: 75 inquiries - <strong>Total: ~965 inquiries/week or 37% of current volume</strong></p>
+<p><strong>Chatbot Response Types:</strong> - Lookup in order database; provide tracking link - Retrieve standard product information - Provide shipping time estimates - Provide general return policy - Escalate to human for complex cases</p>
+</section>
+<section id="phase-2-scope-weeks-5-8" class="level3">
+<h3 class="anchored" data-anchor-id="phase-2-scope-weeks-5-8">Phase 2 Scope (Weeks 5-8)</h3>
+<p><strong>Target: Handle 35-40% of volume</strong> - All Phase 1 items - Simple return requests (no damage, defect cases) - Refund status lookups - Basic account information - <strong>Total: ~1,100-1,200 inquiries/week</strong></p>
+</section>
+<section id="phase-3-scope-weeks-9-12-onwards" class="level3">
+<h3 class="anchored" data-anchor-id="phase-3-scope-weeks-9-12-onwards">Phase 3 Scope (Weeks 9-12 onwards)</h3>
+<p><strong>Target: Handle 40-45% of volume</strong> - All Phase 1-2 items - Damage/defect triage (collect info, route appropriately) - Complaint escalation (collect info, assign priority) - Return authorization - <strong>Total: ~1,050-1,190 inquiries/week</strong></p>
+</section>
+<section id="chatbot-cannot-effectively-handle" class="level3">
+<h3 class="anchored" data-anchor-id="chatbot-cannot-effectively-handle">Chatbot Cannot Effectively Handle</h3>
+<ul>
+<li>Complex product advice requiring expertise</li>
+<li>Complaints requiring empathy and judgment</li>
+<li>Edge cases and policy exceptions</li>
+<li>Quality issues requiring investigation</li>
+<li>Aggressive or emotional customers</li>
+</ul>
+<hr>
+</section>
+</section>
+<section id="sample-customer-inquiries-training-data" class="level2">
+<h2 class="anchored" data-anchor-id="sample-customer-inquiries-training-data">SAMPLE CUSTOMER INQUIRIES (TRAINING DATA)</h2>
+<section id="simple-queries-order-tracking" class="level3">
+<h3 class="anchored" data-anchor-id="simple-queries-order-tracking">Simple Queries (Order Tracking)</h3>
+<p><strong>Query 1:</strong> “Hi, where is my order? I ordered last week and haven’t received it yet.”</p>
+<p><strong>Query 2:</strong> “Can you track order #RF-2024-08-15743?”</p>
+<p><strong>Query 3:</strong> “When will my parcel arrive? Ordered 2 days ago from Sydney.”</p>
+<p><strong>Query 4:</strong> “My delivery was supposed to come today but it’s not here. What’s going on?”</p>
+<p><strong>Query 5:</strong> “How do I check my order status?”</p>
+</section>
+<section id="simple-queries-product-information" class="level3">
+<h3 class="anchored" data-anchor-id="simple-queries-product-information">Simple Queries (Product Information)</h3>
+<p><strong>Query 6:</strong> “Do you have this dress in size 12? It’s showing out of stock online.”</p>
+<p><strong>Query 7:</strong> “What’s the material of the Linen Bedding Set?”</p>
+<p><strong>Query 8:</strong> “Is this sofa available in other colors?”</p>
+<p><strong>Query 9:</strong> “How much does the shipping cost for regional Australia?”</p>
+<p><strong>Query 10:</strong> “What’s your return window policy?”</p>
+</section>
+<section id="moderate-queries-returnsrefunds" class="level3">
+<h3 class="anchored" data-anchor-id="moderate-queries-returnsrefunds">Moderate Queries (Returns/Refunds)</h3>
+<p><strong>Query 11:</strong> “I want to return a top I bought 2 weeks ago. It doesn’t fit. How do I do that?”</p>
+<p><strong>Query 12:</strong> “The item I received is damaged. What are my options?”</p>
+<p><strong>Query 13:</strong> “I returned my order but haven’t received my refund yet. When will I get it?”</p>
+<p><strong>Query 14:</strong> “Can I exchange this for a different color instead of a refund?”</p>
+<p><strong>Query 15:</strong> “The product I received is different from the photo on your website.”</p>
+</section>
+<section id="complex-queries-complaintsescalation" class="level3">
+<h3 class="anchored" data-anchor-id="complex-queries-complaintsescalation">Complex Queries (Complaints/Escalation)</h3>
+<p><strong>Query 16:</strong> “This is unacceptable! I’ve been waiting 3 weeks for my order and it’s still not here. This is the third time this has happened. I’m done with RetailFlow!”</p>
+<p><strong>Query 17:</strong> “I received the item but it’s completely different from the description. This feels like false advertising.”</p>
+<p><strong>Query 18:</strong> “Your staff at the Perth store was incredibly rude to me. I want to lodge a formal complaint.”</p>
+<p><strong>Query 19:</strong> “Why did you charge me twice for my order? This is ridiculous!”</p>
+<p><strong>Query 20:</strong> “I’m a loyal customer and I’m very disappointed with the quality of recent purchases.”</p>
+<hr>
+</section>
+</section>
+<section id="data-infrastructure" class="level2">
+<h2 class="anchored" data-anchor-id="data-infrastructure">DATA INFRASTRUCTURE</h2>
+<section id="data-required-for-chatbot" class="level3">
+<h3 class="anchored" data-anchor-id="data-required-for-chatbot">Data Required for Chatbot</h3>
+<p><strong>Customer Data:</strong> - Customer ID, name, email, phone - Customer history (purchase frequency, average spend) - Previous interactions with customer service - Current issues/open tickets - Communication preferences</p>
+<p><strong>Order Data:</strong> - Order ID, date, status - Items ordered (SKU, quantity, price) - Delivery address, tracking status - Returns/refunds history - Payment information (sanitized)</p>
+<p><strong>Product Data:</strong> - SKU, product name, description - Category, size, color options - Price, stock status - Reviews and ratings - Specifications and materials</p>
+<p><strong>Historical Inquiries:</strong> - Sample customer inquiries (500+) - Categorized by type - Intended responses - Escalation paths</p>
+</section>
+<section id="data-quality-challenges-identified" class="level3">
+<h3 class="anchored" data-anchor-id="data-quality-challenges-identified">Data Quality Challenges Identified</h3>
+<p><strong>Issue 1: Inconsistent Customer Records</strong> - Duplicates in Salesforce CRM - Inconsistent phone numbers, email formats - Mitigation: Data cleansing process in Phase 1</p>
+<p><strong>Issue 2: Incomplete Order History</strong> - Some orders missing tracking information - Status updates incomplete for older orders - Mitigation: Load complete order dataset; accept some older orders may have gaps</p>
+<p><strong>Issue 3: Product Information Inconsistency</strong> - Different descriptions across systems (Shopify vs.&nbsp;POS) - Inventory numbers not always synchronized - Mitigation: Pull from single source (Shopify for online, POS for stores)</p>
+<p><strong>Issue 4: Historical Inquiry Data Limited</strong> - Only 2 years of archived inquiries - Not all categorized - Mitigation: Manual categorization of sample; use as training data</p>
+<hr>
+</section>
+</section>
+<section id="testing-strategy" class="level2">
+<h2 class="anchored" data-anchor-id="testing-strategy">TESTING STRATEGY</h2>
+<section id="unit-testing" class="level3">
+<h3 class="anchored" data-anchor-id="unit-testing">Unit Testing</h3>
+<ul>
+<li>Individual chatbot intents and entities</li>
+<li>Response accuracy</li>
+<li>Escalation logic</li>
+</ul>
+</section>
+<section id="integration-testing" class="level3">
+<h3 class="anchored" data-anchor-id="integration-testing">Integration Testing</h3>
+<ul>
+<li>Chatbot → Salesforce CRM connection</li>
+<li>Chatbot → Order database connection</li>
+<li>Chatbot → Zendesk ticket creation</li>
+<li>Performance under load</li>
+</ul>
+</section>
+<section id="user-acceptance-testing-uat" class="level3">
+<h3 class="anchored" data-anchor-id="user-acceptance-testing-uat">User Acceptance Testing (UAT)</h3>
+<ul>
+<li>Customer service team tests with real-world scenarios</li>
+<li>Provides feedback on response quality</li>
+<li>Identifies gaps and needed improvements</li>
+<li>Sign-off before production launch</li>
+</ul>
+</section>
+<section id="production-testing" class="level3">
+<h3 class="anchored" data-anchor-id="production-testing">Production Testing</h3>
+<ul>
+<li>Soft launch with 25% traffic</li>
+<li>A/B testing (chatbot vs.&nbsp;human for similar queries)</li>
+<li>Customer satisfaction measurement</li>
+<li>Performance monitoring</li>
+</ul>
+</section>
+<section id="edge-cases-to-test" class="level3">
+<h3 class="anchored" data-anchor-id="edge-cases-to-test">Edge Cases to Test</h3>
+<ul>
+<li>Misspellings and slang</li>
+<li>Multiple languages/dialects</li>
+<li>Angry/frustrated customers</li>
+<li>Very short queries (“help”)</li>
+<li>Unclear/ambiguous requests</li>
+<li>Technical jargon</li>
+</ul>
+<hr>
+</section>
+</section>
+<section id="success-criteria-gono-go-decision" class="level2">
+<h2 class="anchored" data-anchor-id="success-criteria-gono-go-decision">SUCCESS CRITERIA &amp; GO/NO-GO DECISION</h2>
+<section id="pre-launch-criteria-end-of-phase-2" class="level3">
+<h3 class="anchored" data-anchor-id="pre-launch-criteria-end-of-phase-2">Pre-Launch Criteria (End of Phase 2)</h3>
+<p><strong>Must Have:</strong> - ✅ Chatbot accurately handles 95% of target inquiry types - ✅ Response time &lt;2 seconds (baseline latency acceptable) - ✅ Escalation path working correctly - ✅ Data integrations tested and working - ✅ Customer service team trained and confident - ✅ Security/compliance review passed - ✅ Monitoring and alerting in place</p>
+<p><strong>Should Have:</strong> - ✅ Documentation complete - ✅ Communications plan delivered - ✅ Customer FAQ prepared - ✅ Contingency plan in place</p>
+</section>
+<section id="gono-go-decision-dec-9" class="level3">
+<h3 class="anchored" data-anchor-id="gono-go-decision-dec-9">Go/No-Go Decision (Dec 9)</h3>
+<p><strong>Go Criteria:</strong> - All “must have” criteria met - Leadership sign-off from Lisa, Marcus, Sarah Chen - No critical risks remaining</p>
+<p><strong>No-Go Criteria (delay launch):</strong> - Critical performance issues not resolved - Integration problems blocking deployment - Data quality issues affecting accuracy - Team not ready/trained - Security concerns not addressed</p>
+<p><strong>Decision Authority:</strong> Lisa Nguyen (Executive Sponsor) with input from team</p>
+</section>
+<section id="pilot-success-criteria-month-4" class="level3">
+<h3 class="anchored" data-anchor-id="pilot-success-criteria-month-4">Pilot Success Criteria (Month 4)</h3>
+<p><strong>Customer Metrics:</strong> - Email response time: &lt;2 hours (90% of messages) - CSAT: 72%+ (baseline: 68%) - NPS: 35+ (baseline: 32) - First contact resolution: 70%+ (baseline: 64%)</p>
+<p><strong>Operational Metrics:</strong> - Chatbot handling rate: 35-40% (target: 40%) - Escalation rate: &lt;20% - Customer satisfaction with chatbot: 70%+ - Team utilization: 75-80% (freed up time)</p>
+<p><strong>Financial Metrics:</strong> - Running at &lt;AUD $3,500/month for ongoing costs - Estimated AUD $25K savings in first 4 months - Clear path to AUD $300K annual savings</p>
+<p><strong>Team Metrics:</strong> - Customer service team satisfaction: 70%+ (baseline TBD) - Turnover rate: &lt;35% (tracking; expect improvement over time) - Team feedback: “Positive or neutral” on chatbot usefulness</p>
+</section>
+<section id="extension-criteria-approve-broader-ai-roadmap" class="level3">
+<h3 class="anchored" data-anchor-id="extension-criteria-approve-broader-ai-roadmap">Extension Criteria (Approve broader AI roadmap)</h3>
+<p><strong>To Approve Follow-On Projects (Demand Forecasting, etc.):</strong> - Chatbot achieves success criteria - Customer satisfaction improved or stable - Team supportive of continued AI investment - Board confidence in AI strategy - Clear ROI demonstrated on chatbot</p>
+<hr>
+</section>
+</section>
+<section id="communication-plan" class="level2">
+<h2 class="anchored" data-anchor-id="communication-plan">COMMUNICATION PLAN</h2>
+<section id="key-messages" class="level3">
+<h3 class="anchored" data-anchor-id="key-messages">Key Messages</h3>
+<p><strong>To Customers:</strong> “RetailFlow is investing in better customer service. Our new AI chatbot can answer common questions faster—24/7. For complex issues, our expert team is always available. We’re committed to serving you better.”</p>
+<p><strong>To Staff:</strong> “This chatbot is here to help you, not replace you. It handles routine questions so you can focus on customers who need real help from a real person. We’re investing in your future.”</p>
+<p><strong>To Executives:</strong> “This chatbot pilot demonstrates RetailFlow’s ability to innovate with AI. Early results show promise for broader digital transformation.”</p>
+</section>
+<section id="communication-schedule" class="level3">
+<h3 class="anchored" data-anchor-id="communication-schedule">Communication Schedule</h3>
+<ul>
+<li><strong>Week 1:</strong> Announcement to customer service team (Lisa + Sarah Chen)</li>
+<li><strong>Week 2:</strong> Company-wide update (Emma)</li>
+<li><strong>Week 4:</strong> Customer communication (email to database)</li>
+<li><strong>Week 8:</strong> Progress update to team (monthly standup)</li>
+<li><strong>Week 16:</strong> Launch announcement to customers</li>
+<li><strong>Ongoing:</strong> Monthly updates to board and executives</li>
+</ul>
+<hr>
+</section>
+</section>
+<section id="risk-response-plan" class="level2">
+<h2 class="anchored" data-anchor-id="risk-response-plan">RISK RESPONSE PLAN</h2>
+<section id="if-chatbot-performance-is-poor" class="level3">
+<h3 class="anchored" data-anchor-id="if-chatbot-performance-is-poor">If Chatbot Performance Is Poor</h3>
+<p><strong>Triggers:</strong> - &lt;60% accuracy on target queries - &gt;30% escalation rate - Customer satisfaction declining</p>
+<p><strong>Response:</strong> - Pause expansion, maintain current scope - Root cause analysis (data? model? design?) - Refinement plan with timeline - Stakeholder communication</p>
+</section>
+<section id="if-team-resistance-is-high" class="level3">
+<h3 class="anchored" data-anchor-id="if-team-resistance-is-high">If Team Resistance Is High</h3>
+<p><strong>Triggers:</strong> - High absenteeism during launch - Negative feedback in team meetings - Staff publicly criticizing chatbot</p>
+<p><strong>Response:</strong> - Immediate team meeting with Sarah Chen - Address specific concerns - Modify implementation if needed - One-on-one conversations with resisters</p>
+</section>
+<section id="if-budget-is-at-risk" class="level3">
+<h3 class="anchored" data-anchor-id="if-budget-is-at-risk">If Budget Is At Risk</h3>
+<p><strong>Triggers:</strong> - &gt;AUD $15K spent in contingency - Additional costs identified - Timeline slipping significantly</p>
+<p><strong>Response:</strong> - Immediate escalation to David Chen - Prioritize scope (what’s essential vs.&nbsp;nice-to-have?) - Adjust timeline if needed - Additional funding request if critical</p>
+</section>
+<section id="if-data-issues-prevent-progress" class="level3">
+<h3 class="anchored" data-anchor-id="if-data-issues-prevent-progress">If Data Issues Prevent Progress</h3>
+<p><strong>Triggers:</strong> - Data quality issues blocking model training - Integration failures requiring rework - Incomplete historical data limiting training</p>
+<p><strong>Response:</strong> - Immediate data audit and prioritization - Workaround solutions (manual data entry, limited scope) - Timeline adjustment if needed - Escalate to Marcus Kim for IT support</p>
+<hr>
+</section>
+</section>
+<section id="glossary-definitions" class="level2">
+<h2 class="anchored" data-anchor-id="glossary-definitions">GLOSSARY &amp; DEFINITIONS</h2>
+<ul>
+<li><strong>Chatbot:</strong> AI-powered virtual agent handling customer inquiries</li>
+<li><strong>NLU:</strong> Natural Language Understanding (AI component understanding customer intent)</li>
+<li><strong>Intent:</strong> What customer is trying to accomplish (e.g., “track order”)</li>
+<li><strong>Entity:</strong> Information extracted from query (e.g., order number, date)</li>
+<li><strong>Escalation:</strong> Routing conversation to human agent</li>
+<li><strong>First Contact Resolution:</strong> Issue resolved without escalation</li>
+<li><strong>Sentiment Analysis:</strong> AI detecting customer emotional state</li>
+<li><strong>Training Data:</strong> Historical examples used to train AI model</li>
+<li><strong>LLM:</strong> Large Language Model (GPT, Claude, etc.)</li>
+<li><strong>UAT:</strong> User Acceptance Testing</li>
+<li><strong>SLA:</strong> Service Level Agreement</li>
+</ul>
+<hr>
+<p><strong>END OF CHATBOT PROJECT CHARTER</strong></p>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+<footer class="footer py-4 bg-dark text-light">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4">
+        <h5>RetailFlow</h5>
+        <p>Australia's fastest-growing retail destination, connecting millions of customers with the products they love.</p>
+        <div class="social-links">
+          <a href="#" class="text-light me-3"><i class="bi bi-facebook"></i></a>
+          <a href="#" class="text-light me-3"><i class="bi bi-twitter"></i></a>
+          <a href="#" class="text-light me-3"><i class="bi bi-instagram"></i></a>
+          <a href="#" class="text-light"><i class="bi bi-linkedin"></i></a>
+        </div>
+      </div>
+      
+      <div class="col-md-2">
+        <h6>Shop</h6>
+        <ul class="list-unstyled">
+          <li><a href="#" class="text-light text-decoration-none">New Arrivals</a></li>
+          <li><a href="#" class="text-light text-decoration-none">Best Sellers</a></li>
+          <li><a href="#" class="text-light text-decoration-none">Sale Items</a></li>
+          <li><a href="#" class="text-light text-decoration-none">Gift Cards</a></li>
+        </ul>
+      </div>
+      
+      <div class="col-md-2">
+        <h6>Customer Service</h6>
+        <ul class="list-unstyled">
+          <li><a href="contact.html" class="text-light text-decoration-none">Contact Us</a></li>
+          <li><a href="#" class="text-light text-decoration-none">Shipping Info</a></li>
+          <li><a href="#" class="text-light text-decoration-none">Returns</a></li>
+          <li><a href="#" class="text-light text-decoration-none">FAQ</a></li>
+        </ul>
+      </div>
+      
+      <div class="col-md-2">
+        <h6>About</h6>
+        <ul class="list-unstyled">
+          <li><a href="company/overview.html" class="text-light text-decoration-none">Our Story</a></li>
+          <li><a href="company/team.html" class="text-light text-decoration-none">Leadership</a></li>
+          <li><a href="#" class="text-light text-decoration-none">Careers</a></li>
+          <li><a href="#" class="text-light text-decoration-none">Press</a></li>
+        </ul>
+      </div>
+      
+      <div class="col-md-2">
+        <h6>Legal</h6>
+        <ul class="list-unstyled">
+          <li><a href="#" class="text-light text-decoration-none">Privacy Policy</a></li>
+          <li><a href="#" class="text-light text-decoration-none">Terms of Service</a></li>
+          <li><a href="docs/retailflow_legal_disclaimer.html" class="text-light text-decoration-none">Education Site</a></li>
+        </ul>
+      </div>
+    </div>
+    
+    <hr class="my-4 border-secondary">
+    
+    <div class="row align-items-center">
+      <div class="col-md-6">
+        <p class="mb-0">© 2024 RetailFlow. All rights reserved.</p>
+      </div>
+      <div class="col-md-6 text-md-end">
+        <p class="mb-0">
+          <small class="text-muted">ABN: 123 456 789 000 | ACN: 123 456 789</small>
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+<style>
+.footer {
+  margin-top: 3rem;
+}
+
+.footer a:hover {
+  color: var(--retailflow-accent) !important;
+}
+
+.social-links a {
+  font-size: 1.2rem;
+  transition: color 0.2s;
+}
+
+.social-links a:hover {
+  color: var(--retailflow-accent) !important;
+}
+</style>
+
+
+
+
+</body></html>

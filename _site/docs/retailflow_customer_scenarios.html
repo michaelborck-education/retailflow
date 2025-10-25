@@ -1,0 +1,1012 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.25">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>retailflow_customer_scenarios – RetailFlow</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-ff63373b1067ca6f91cf1456aa1f00a2.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+
+
+<link rel="stylesheet" href="../styles.css">
+</head>
+
+<body class="nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a href="../index.html" class="navbar-brand navbar-brand-logo">
+    </a>
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">RetailFlow</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../consultant.html"> 
+<span class="menu-text">Consultant Dashboard</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-company" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Company</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-company">    
+        <li>
+    <a class="dropdown-item" href="../company/overview.html">
+ <span class="dropdown-text">Overview</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../company/team.html">
+ <span class="dropdown-text">Team</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-project" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Project</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-project">    
+        <li>
+    <a class="dropdown-item" href="../project/charter.html">
+ <span class="dropdown-text">Project Charter</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../project/timeline.html">
+ <span class="dropdown-text">Timeline</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-resources" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Resources</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-resources">    
+        <li>
+    <a class="dropdown-item" href="../resources/scenarios.html">
+ <span class="dropdown-text">Scenarios</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../resources/documents.html">
+ <span class="dropdown-text">Documents</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="../contact.html"> 
+<span class="menu-text">Contact</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../docs/retailflow_legal_disclaimer.html"> 
+<span class="menu-text">Education Site</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#retailflow-customer-service-scenarios" id="toc-retailflow-customer-service-scenarios" class="nav-link active" data-scroll-target="#retailflow-customer-service-scenarios">RetailFlow: Customer Service Scenarios</a>
+  <ul class="collapse">
+  <li><a href="#scenario-set-1-simple-queries-routine-high-volume" id="toc-scenario-set-1-simple-queries-routine-high-volume" class="nav-link" data-scroll-target="#scenario-set-1-simple-queries-routine-high-volume">SCENARIO SET 1: SIMPLE QUERIES (ROUTINE, HIGH VOLUME)</a>
+  <ul class="collapse">
+  <li><a href="#scenario-1.1-order-tracking---formal" id="toc-scenario-1.1-order-tracking---formal" class="nav-link" data-scroll-target="#scenario-1.1-order-tracking---formal">Scenario 1.1 | Order Tracking - Formal</a></li>
+  <li><a href="#scenario-1.2-order-tracking---casual" id="toc-scenario-1.2-order-tracking---casual" class="nav-link" data-scroll-target="#scenario-1.2-order-tracking---casual">Scenario 1.2 | Order Tracking - Casual</a></li>
+  <li><a href="#scenario-1.3-product-information---in-stock" id="toc-scenario-1.3-product-information---in-stock" class="nav-link" data-scroll-target="#scenario-1.3-product-information---in-stock">Scenario 1.3 | Product Information - In Stock</a></li>
+  <li><a href="#scenario-1.4-shipping-information" id="toc-scenario-1.4-shipping-information" class="nav-link" data-scroll-target="#scenario-1.4-shipping-information">Scenario 1.4 | Shipping Information</a></li>
+  <li><a href="#scenario-1.5-return-policy-question" id="toc-scenario-1.5-return-policy-question" class="nav-link" data-scroll-target="#scenario-1.5-return-policy-question">Scenario 1.5 | Return Policy Question</a></li>
+  </ul></li>
+  <li><a href="#scenario-set-2-moderate-complexity-requires-judgment" id="toc-scenario-set-2-moderate-complexity-requires-judgment" class="nav-link" data-scroll-target="#scenario-set-2-moderate-complexity-requires-judgment">SCENARIO SET 2: MODERATE COMPLEXITY (REQUIRES JUDGMENT)</a>
+  <ul class="collapse">
+  <li><a href="#scenario-2.1-return-request---standard" id="toc-scenario-2.1-return-request---standard" class="nav-link" data-scroll-target="#scenario-2.1-return-request---standard">Scenario 2.1 | Return Request - Standard</a></li>
+  <li><a href="#scenario-2.2-return-request---questionable-condition" id="toc-scenario-2.2-return-request---questionable-condition" class="nav-link" data-scroll-target="#scenario-2.2-return-request---questionable-condition">Scenario 2.2 | Return Request - Questionable Condition</a></li>
+  <li><a href="#scenario-2.3-refund-status---delayed" id="toc-scenario-2.3-refund-status---delayed" class="nav-link" data-scroll-target="#scenario-2.3-refund-status---delayed">Scenario 2.3 | Refund Status - Delayed</a></li>
+  <li><a href="#scenario-2.4-shipping-delay---partial-explanation" id="toc-scenario-2.4-shipping-delay---partial-explanation" class="nav-link" data-scroll-target="#scenario-2.4-shipping-delay---partial-explanation">Scenario 2.4 | Shipping Delay - Partial Explanation</a></li>
+  <li><a href="#scenario-2.5-damaged-item---clear-damage" id="toc-scenario-2.5-damaged-item---clear-damage" class="nav-link" data-scroll-target="#scenario-2.5-damaged-item---clear-damage">Scenario 2.5 | Damaged Item - Clear Damage</a></li>
+  </ul></li>
+  <li><a href="#scenario-set-3-complexemotional-requires-empathy" id="toc-scenario-set-3-complexemotional-requires-empathy" class="nav-link" data-scroll-target="#scenario-set-3-complexemotional-requires-empathy">SCENARIO SET 3: COMPLEX/EMOTIONAL (REQUIRES EMPATHY)</a>
+  <ul class="collapse">
+  <li><a href="#scenario-3.1-complaint---service-recovery-needed" id="toc-scenario-3.1-complaint---service-recovery-needed" class="nav-link" data-scroll-target="#scenario-3.1-complaint---service-recovery-needed">Scenario 3.1 | Complaint - Service Recovery Needed</a></li>
+  <li><a href="#scenario-3.2-complaint---quality-concern-pattern" id="toc-scenario-3.2-complaint---quality-concern-pattern" class="nav-link" data-scroll-target="#scenario-3.2-complaint---quality-concern-pattern">Scenario 3.2 | Complaint - Quality Concern Pattern</a></li>
+  <li><a href="#scenario-3.3-billing-error---multiple-charges" id="toc-scenario-3.3-billing-error---multiple-charges" class="nav-link" data-scroll-target="#scenario-3.3-billing-error---multiple-charges">Scenario 3.3 | Billing Error - Multiple Charges</a></li>
+  <li><a href="#scenario-3.4-accessibility-request---not-accommodated" id="toc-scenario-3.4-accessibility-request---not-accommodated" class="nav-link" data-scroll-target="#scenario-3.4-accessibility-request---not-accommodated">Scenario 3.4 | Accessibility Request - Not Accommodated</a></li>
+  <li><a href="#scenario-3.5-negative-review-follow-up---brand-damage" id="toc-scenario-3.5-negative-review-follow-up---brand-damage" class="nav-link" data-scroll-target="#scenario-3.5-negative-review-follow-up---brand-damage">Scenario 3.5 | Negative Review Follow-up - Brand Damage</a></li>
+  </ul></li>
+  <li><a href="#scenario-set-4-edge-cases-system-challenges" id="toc-scenario-set-4-edge-cases-system-challenges" class="nav-link" data-scroll-target="#scenario-set-4-edge-cases-system-challenges">SCENARIO SET 4: EDGE CASES &amp; SYSTEM CHALLENGES</a>
+  <ul class="collapse">
+  <li><a href="#scenario-4.1-non-standard-question" id="toc-scenario-4.1-non-standard-question" class="nav-link" data-scroll-target="#scenario-4.1-non-standard-question">Scenario 4.1 | Non-Standard Question</a></li>
+  <li><a href="#scenario-4.2-non-english-query-simplified" id="toc-scenario-4.2-non-english-query-simplified" class="nav-link" data-scroll-target="#scenario-4.2-non-english-query-simplified">Scenario 4.2 | Non-English Query (Simplified)</a></li>
+  <li><a href="#scenario-4.3-vague-query---missing-information" id="toc-scenario-4.3-vague-query---missing-information" class="nav-link" data-scroll-target="#scenario-4.3-vague-query---missing-information">Scenario 4.3 | Vague Query - Missing Information</a></li>
+  <li><a href="#scenario-4.4-angry-customer---emotional-escalation" id="toc-scenario-4.4-angry-customer---emotional-escalation" class="nav-link" data-scroll-target="#scenario-4.4-angry-customer---emotional-escalation">Scenario 4.4 | Angry Customer - Emotional Escalation</a></li>
+  <li><a href="#scenario-4.5-fraudulent-return-attempt" id="toc-scenario-4.5-fraudulent-return-attempt" class="nav-link" data-scroll-target="#scenario-4.5-fraudulent-return-attempt">Scenario 4.5 | Fraudulent Return Attempt</a></li>
+  </ul></li>
+  <li><a href="#scenario-analysis-for-chatbot-training" id="toc-scenario-analysis-for-chatbot-training" class="nav-link" data-scroll-target="#scenario-analysis-for-chatbot-training">SCENARIO ANALYSIS FOR CHATBOT TRAINING</a>
+  <ul class="collapse">
+  <li><a href="#summary-what-chatbots-can-handle" id="toc-summary-what-chatbots-can-handle" class="nav-link" data-scroll-target="#summary-what-chatbots-can-handle">Summary: What Chatbots Can Handle</a></li>
+  <li><a href="#summary-what-requires-human-judgment" id="toc-summary-what-requires-human-judgment" class="nav-link" data-scroll-target="#summary-what-requires-human-judgment">Summary: What Requires Human Judgment</a></li>
+  <li><a href="#chatbot-development-priority" id="toc-chatbot-development-priority" class="nav-link" data-scroll-target="#chatbot-development-priority">Chatbot Development Priority</a></li>
+  </ul></li>
+  <li><a href="#chatbot-failure-scenarios-for-testing" id="toc-chatbot-failure-scenarios-for-testing" class="nav-link" data-scroll-target="#chatbot-failure-scenarios-for-testing">CHATBOT FAILURE SCENARIOS (FOR TESTING)</a>
+  <ul class="collapse">
+  <li><a href="#failure-1-misidentified-order" id="toc-failure-1-misidentified-order" class="nav-link" data-scroll-target="#failure-1-misidentified-order">Failure 1: Misidentified Order</a></li>
+  <li><a href="#failure-2-inappropriate-escalation" id="toc-failure-2-inappropriate-escalation" class="nav-link" data-scroll-target="#failure-2-inappropriate-escalation">Failure 2: Inappropriate Escalation</a></li>
+  <li><a href="#failure-3-tone-deaf-response" id="toc-failure-3-tone-deaf-response" class="nav-link" data-scroll-target="#failure-3-tone-deaf-response">Failure 3: Tone-Deaf Response</a></li>
+  <li><a href="#failure-4-policy-misunderstanding" id="toc-failure-4-policy-misunderstanding" class="nav-link" data-scroll-target="#failure-4-policy-misunderstanding">Failure 4: Policy Misunderstanding</a></li>
+  <li><a href="#failure-5-incomplete-information" id="toc-failure-5-incomplete-information" class="nav-link" data-scroll-target="#failure-5-incomplete-information">Failure 5: Incomplete Information</a></li>
+  </ul></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
+
+
+
+
+<section id="retailflow-customer-service-scenarios" class="level1">
+<h1>RetailFlow: Customer Service Scenarios</h1>
+<section id="scenario-set-1-simple-queries-routine-high-volume" class="level2">
+<h2 class="anchored" data-anchor-id="scenario-set-1-simple-queries-routine-high-volume">SCENARIO SET 1: SIMPLE QUERIES (ROUTINE, HIGH VOLUME)</h2>
+<section id="scenario-1.1-order-tracking---formal" class="level3">
+<h3 class="anchored" data-anchor-id="scenario-1.1-order-tracking---formal">Scenario 1.1 | Order Tracking - Formal</h3>
+<p><strong>Customer:</strong> Professional, clear communication</p>
+<p><strong>Query:</strong> “Good morning, I would like to check the status of my recent order. The order number is RF-2024-08-14527. I placed this order on August 14th and have not yet received tracking information. Could you please advise on the expected delivery date? Thank you.”</p>
+<p><strong>Context:</strong> - Order placed Aug 14, shipped Aug 15 - Tracking number assigned - Expected delivery Aug 20-22 (metro Sydney) - All going normally</p>
+<p><strong>Chatbot Response:</strong> ✅ EASY - Lookup order, provide tracking link and expected delivery date</p>
+<p><strong>Human Value Add:</strong> - (None needed—can be fully automated)</p>
+<p><strong>Potential Issues:</strong> - None identified</p>
+<hr>
+</section>
+<section id="scenario-1.2-order-tracking---casual" class="level3">
+<h3 class="anchored" data-anchor-id="scenario-1.2-order-tracking---casual">Scenario 1.2 | Order Tracking - Casual</h3>
+<p><strong>Customer:</strong> Casual, informal language</p>
+<p><strong>Query:</strong> “hey can u tell me where my order is lol. dont have the order # on me but i ordered some bedding like a week ago and its supposed to arrive tmrw but i have no idea where it is rn thanks”</p>
+<p><strong>Context:</strong> - Customer identified by email - One order in past week (bedding set) - Order status: In delivery - Expected delivery tomorrow - Tracking: Available</p>
+<p><strong>Chatbot Response:</strong> ⚠️ MODERATE - Must handle casual language and identify customer by email; provide tracking</p>
+<p><strong>Human Value Add:</strong> - Understanding customer tone (casual/friendly) - Personalization (remembering they ordered bedding)</p>
+<p><strong>Potential Issues:</strong> - NLU must understand casual abbreviations (“u” for “you”, “lol”, “tmrw”) - Email-based customer identification - Informal tone requires casual bot response (not robotic)</p>
+<hr>
+</section>
+<section id="scenario-1.3-product-information---in-stock" class="level3">
+<h3 class="anchored" data-anchor-id="scenario-1.3-product-information---in-stock">Scenario 1.3 | Product Information - In Stock</h3>
+<p><strong>Customer:</strong> Comparative shopper</p>
+<p><strong>Query:</strong> “Hi! I’m looking at the ‘Coastal Linen Bedding Set’ in white. Can you tell me: (1) Is it available in queen size? (2) What’s the material composition? (3) Do you have it in stock? (4) Is there a discount currently?”</p>
+<p><strong>Context:</strong> - Product exists in catalog - Available in queen size - 73% linen, 27% cotton - 12 in stock (metro) - No current discount - Regular price AUD $189</p>
+<p><strong>Chatbot Response:</strong> ✅ EASY - Lookup product, provide all details</p>
+<p><strong>Human Value Add:</strong> - None needed</p>
+<p><strong>Potential Issues:</strong> - Multiple questions in one query (requires parsing) - Customer seeking comparative info (might need styling advice—outside chatbot scope)</p>
+<hr>
+</section>
+<section id="scenario-1.4-shipping-information" class="level3">
+<h3 class="anchored" data-anchor-id="scenario-1.4-shipping-information">Scenario 1.4 | Shipping Information</h3>
+<p><strong>Customer:</strong> Regional customer</p>
+<p><strong>Query:</strong> “How long does shipping take to regional WA? I live in Broome and I’m worried about delivery times.”</p>
+<p><strong>Context:</strong> - Shipping to regional WA: 5-7 business days - Standard shipping cost: AUD $12.95 - Express option available: AUD $24.95 (3-4 days) - Customer concerned about distance/time</p>
+<p><strong>Chatbot Response:</strong> ✅ EASY - Provide standard and express shipping timelines and costs</p>
+<p><strong>Human Value Add:</strong> - Empathy (acknowledging regional concerns) - Proactive suggestion of express option - Setting expectations</p>
+<p><strong>Potential Issues:</strong> - Regional delays sometimes occur (weather, logistics) - Customer might want negotiation on shipping cost (not chatbot domain)</p>
+<hr>
+</section>
+<section id="scenario-1.5-return-policy-question" class="level3">
+<h3 class="anchored" data-anchor-id="scenario-1.5-return-policy-question">Scenario 1.5 | Return Policy Question</h3>
+<p><strong>Customer:</strong> New customer</p>
+<p><strong>Query:</strong> “I’ve never shopped with RetailFlow before. If I buy something and it doesn’t work out, what’s your return policy?”</p>
+<p><strong>Context:</strong> - Standard return window: 30 days - Item must be unworn/unwashed/original condition - Free returns (customer pays return postage) - Original receipt required - No restocking fee</p>
+<p><strong>Chatbot Response:</strong> ✅ EASY - Provide standard return policy</p>
+<p><strong>Human Value Add:</strong> - Building customer confidence - Encouraging first purchase</p>
+<p><strong>Potential Issues:</strong> - New customer may have follow-up questions (edge cases) - Might need personal encouragement to try RetailFlow</p>
+<hr>
+</section>
+</section>
+<section id="scenario-set-2-moderate-complexity-requires-judgment" class="level2">
+<h2 class="anchored" data-anchor-id="scenario-set-2-moderate-complexity-requires-judgment">SCENARIO SET 2: MODERATE COMPLEXITY (REQUIRES JUDGMENT)</h2>
+<section id="scenario-2.1-return-request---standard" class="level3">
+<h3 class="anchored" data-anchor-id="scenario-2.1-return-request---standard">Scenario 2.1 | Return Request - Standard</h3>
+<p><strong>Customer:</strong> Reasonable, cooperative</p>
+<p><strong>Query:</strong> “Hi, I ordered a blue sweater last week (Order #RF-2024-08-16342) but it’s too small. I’ve never worn it. Can I return it? I really like the brand so maybe I could exchange it for a size up?”</p>
+<p><strong>Context:</strong> - Order placed 8 days ago (within 30-day window) - Item: Blue sweater, size M - Item condition: Unworn, original tags attached - Exchange to size L available - Standard return process applies</p>
+<p><strong>Chatbot Response:</strong> ⚠️ MODERATE - Verify eligibility, offer exchange option, explain process</p>
+<p><strong>Human Value Add:</strong> - Proactive offer to exchange (customer service delight) - Building loyalty (customer likes brand)</p>
+<p><strong>Potential Issues:</strong> - Size L might be out of stock - Exchange process requires inventory check - Customer satisfaction depends on exchange availability</p>
+<hr>
+</section>
+<section id="scenario-2.2-return-request---questionable-condition" class="level3">
+<h3 class="anchored" data-anchor-id="scenario-2.2-return-request---questionable-condition">Scenario 2.2 | Return Request - Questionable Condition</h3>
+<p><strong>Customer:</strong> Possibly attempting return abuse</p>
+<p><strong>Query:</strong> “I bought this sofa 45 days ago and I want to return it. It’s a bit worn but basically fine. I just decided I don’t like it in my space. Can I get a refund?”</p>
+<p><strong>Context:</strong> - Order placed 45 days ago (outside 30-day window) - Item: Sofa, high-value (AUD $899) - Condition: Used (wear visible) - Customer just changed mind about décor - Policy: Outside return window, no returns for change of mind</p>
+<p><strong>Chatbot Response:</strong> ❌ ESCALATE - Beyond policy; requires human judgment</p>
+<p><strong>Human Value Add:</strong> - Understanding customer dissatisfaction - Exploring options (store credit, exchange) - Decision on exception (if any)</p>
+<p><strong>Potential Issues:</strong> - Customer will be disappointed - High-value item (potential negative review risk) - Potential for negotiation if customer valuable/loyal</p>
+<hr>
+</section>
+<section id="scenario-2.3-refund-status---delayed" class="level3">
+<h3 class="anchored" data-anchor-id="scenario-2.3-refund-status---delayed">Scenario 2.3 | Refund Status - Delayed</h3>
+<p><strong>Customer:</strong> Patient but concerned</p>
+<p><strong>Query:</strong> “I returned a dress about 2 weeks ago and I still haven’t received my refund. The return was delivered to your warehouse on August 10th. Can you check on this? My return number is RET-2024-08-10891.”</p>
+<p><strong>Context:</strong> - Return received Aug 10 (12 days ago) - Standard processing: 5-7 business days from receipt - Status: Item received, awaiting inspection - Timeline: Refund should appear in account Aug 20-23 - Customer within reasonable expectations but approaching patience limit</p>
+<p><strong>Chatbot Response:</strong> ⚠️ MODERATE - Lookup return status, provide expected refund date, set expectations</p>
+<p><strong>Human Value Add:</strong> - Empathy for delay - Clear timeline - Proactive notification when refund processed</p>
+<p><strong>Potential Issues:</strong> - Refund delayed past expected date (system might show different info) - Customer might need escalation if frustrated</p>
+<hr>
+</section>
+<section id="scenario-2.4-shipping-delay---partial-explanation" class="level3">
+<h3 class="anchored" data-anchor-id="scenario-2.4-shipping-delay---partial-explanation">Scenario 2.4 | Shipping Delay - Partial Explanation</h3>
+<p><strong>Customer:</strong> Frustrated but reasonable</p>
+<p><strong>Query:</strong> “My order was supposed to arrive 3 days ago (Aug 20th) but I still haven’t received it. It was supposed to come via AusPost and they show ‘in transit’. This is ridiculous. I paid for delivery. What are you doing about it?”</p>
+<p><strong>Context:</strong> - Order #RF-2024-08-15209 - Ordered Aug 15, shipped Aug 17 - Expected delivery: Aug 20-21 - Tracking shows “in transit” (no location detail) - Delivery company: AusPost - Delay: 2-3 days past expected - AusPost currently experiencing delays (winter weather) - This is NOT RetailFlow’s fault directly, but customer perception is</p>
+<p><strong>Chatbot Response:</strong> ⚠️ MODERATE - Acknowledge delay, explain external factor, offer options</p>
+<p><strong>Human Value Add:</strong> - Apology for inconvenience (customer service recovery) - Explanation of external factor (weather, carrier delay) - Concrete next steps (contact carrier, request investigation, etc.)</p>
+<p><strong>Potential Issues:</strong> - Customer angry (deserved or not) - Wants someone to fix it (carrier independent) - May demand compensation or replacement</p>
+<hr>
+</section>
+<section id="scenario-2.5-damaged-item---clear-damage" class="level3">
+<h3 class="anchored" data-anchor-id="scenario-2.5-damaged-item---clear-damage">Scenario 2.5 | Damaged Item - Clear Damage</h3>
+<p><strong>Customer:</strong> Upset but documenting issue</p>
+<p><strong>Query:</strong> “The bedding I received today has a large tear in the duvet cover. This is completely unacceptable. I ordered it as a gift for my daughter’s new house and now I can’t give it to her. What are you going to do about this? I want a full refund or a replacement overnight.”</p>
+<p><strong>Context:</strong> - Order #RF-2024-08-16851 - Item: Bedding set (AUD $189) - Damage: Tear in duvet cover (customer has photos) - Received today - Quality issue (manufacturing defect) - Customer upset (time-sensitive gift) - Request: Replacement or refund + likely expects compensation</p>
+<p><strong>Chatbot Response:</strong> ❌ ESCALATE - Quality issue requires investigation and potential exception handling</p>
+<p><strong>Human Value Add:</strong> - Apology and empathy (gift situation) - Investigation of damage (manufacturing issue?) - Solution offering (replacement express shipped, partial refund/credit for inconvenience) - Quality improvement follow-up</p>
+<p><strong>Potential Issues:</strong> - Customer upset (emotional) - High-value item + gift context (retention issue) - Potential negative review/social media risk - Manufacturing quality concern (process issue?)</p>
+<hr>
+</section>
+</section>
+<section id="scenario-set-3-complexemotional-requires-empathy" class="level2">
+<h2 class="anchored" data-anchor-id="scenario-set-3-complexemotional-requires-empathy">SCENARIO SET 3: COMPLEX/EMOTIONAL (REQUIRES EMPATHY)</h2>
+<section id="scenario-3.1-complaint---service-recovery-needed" class="level3">
+<h3 class="anchored" data-anchor-id="scenario-3.1-complaint---service-recovery-needed">Scenario 3.1 | Complaint - Service Recovery Needed</h3>
+<p><strong>Customer:</strong> Clearly upset, long-term customer</p>
+<p><strong>Query:</strong> “I’m incredibly disappointed with RetailFlow. I’ve been a loyal customer for 6 years and I’ve never had an experience like this. I ordered a formal dress for an important event on August 10th. It was supposed to arrive Aug 15th. It didn’t arrive until Aug 22nd—my event was Aug 18th. I missed the event! I’ve been a great customer and this is how I’m treated? I want compensation for the ruined event and I’m considering taking my business elsewhere.”</p>
+<p><strong>Context:</strong> - Customer: 6-year tenure, lifetime value AUD $3,200 - Order #RF-2024-08-15680 - Item: Formal dress (AUD $220) - Promised delivery: Aug 15 - Actual delivery: Aug 22 - Delivery delay: 7 days - Impact: Customer missed important event - Emotional state: Angry, disappointed, considering leaving - Opportunity: Retention/recovery situation</p>
+<p><strong>Chatbot Response:</strong> ❌ MUST ESCALATE - High-value customer, emotional situation, potential retention issue</p>
+<p><strong>Human Value Add:</strong> - Genuine apology and acknowledgment of failure - Understanding of emotional impact (missed event) - Recognition of loyalty (6 years) - Meaningful compensation offer (not token gesture) - Service recovery plan</p>
+<p><strong>Potential Issues:</strong> - Customer may be “lost” if compensation not sufficient - Negative review/word-of-mouth risk - Other customers tracking response (fairness concern) - Delivery issue likely logistics partner, but customer sees RetailFlow</p>
+<p><strong>Recommended Human Response:</strong> “I sincerely apologize for the impact this delay had on your special event. You’re absolutely right—as a valued 6-year customer, you deserve better service. Let me make this right. I’m offering [AUD $50 store credit + AUD $25 refund on this purchase + guaranteed express shipping on next order]. I’m also personally investigating what happened with your delivery to prevent this for you and other customers.”</p>
+<hr>
+</section>
+<section id="scenario-3.2-complaint---quality-concern-pattern" class="level3">
+<h3 class="anchored" data-anchor-id="scenario-3.2-complaint---quality-concern-pattern">Scenario 3.2 | Complaint - Quality Concern Pattern</h3>
+<p><strong>Customer:</strong> Frustrated with repeated issues</p>
+<p><strong>Query:</strong> “This is the third time in 4 months I’ve received items from RetailFlow with quality issues. The last t-shirt had a loose seam, the sweater before that was pilling after one wash, and now these jeans have a zipper that’s broken out of the box. I don’t understand what’s going on with your quality control. I’m done. I’m returning everything and I’m not shopping with RetailFlow again. Your brand quality is declining and you clearly don’t care.”</p>
+<p><strong>Context:</strong> - Customer: 3-year tenure, moderate spend (AUD $1,800 lifetime) - Multiple quality issues documented - Pattern suggests: Supplier issue, QC problem, or unlucky customer - Customer relationship: At risk (about to churn) - Root cause unknown - Emotional state: Frustrated, giving up, negative perception of brand</p>
+<p><strong>Chatbot Response:</strong> ❌ MUST ESCALATE - Pattern issue, quality concern, retention risk, needs investigation</p>
+<p><strong>Human Value Add:</strong> - Genuine acknowledgment of pattern (validates concern) - Investigation (are these from specific supplier?) - Systemic solution (not just this customer) - Meaningful apology and correction - Proactive engagement</p>
+<p><strong>Potential Issues:</strong> - Could indicate actual quality problem (escalate to operations) - Risk of negative review (pattern suggests real issue) - Other customers may have same issues (systemic) - Supplier relationship may need review</p>
+<p><strong>Recommended Human Response:</strong> “I’m genuinely concerned by the pattern you’re describing. Three quality issues in 4 months isn’t acceptable. Let me investigate this immediately. I want to: (1) Process full refunds on all three items, (2) understand if there’s a quality issue with specific suppliers, and (3) make this right with you personally. Can we schedule a call tomorrow so I can investigate and provide you with a solution?”</p>
+<hr>
+</section>
+<section id="scenario-3.3-billing-error---multiple-charges" class="level3">
+<h3 class="anchored" data-anchor-id="scenario-3.3-billing-error---multiple-charges">Scenario 3.3 | Billing Error - Multiple Charges</h3>
+<p><strong>Customer:</strong> Confused and concerned about security</p>
+<p><strong>Query:</strong> “I’m very concerned about my account security. I was just checking my credit card statement and I see I was charged THREE times for my order placed on August 10th. Each charge is AUD $187. That’s AUD $561 total for one order! I only received one item! This is either fraud or a massive system error. I want this resolved immediately and I want to know how this happened. I’m worried about my account security now.”</p>
+<p><strong>Context:</strong> - Order #RF-2024-08-15680 - Order total: AUD $187 - Credit card charged: AUD $187 x 3 = AUD $561 - Item delivered: One item (correct) - Likely cause: System processing error (payment gateway retry), not fraud - Customer emotional state: Scared (security concern), angry (money issue) - Urgency: High (financial/security concern)</p>
+<p><strong>Chatbot Response:</strong> ❌ MUST ESCALATE - Financial/security issue, requires immediate human review</p>
+<p><strong>Human Value Add:</strong> - Immediate acknowledgment and apology - Security assurance (not fraud, investigating) - Concrete next steps (reverse charges, timeline) - Prevention assurance (we’ll fix system)</p>
+<p><strong>Potential Issues:</strong> - Customer security concern (legitimate) - Financial impact (extra AUD $374) - Requires finance system access (chatbot can’t do) - Potential for chargeback/credit card dispute - Could indicate system issue affecting others</p>
+<p><strong>Recommended Human Response:</strong> “I sincerely apologize for this billing error. I can see the three charges on your account and I’m processing immediate refunds for the duplicate charges. This appears to be a system processing error on our end—not fraud. Here’s what I’m doing: (1) Initiating full refund of AUD $374 immediately—you should see this in 1-2 business days, (2) Flagging this with our payments team to investigate and prevent recurrence, (3) Providing you with a case reference number [XYZ123] for your records. Your account is secure. Is there anything else I can do to restore your confidence?”</p>
+<hr>
+</section>
+<section id="scenario-3.4-accessibility-request---not-accommodated" class="level3">
+<h3 class="anchored" data-anchor-id="scenario-3.4-accessibility-request---not-accommodated">Scenario 3.4 | Accessibility Request - Not Accommodated</h3>
+<p><strong>Customer:</strong> Frustrated with inclusion</p>
+<p><strong>Query:</strong> “I’ve emailed you three times in the past week asking about accessibility features for your website. I’m visually impaired and your site isn’t compatible with screen readers. I can shop at competitors’ sites just fine but I can’t navigate RetailFlow’s site. Are you not interested in my business? Why haven’t you responded? I’ve been a customer for years and I feel like you don’t care about customers like me.”</p>
+<p><strong>Context:</strong> - Customer: Loyal, years tenure (valuable) - Accessibility concern: Website screen reader compatibility poor - Issue: Legitimate accessibility barrier - Customer feedback: Not answered (three emails) - Emotional state: Hurt, frustrated, excluded - Business impact: Losing accessible customer; brand inclusion concern - Systemic issue: Likely affects others (accessibility is legal/ethical issue)</p>
+<p><strong>Chatbot Response:</strong> ❌ MUST ESCALATE - Accessibility/inclusion issue, customer service failure (unanswered emails)</p>
+<p><strong>Human Value Add:</strong> - Apology for lack of response (service failure) - Genuine commitment to accessibility - Concrete remediation (e.g., personal shopping assistance now; timeline for fixes) - Executive involvement (shows seriousness)</p>
+<p><strong>Potential Issues:</strong> - Legal/compliance concern (accessibility requirements) - Reputational risk (inclusion issue) - Systemic problem (website accessibility affects many) - Customer relationship damaged by being ignored - Other accessibility-challenged customers may have same issue</p>
+<p><strong>Recommended Human Response:</strong> “I sincerely apologize for not responding to your three emails. That’s unacceptable and I’m immediately investigating why your messages weren’t routed properly. You’re absolutely right—your business matters and so does accessibility. Here’s what I’m committing to: (1) I’m personally assisting you with any purchases today—I can help you navigate and order via phone/email, (2) I’m escalating website accessibility to our CIO as urgent priority, (3) I’ll follow up with you in one week with a timeline for accessibility improvements, (4) I’m providing you with AUD $50 in store credit for the frustration. Thank you for holding us accountable.”</p>
+<hr>
+</section>
+<section id="scenario-3.5-negative-review-follow-up---brand-damage" class="level3">
+<h3 class="anchored" data-anchor-id="scenario-3.5-negative-review-follow-up---brand-damage">Scenario 3.5 | Negative Review Follow-up - Brand Damage</h3>
+<p><strong>Customer:</strong> Publicly upset, left negative reviews</p>
+<p><strong>Query:</strong> “I just saw my 1-star review on your website and no one has responded. I left it 2 weeks ago after receiving damaged furniture. Meanwhile I’m seeing comments from other customers with similar issues. You clearly don’t monitor reviews or care about your reputation. This is poor management.”</p>
+<p><strong>Context:</strong> - Review: 1-star, public, detailed complaint - Issue: Damaged furniture (sofa) arrived - Timeline: Left 2 weeks ago, no response - Pattern: Other similar complaints visible - Emotional state: Upset, publicly venting - Business impact: Negative reviews affecting potential customers - Systemic issue: Review management failure, possible quality pattern</p>
+<p><strong>Chatbot Response:</strong> ❌ MUST ESCALATE - Reputation/review management issue, service recovery needed</p>
+<p><strong>Human Value Add:</strong> - Immediate response (showing we do monitor) - Public acknowledgment of issue - Personal resolution offer - Systemic fix communication - Executive involvement</p>
+<p><strong>Potential Issues:</strong> - Damage to brand reputation - Multiple customers with similar issues (pattern?) - Review response now public (others watching) - Need to address both this customer and others - Quality/operations issue may need investigation</p>
+<p><strong>Recommended Human Response (posted publicly on review + personal email):</strong> “Thank you for your feedback and I apologize we didn’t respond sooner. You’re right—that’s our failure. I’ve personally investigated your situation and would like to make this right. I’m reaching out via email with a resolution. To our community: We take every review seriously. If you’ve had an issue with damaged items or service quality, please reach out directly so we can help. We’re committed to improving.”</p>
+<hr>
+</section>
+</section>
+<section id="scenario-set-4-edge-cases-system-challenges" class="level2">
+<h2 class="anchored" data-anchor-id="scenario-set-4-edge-cases-system-challenges">SCENARIO SET 4: EDGE CASES &amp; SYSTEM CHALLENGES</h2>
+<section id="scenario-4.1-non-standard-question" class="level3">
+<h3 class="anchored" data-anchor-id="scenario-4.1-non-standard-question">Scenario 4.1 | Non-Standard Question</h3>
+<p><strong>Customer:</strong> Seeking personal advice</p>
+<p><strong>Query:</strong> “Hi! I’m redecorating my bedroom and I’m torn between two bedding sets on your site. One is the white linen set (AUD $189) and the other is the grey cotton set (AUD $156). My room has blue walls and I’m trying to decide which would look better. Which do you think I should get?”</p>
+<p><strong>Context:</strong> - Two real products - Subjective style question - Customer seeking personal advice - Outside chatbot capability (needs human judgment/empathy) - Opportunity for customer service delight</p>
+<p><strong>Chatbot Response:</strong> ⚠️ MODERATE - Acknowledge question, provide product info, suggest escalation to styling expert</p>
+<p><strong>Human Value Add:</strong> - Personal styling advice - Understanding of customer’s space - Recommendation with reasoning - Building customer confidence - Possible up-sell opportunity (add complementary items)</p>
+<p><strong>Potential Issues:</strong> - Subjective nature (no “right” answer) - Chatbot shouldn’t pretend expertise it doesn’t have - Customer wants genuine advice, not robot response</p>
+<p><strong>Recommended Escalation Message:</strong> “Great question! Both are beautiful options. For personalized styling advice based on your blue walls, I’d love to connect you with our styling expert who can help you visualize the options. Would you like me to have someone reach out, or would you prefer to chat now? [Transfer to available representative]”</p>
+<hr>
+</section>
+<section id="scenario-4.2-non-english-query-simplified" class="level3">
+<h3 class="anchored" data-anchor-id="scenario-4.2-non-english-query-simplified">Scenario 4.2 | Non-English Query (Simplified)</h3>
+<p><strong>Customer:</strong> English as second language, but attempting communication</p>
+<p><strong>Query:</strong> “Hello, I am have question about order. My order number is RF-2024-08-16234. When it is coming? I waiting for 8 day already. Very impatient. Please tell me fast.”</p>
+<p><strong>Context:</strong> - Order placed 8 days ago - Expected delivery: Days 9-11 - Currently in normal fulfillment - Customer: Non-native English speaker, impatient but reasonable - Language barrier: Simplified but understandable English - Emotional state: Impatient but not angry</p>
+<p><strong>Chatbot Response:</strong> ⚠️ MODERATE - Must handle non-native English; provide clear, simple response</p>
+<p><strong>Human Value Add:</strong> - Patience with language barrier - Simple, clear communication - Reassurance - Possibly available in other languages (if relevant)</p>
+<p><strong>Potential Issues:</strong> - NLU must handle varied English patterns - Chatbot response must be simple and clear (not jargon-heavy) - Cultural communication norms (directness varies) - Possibly should offer interpreter services</p>
+<p><strong>Recommended Chatbot Response:</strong> “Hello! Thank you for your message. Your order RF-2024-08-16234 is on track. It will arrive in 2-3 days. You can track it here [link]. We understand waiting is hard. Your item is coming soon! Questions? I am here to help.”</p>
+<hr>
+</section>
+<section id="scenario-4.3-vague-query---missing-information" class="level3">
+<h3 class="anchored" data-anchor-id="scenario-4.3-vague-query---missing-information">Scenario 4.3 | Vague Query - Missing Information</h3>
+<p><strong>Customer:</strong> Unclear about their issue</p>
+<p><strong>Query:</strong> “Hi, um, I have a problem with something I ordered but I can’t remember exactly when. I don’t have my order number with me right now. It was a dress or maybe a top, I can’t quite remember. It was some color like blue or purple? When I received it, something was wrong but I’m not sure what exactly. Can you help me?”</p>
+<p><strong>Context:</strong> - Customer: Vague and uncertain - Issue: Can’t identify order (no order number, vague timing) - Problem: Unclear what the issue is - Chatbot challenge: Need more information before helping</p>
+<p><strong>Chatbot Response:</strong> ⚠️ MODERATE - Must gather information to identify order and issue</p>
+<p><strong>Human Value Add:</strong> - Patient clarification questions - Understanding customer’s vague concern - Finding the right order - Identifying the actual issue</p>
+<p><strong>Potential Issues:</strong> - Customer disorganized/uncertain - Could be multiple orders matching description - May require back-and-forth to clarify - Could take longer to resolve</p>
+<p><strong>Recommended Chatbot Response:</strong> “No problem! Let me help you find your order. A few quick questions: (1) What email address did you use to order? (2) Approximately when did you order—was it this week, last week, or earlier? (3) What was the main problem—was the item damaged, wrong color, wrong size, or something else? Once I have these details, I can find your order and help!”</p>
+<hr>
+</section>
+<section id="scenario-4.4-angry-customer---emotional-escalation" class="level3">
+<h3 class="anchored" data-anchor-id="scenario-4.4-angry-customer---emotional-escalation">Scenario 4.4 | Angry Customer - Emotional Escalation</h3>
+<p><strong>Customer:</strong> Very frustrated, using caps/exclamation marks</p>
+<p><strong>Query:</strong> “THIS IS COMPLETELY UNACCEPTABLE!!! I’VE BEEN A CUSTOMER FOR YEARS AND THIS IS THE WORST EXPERIENCE EVER!!! MY ORDER STILL ISN’T HERE AND NO ONE HAS HELPED ME!!! I’M CALLING MY CREDIT CARD COMPANY TO DISPUTE THIS CHARGE AND I’M POSTING ABOUT THIS ON EVERY SOCIAL MEDIA CHANNEL I CAN FIND!!! YOU PEOPLE ARE TERRIBLE!!!”</p>
+<p><strong>Context:</strong> - Customer: Very upset, using aggression signals (caps, exclamation marks) - Emotional state: Angry, feeling unheard - Threat: Social media escalation, credit card dispute - Likely root cause: Service failure or communication breakdown - Risk level: High (public complaints, financial/legal action)</p>
+<p><strong>Chatbot Response:</strong> ❌ MUST ESCALATE IMMEDIATELY - Emotional escalation, potential for public/legal damage</p>
+<p><strong>Human Value Add:</strong> - Immediate human response (not just bot) - De-escalation and empathy - Taking the complaint seriously - Concrete action plan - Management involvement if needed</p>
+<p><strong>Potential Issues:</strong> - Customer very upset (may not listen to reason initially) - Threats of social media/chargeback (real risk) - May have legitimate underlying issue (orders genuinely delayed) - Requires careful handling to prevent escalation</p>
+<p><strong>Recommended Human Response:</strong> “I can see you’re very upset and I’m genuinely sorry. Let me help immediately. I’m escalating your case to my manager right now so we can give this the urgent attention it deserves. Please reply with: (1) Your order number, (2) What specifically went wrong. I promise we’ll make this right. You’ve been with us for years—you matter to us.”</p>
+<hr>
+</section>
+<section id="scenario-4.5-fraudulent-return-attempt" class="level3">
+<h3 class="anchored" data-anchor-id="scenario-4.5-fraudulent-return-attempt">Scenario 4.5 | Fraudulent Return Attempt</h3>
+<p><strong>Customer:</strong> Appears to be return abuse</p>
+<p><strong>Query:</strong> “I want to return these jeans. I bought them 60 days ago and I’ve worn them maybe 20 times. They’re definitely used but they’re still in decent condition. I just don’t want them anymore. Your policy says 30 days so I know I’m outside the window but I’m a loyal customer so I should get an exception. What do you say?”</p>
+<p><strong>Context:</strong> - Return window: 30 days - Item: Jeans (AUD $99) - Condition: Worn 20+ times (clearly used) - Timeline: 60 days (double the return window) - Request: Exception for return outside window - Customer: Self-aware they’re outside policy; requesting exception - Pattern: If approved, might encourage repeated abuse</p>
+<p><strong>Chatbot Response:</strong> ⚠️ MODERATE - Policy question, but escalate for human judgment</p>
+<p><strong>Human Value Add:</strong> - Understanding customer (building relationship value) - Explaining policy consistently - Judgment on exception (if any) - Protecting against return abuse</p>
+<p><strong>Potential Issues:</strong> - If exception granted, sets precedent (others request same) - If exception denied, customer upset (used the “loyalty” angle) - Policy integrity (must be applied consistently) - Risk of return fraud (worn items returned as new)</p>
+<p><strong>Recommended Human Response:</strong> “I appreciate your honesty about the condition. You’re right—our policy is 30 days, and we apply it consistently to all customers to keep things fair. However, because you’ve been loyal, I’d like to offer an alternative: $20 store credit toward your next purchase. This way you get a discount on future shopping and we maintain fair policy for all customers. Does that work for you?”</p>
+<hr>
+</section>
+</section>
+<section id="scenario-analysis-for-chatbot-training" class="level2">
+<h2 class="anchored" data-anchor-id="scenario-analysis-for-chatbot-training">SCENARIO ANALYSIS FOR CHATBOT TRAINING</h2>
+<section id="summary-what-chatbots-can-handle" class="level3">
+<h3 class="anchored" data-anchor-id="summary-what-chatbots-can-handle">Summary: What Chatbots Can Handle</h3>
+<p>✅ <strong>Scenarios 1.1-1.5:</strong> Simple, routine queries (30% of volume) - Order tracking with order number - Basic product information - Standard return policy - Shipping estimates - General FAQs</p>
+<p>✅ <strong>Partial Scenarios 2.1-2.5:</strong> Moderate queries where policy is clear - Returns within policy, standard condition - Refund status tracking - Straightforward complaint documentation - Basic issue categorization</p>
+</section>
+<section id="summary-what-requires-human-judgment" class="level3">
+<h3 class="anchored" data-anchor-id="summary-what-requires-human-judgment">Summary: What Requires Human Judgment</h3>
+<p>❌ <strong>Scenarios 2.2, 2.4, 2.5:</strong> Moderate complexity with judgment calls - Returns outside policy or questionable condition - Delays requiring explanation and empathy - Quality issues requiring investigation - Compensation decisions</p>
+<p>❌ <strong>Scenarios 3.1-3.5:</strong> Complex/emotional requiring empathy - Service recovery opportunities - Pattern issues requiring investigation - Accessibility/inclusion issues - Brand reputation concerns - Angry customers needing de-escalation - Fraud/return abuse detection</p>
+<p>❌ <strong>Scenarios 4.2-4.5:</strong> Edge cases and challenges - Non-standard questions - Non-English queries - Vague/missing information requiring clarification - Extremely angry customers - Suspected fraud</p>
+</section>
+<section id="chatbot-development-priority" class="level3">
+<h3 class="anchored" data-anchor-id="chatbot-development-priority">Chatbot Development Priority</h3>
+<p><strong>Phase 1 (MVP):</strong> Handle Scenarios 1.1-1.3 - Order tracking - Product information - Basic policy questions - Target: 25% of current volume</p>
+<p><strong>Phase 2:</strong> Add Scenarios 1.4-1.5, partial 2.1-2.2 - Shipping information - Return requests (standard cases) - Escalation paths clear - Target: 35% of volume</p>
+<p><strong>Phase 3:</strong> Add more of 2.1-2.5 with structured escalation - Documentation of complex cases - Clear escalation rules - Target: 40% of volume</p>
+<p><strong>Not in Scope (Human Only):</strong> - Scenarios 3.1-3.5 (emotional/judgment-heavy) - Scenarios 4.3-4.5 (edge cases, fraud, anger) - Any compensation decisions - Policy exceptions</p>
+<hr>
+</section>
+</section>
+<section id="chatbot-failure-scenarios-for-testing" class="level2">
+<h2 class="anchored" data-anchor-id="chatbot-failure-scenarios-for-testing">CHATBOT FAILURE SCENARIOS (FOR TESTING)</h2>
+<section id="failure-1-misidentified-order" class="level3">
+<h3 class="anchored" data-anchor-id="failure-1-misidentified-order">Failure 1: Misidentified Order</h3>
+<p><strong>Scenario:</strong> Customer asks about order but chatbot retrieves wrong order (similar order number)</p>
+<p><strong>Impact:</strong> Customer receives incorrect information, gets frustrated, requires human follow-up</p>
+<p><strong>Prevention:</strong> Exact order number verification, confirmation step before providing details</p>
+<hr>
+</section>
+<section id="failure-2-inappropriate-escalation" class="level3">
+<h3 class="anchored" data-anchor-id="failure-2-inappropriate-escalation">Failure 2: Inappropriate Escalation</h3>
+<p><strong>Scenario:</strong> Chatbot escalates a simple order tracking query to human (over-cautious)</p>
+<p><strong>Impact:</strong> Delays response unnecessarily, wastes human time on routine query</p>
+<p><strong>Prevention:</strong> Clear confidence thresholds; escalate only when uncertain or customer requests</p>
+<hr>
+</section>
+<section id="failure-3-tone-deaf-response" class="level3">
+<h3 class="anchored" data-anchor-id="failure-3-tone-deaf-response">Failure 3: Tone-Deaf Response</h3>
+<p><strong>Scenario:</strong> Customer angry about delayed delivery; chatbot responds with robotic “We appreciate your business” message</p>
+<p><strong>Impact:</strong> Customer more frustrated; feels dismissed by bot response</p>
+<p><strong>Prevention:</strong> Sentiment analysis; appropriate response tone; empathy in language</p>
+<hr>
+</section>
+<section id="failure-4-policy-misunderstanding" class="level3">
+<h3 class="anchored" data-anchor-id="failure-4-policy-misunderstanding">Failure 4: Policy Misunderstanding</h3>
+<p><strong>Scenario:</strong> Chatbot incorrectly states return policy based on outdated training data</p>
+<p><strong>Impact:</strong> Customer relies on incorrect info, gets refund they shouldn’t, blame when reversed</p>
+<p><strong>Prevention:</strong> Regular policy updates to training; human review of policy questions</p>
+<hr>
+</section>
+<section id="failure-5-incomplete-information" class="level3">
+<h3 class="anchored" data-anchor-id="failure-5-incomplete-information">Failure 5: Incomplete Information</h3>
+<p><strong>Scenario:</strong> Chatbot provides answer but doesn’t proactively offer next steps or related help</p>
+<p><strong>Impact:</strong> Customer doesn’t get full resolution, requires follow-up inquiry</p>
+<p><strong>Prevention:</strong> Design for complete resolution; suggest related help; ask “Anything else?”</p>
+<hr>
+<p><strong>END OF CUSTOMER SCENARIOS</strong></p>
+
+
+</section>
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+<footer class="footer py-4 bg-dark text-light">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4">
+        <h5>RetailFlow</h5>
+        <p>Australia's fastest-growing retail destination, connecting millions of customers with the products they love.</p>
+        <div class="social-links">
+          <a href="#" class="text-light me-3"><i class="bi bi-facebook"></i></a>
+          <a href="#" class="text-light me-3"><i class="bi bi-twitter"></i></a>
+          <a href="#" class="text-light me-3"><i class="bi bi-instagram"></i></a>
+          <a href="#" class="text-light"><i class="bi bi-linkedin"></i></a>
+        </div>
+      </div>
+      
+      <div class="col-md-2">
+        <h6>Shop</h6>
+        <ul class="list-unstyled">
+          <li><a href="#" class="text-light text-decoration-none">New Arrivals</a></li>
+          <li><a href="#" class="text-light text-decoration-none">Best Sellers</a></li>
+          <li><a href="#" class="text-light text-decoration-none">Sale Items</a></li>
+          <li><a href="#" class="text-light text-decoration-none">Gift Cards</a></li>
+        </ul>
+      </div>
+      
+      <div class="col-md-2">
+        <h6>Customer Service</h6>
+        <ul class="list-unstyled">
+          <li><a href="contact.html" class="text-light text-decoration-none">Contact Us</a></li>
+          <li><a href="#" class="text-light text-decoration-none">Shipping Info</a></li>
+          <li><a href="#" class="text-light text-decoration-none">Returns</a></li>
+          <li><a href="#" class="text-light text-decoration-none">FAQ</a></li>
+        </ul>
+      </div>
+      
+      <div class="col-md-2">
+        <h6>About</h6>
+        <ul class="list-unstyled">
+          <li><a href="company/overview.html" class="text-light text-decoration-none">Our Story</a></li>
+          <li><a href="company/team.html" class="text-light text-decoration-none">Leadership</a></li>
+          <li><a href="#" class="text-light text-decoration-none">Careers</a></li>
+          <li><a href="#" class="text-light text-decoration-none">Press</a></li>
+        </ul>
+      </div>
+      
+      <div class="col-md-2">
+        <h6>Legal</h6>
+        <ul class="list-unstyled">
+          <li><a href="#" class="text-light text-decoration-none">Privacy Policy</a></li>
+          <li><a href="#" class="text-light text-decoration-none">Terms of Service</a></li>
+          <li><a href="docs/retailflow_legal_disclaimer.html" class="text-light text-decoration-none">Education Site</a></li>
+        </ul>
+      </div>
+    </div>
+    
+    <hr class="my-4 border-secondary">
+    
+    <div class="row align-items-center">
+      <div class="col-md-6">
+        <p class="mb-0">© 2024 RetailFlow. All rights reserved.</p>
+      </div>
+      <div class="col-md-6 text-md-end">
+        <p class="mb-0">
+          <small class="text-muted">ABN: 123 456 789 000 | ACN: 123 456 789</small>
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+<style>
+.footer {
+  margin-top: 3rem;
+}
+
+.footer a:hover {
+  color: var(--retailflow-accent) !important;
+}
+
+.social-links a {
+  font-size: 1.2rem;
+  transition: color 0.2s;
+}
+
+.social-links a:hover {
+  color: var(--retailflow-accent) !important;
+}
+</style>
+
+
+
+
+</body></html>

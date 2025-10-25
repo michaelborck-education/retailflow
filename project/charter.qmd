@@ -1,0 +1,163 @@
+---
+title: "AI Chatbot Project Charter"
+---
+
+# Project Charter: AI Customer Service Chatbot
+
+## Executive Summary
+
+**Project Name**: RetailFlow AI Customer Service Chatbot Pilot  
+**Budget**: AUD $150,000  
+**Timeline**: 6 months (24 weeks)  
+**Sponsor**: Emma Rodriguez, CEO  
+**Project Manager**: External Consultant (You)
+
+## Business Case
+
+### Problem Statement
+RetailFlow's customer service is in crisis:
+- Email response times: 26 hours (Target: < 4 hours)
+- Customer satisfaction: 68% (Target: 78%)
+- Annual cost: AUD $2.4M for customer service operations
+- Staff turnover: 35% annually in customer service
+
+### Proposed Solution
+Implement an AI-powered chatbot to handle common customer inquiries, providing:
+- 24/7 availability
+- Instant response times
+- Consistent quality
+- Cost reduction
+
+### Expected Benefits
+- **Cost Savings**: AUD $600K annually (25% reduction)
+- **CSAT Improvement**: +10 percentage points
+- **Response Time**: < 2 seconds for common queries
+- **Staff Productivity**: 40% increase in human agent efficiency
+
+## Project Scope
+
+### In Scope
+1. **Chatbot Development**: AI-powered customer service bot
+2. **Knowledge Base**: Product information, policies, procedures
+3. **Integration**: Email system, CRM, website
+4. **Training**: Staff handover procedures and escalation protocols
+5. **Testing**: 3-month pilot with 20% of customer inquiries
+6. **Analytics**: Performance metrics and ROI tracking
+
+### Out of Scope
+1. **Voice Assistant**: Not included in initial pilot
+2. **Social Media Integration**: Future phase consideration
+3. **Complete Automation**: Human agents remain essential
+4. **Multi-language**: English only for pilot
+5. **Advanced AI**: No predictive capabilities in phase 1
+
+## Success Metrics
+
+### Primary KPIs
+| Metric | Current | Target (6 months) | Measurement |
+|--------|---------|-------------------|-------------|
+| Email Response Time | 26 hours | < 4 hours | System tracking |
+| Customer Satisfaction | 68% | 78% | Post-interaction surveys |
+| Cost per Inquiry | AUD $12 | AUD $8 | Financial analysis |
+| First Contact Resolution | 45% | 65% | System metrics |
+
+### Secondary KPIs
+- **Chatbot Containment Rate**: 60% of inquiries resolved without human escalation
+- **Staff Satisfaction**: Improve from 5.2 to 7.0/10
+- **Training Time**: Reduce new hire training by 30%
+- **Error Rate**: < 5% incorrect responses
+
+## Timeline & Phases
+
+### Phase 1: Discovery & Planning (Weeks 1-4)
+- Requirements gathering
+- Vendor selection
+- Technical architecture design
+- Risk assessment
+
+### Phase 2: Development (Weeks 5-12)
+- Chatbot development
+- Knowledge base creation
+- Integration setup
+- Internal testing
+
+### Phase 3: Pilot Launch (Weeks 13-16)
+- 20% customer volume
+- Human oversight
+- Performance monitoring
+- Feedback collection
+
+### Phase 4: Optimization (Weeks 17-20)
+- Performance tuning
+- Additional training
+- Process refinement
+- Scale preparation
+
+### Phase 5: Evaluation (Weeks 21-24)
+- Full ROI analysis
+- Go/No-Go decision
+- Rollout planning
+- Lessons learned
+
+## Budget Breakdown
+
+| Category | Amount | Notes |
+|----------|--------|-------|
+| Technology/Software | AUD $60,000 | Chatbot platform, licenses |
+| Implementation | AUD $45,000 | Development, integration |
+| Training & Change Management | AUD $25,000 | Staff training, communication |
+| Contingency | AUD $20,000 | 15% of total budget |
+| **Total** | **AUD $150,000** | |
+
+## Risk Management
+
+### High Risks
+1. **Technology Failure**: Chatbot doesn't perform as expected
+   - **Mitigation**: Thorough testing, vendor guarantees
+2. **Customer Rejection**: Customers prefer human interaction
+   - **Mitigation**: Gradual rollout, opt-out options
+3. **Staff Resistance**: Employees feel threatened
+   - **Mitigation**: Inclusive planning, retraining programs
+
+### Medium Risks
+1. **Integration Issues**: Technical problems with existing systems
+2. **Budget Overrun**: Unexpected costs during implementation
+3. **Timeline Delays**: Vendor or internal delays
+
+### Low Risks
+1. **Security Concerns**: Data privacy issues
+2. **Regulatory Compliance**: Legal or regulatory requirements
+3. **Vendor Dependence**: Over-reliance on single provider
+
+## Stakeholder Map
+
+### Key Stakeholders
+- **Executive Team**: Emma Rodriguez (CEO), David Chen (CFO)
+- **Project Team**: Marcus Kim (CIO), Sarah Chen (Customer Service)
+- **End Users**: Customer service agents, customers
+- **Technical Team**: Dr. Priya Sharma (Data Science), Rajesh Patel (Security)
+
+### Communication Plan
+- **Weekly**: Project team status updates
+- **Bi-weekly**: Executive steering committee
+- **Monthly**: All-hands project updates
+- **Ad-hoc**: Issue escalation and decisions
+
+## Governance
+
+### Decision Making
+- **Budget Decisions**: CEO and CFO approval
+- **Technical Decisions**: CIO and Data Science lead
+- **Operational Decisions**: Customer Service Manager
+- **Go/No-Go**: Full executive committee
+
+### Success Criteria
+Project considered successful if:
+1. 3 of 4 primary KPIs met
+2. ROI > 150% within 18 months
+3. Customer and staff satisfaction > 7/10
+4. No major security incidents
+
+---
+
+[Company Overview](../company/overview.qmd) | [Project Timeline](timeline.qmd) | [Consultant Dashboard](../consultant.qmd)

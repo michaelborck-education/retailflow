@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Timeline - RetailFlow</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="../styles.css" rel="stylesheet">
+    <style>
+        .timeline-item {
+            padding-left: 40px;
+            position: relative;
+            margin-bottom: 20px;
+        }
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 20px;
+            height: 20px;
+            background: var(--retailflow-primary);
+            border-radius: 50%;
+            border: 3px solid white;
+            box-shadow: 0 0 0 2px var(--retailflow-primary);
+        }
+        .timeline-item.completed::before {
+            background: var(--retailflow-success);
+            box-shadow: 0 0 0 2px var(--retailflow-success);
+        }
+        .timeline-phase {
+            padding: 20px;
+            border-left: 3px solid var(--retailflow-primary);
+            margin: 20px 0;
+            background: #f8f9fa;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body class="nav-fixed">
+    <!-- Navigation (auto-generated via js/init-navbar.js) -->
+
+    <!-- Main Content -->
+    <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article" style="margin-top: 80px;">
+        <main class="content quarto-page-title" id="quarto-document-content">
+            <div class="container-fluid">
+                <header class="quarto-title-block default">
+                    <div class="quarto-title">
+                        <h1 class="title">Project Timeline</h1>
+                    </div>
+                </header>
+
+                <section class="level1">
+                    <h1>Project Timeline: 24-Week Implementation Plan</h1>
+                    
+                    <section class="level2">
+                        <h2>Overview</h2>
+                        <p>This timeline outlines the 6-month (24-week) implementation plan for the AI Chatbot Pilot project. Each phase has specific deliverables and milestones.</p>
+                        
+                        <div class="alert alert-info">
+                            <h5><i class="bi bi-calendar"></i> Project Duration</h5>
+                            <p class="mb-0"><strong>Start Date:</strong> Week 1 | <strong>End Date:</strong> Week 24 (6 months)</p>
+                        </div>
+                    </section>
+
+                    <section class="level2">
+                        <h2>Phase 1: Discovery & Planning (Weeks 1-4)</h2>
+                        
+                        <div class="timeline-phase">
+                            <h5><i class="bi bi-flag"></i> Week 1: Project Kickoff</h5>
+                            <div class="timeline-item completed">
+                                <h6>Objectives</h6>
+                                <ul>
+                                    <li>Establish project governance and team structure</li>
+                                    <li>Define roles and responsibilities</li>
+                                    <li>Conduct stakeholder interviews</li>
+                                </ul>
+                            </div>
+                            <div class="timeline-item completed">
+                                <h6>Deliverables</h6>
+                                <ul>
+                                    <li>Project charter signed by all stakeholders</li>
+                                    <li>Team established and briefed</li>
+                                    <li>Stakeholder communication plan</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="timeline-phase">
+                            <h5><i class="bi bi-search"></i> Weeks 2-4: Requirements & Discovery</h5>
+                            <div class="timeline-item">
+                                <h6>Objectives</h6>
+                                <ul>
+                                    <li>Document current customer service processes</li>
+                                    <li>Analyze common customer inquiries</li>
+                                    <li>Define chatbot capabilities and limitations</li>
+                                </ul>
+                            </div>
+                            <div class="timeline-item">
+                                <h6>Deliverables</h6>
+                                <ul>
+                                    <li>Requirements specification document</li>
+                                    <li>Technology recommendations</li>
+                                    <li>Detailed project roadmap</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section class="level2">
+                        <h2>Phase 2: Development (Weeks 5-16)</h2>
+                        
+                        <div class="timeline-phase">
+                            <h5><i class="bi bi-code"></i> Weeks 5-8: Chatbot Development</h5>
+                            <div class="timeline-item">
+                                <h6>Objectives</h6>
+                                <ul>
+                                    <li>Build chatbot core functionality</li>
+                                    <li>Develop NLP capabilities</li>
+                                    <li>Create conversation flows</li>
+                                </ul>
+                            </div>
+                            <div class="timeline-item">
+                                <h6>Deliverables</h6>
+                                <ul>
+                                    <li>Working chatbot prototype</li>
+                                    <li>Integration with test environment</li>
+                                    <li>First round of testing report</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="timeline-phase">
+                            <h5><i class="bi bi-puzzle"></i> Weeks 9-12: System Integration</h5>
+                            <div class="timeline-item">
+                                <h6>Objectives</h6>
+                                <ul>
+                                    <li>Integrate with CRM system</li>
+                                    <li>Connect to order management system</li>
+                                    <li>Link customer database</li>
+                                </ul>
+                            </div>
+                            <div class="timeline-item">
+                                <h6>Deliverables</h6>
+                                <ul>
+                                    <li>Integration test results</li>
+                                    <li>Data security audit report</li>
+                                    <li>Performance benchmarks</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="timeline-phase">
+                            <h5><i class="bi bi-bug"></i> Weeks 13-16: Testing & Refinement</h5>
+                            <div class="timeline-item">
+                                <h6>Objectives</h6>
+                                <ul>
+                                    <li>User acceptance testing</li>
+                                    <li>Performance optimization</li>
+                                    <li>Bug fixes and refinements</li>
+                                </ul>
+                            </div>
+                            <div class="timeline-item">
+                                <h6>Deliverables</h6>
+                                <ul>
+                                    <li>UAT test results</li>
+                                    <li>Refinement recommendations</li>
+                                    <li>Go/No-Go decision document</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section class="level2">
+                        <h2>Phase 3: Training & Deployment (Weeks 17-22)</h2>
+                        
+                        <div class="timeline-phase">
+                            <h5><i class="bi bi-mortarboard"></i> Weeks 17-19: Staff Training</h5>
+                            <div class="timeline-item">
+                                <h6>Objectives</h6>
+                                <ul>
+                                    <li>Train customer service team on chatbot</li>
+                                    <li>Develop escalation procedures</li>
+                                    <li>Create support documentation</li>
+                                </ul>
+                            </div>
+                            <div class="timeline-item">
+                                <h6>Deliverables</h6>
+                                <ul>
+                                    <li>Training completed for all staff</li>
+                                    <li>Support documentation</li>
+                                    <li>Escalation procedures guide</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="timeline-phase">
+                            <h5><i class="bi bi-rocket"></i> Weeks 20-22: Soft Launch</h5>
+                            <div class="timeline-item">
+                                <h6>Objectives</h6>
+                                <ul>
+                                    <li>Deploy to limited user group</li>
+                                    <li>Monitor performance and issues</li>
+                                    <li>Gather user feedback</li>
+                                </ul>
+                            </div>
+                            <div class="timeline-item">
+                                <h6>Deliverables</h6>
+                                <ul>
+                                    <li>Soft launch report</li>
+                                    <li>Performance metrics (initial)</li>
+                                    <li>Feedback analysis</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section class="level2">
+                        <h2>Phase 4: Launch & Optimization (Weeks 23-24)</h2>
+                        
+                        <div class="timeline-phase">
+                            <h5><i class="bi bi-stars"></i> Weeks 23-24: Full Launch & Handover</h5>
+                            <div class="timeline-item">
+                                <h6>Objectives</h6>
+                                <ul>
+                                    <li>Full production deployment</li>
+                                    <li>Monitor live performance</li>
+                                    <li>Handover to operations team</li>
+                                </ul>
+                            </div>
+                            <div class="timeline-item">
+                                <h6>Deliverables</h6>
+                                <ul>
+                                    <li>Production deployment report</li>
+                                    <li>Final performance metrics</li>
+                                    <li>Operations handover documentation</li>
+                                    <li>Project closure report</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section class="level2">
+                        <h2>Key Milestones</h2>
+                        <div class="table-responsive">
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>Milestone</th>
+                                        <th>Target Date</th>
+                                        <th>Status</th>
+                                        <th>Notes</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><i class="bi bi-check-circle text-success"></i> Project Kickoff</td>
+                                        <td>Week 1</td>
+                                        <td><span class="badge bg-success">Completed</span></td>
+                                        <td>Charter signed</td>
+                                    </tr>
+                                    <tr>
+                                        <td><i class="bi bi-hourglass text-warning"></i> Requirements Complete</td>
+                                        <td>Week 4</td>
+                                        <td><span class="badge bg-warning">In Progress</span></td>
+                                        <td>On track</td>
+                                    </tr>
+                                    <tr>
+                                        <td><i class="bi bi-circle text-secondary"></i> Prototype Ready</td>
+                                        <td>Week 8</td>
+                                        <td><span class="badge bg-secondary">Pending</span></td>
+                                        <td>Target date</td>
+                                    </tr>
+                                    <tr>
+                                        <td><i class="bi bi-circle text-secondary"></i> Integration Complete</td>
+                                        <td>Week 12</td>
+                                        <td><span class="badge bg-secondary">Pending</span></td>
+                                        <td>Target date</td>
+                                    </tr>
+                                    <tr>
+                                        <td><i class="bi bi-circle text-secondary"></i> UAT Complete</td>
+                                        <td>Week 16</td>
+                                        <td><span class="badge bg-secondary">Pending</span></td>
+                                        <td>Target date</td>
+                                    </tr>
+                                    <tr>
+                                        <td><i class="bi bi-circle text-secondary"></i> Training Complete</td>
+                                        <td>Week 19</td>
+                                        <td><span class="badge bg-secondary">Pending</span></td>
+                                        <td>Target date</td>
+                                    </tr>
+                                    <tr>
+                                        <td><i class="bi bi-circle text-secondary"></i> Soft Launch</td>
+                                        <td>Week 20</td>
+                                        <td><span class="badge bg-secondary">Pending</span></td>
+                                        <td>Target date</td>
+                                    </tr>
+                                    <tr>
+                                        <td><i class="bi bi-circle text-secondary"></i> Full Production Launch</td>
+                                        <td>Week 23</td>
+                                        <td><span class="badge bg-secondary">Pending</span></td>
+                                        <td>Target date</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </section>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <!-- Footer (auto-generated via js/init-footer-professional.js) -->
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../js/main.js"></script>
+    <script src="../js/init-navbar.js"></script>
+    <script src="../js/init-footer-professional.js"></script>
+</body>
+</html>

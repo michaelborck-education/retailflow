@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crisis 1: Data Quality Disaster - RetailFlow</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="../styles.css" rel="stylesheet">
+    <style>
+        .crisis-container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+        .crisis-header { background: linear-gradient(135deg, #dc3545 0%, #a71d2a 100%); color: white; padding: 30px; border-radius: 8px; margin-bottom: 30px; }
+        .crisis-header h1 { margin: 0; font-size: 2rem; }
+        .crisis-header .badge { background: rgba(255,255,255,0.3); margin-top: 10px; display: inline-block; }
+        .email-box, .slack-box, .conversation-box { background: #f8f9fa; border-left: 4px solid #dc3545; padding: 15px; margin: 15px 0; border-radius: 4px; }
+        .email-from, .slack-from { font-weight: bold; color: #666; margin-bottom: 5px; }
+        .conversation-box { background: #fff3cd; border-left-color: #ffc107; }
+        .data-table { font-size: 0.9rem; }
+        .metric-good { color: #28a745; }
+        .metric-bad { color: #dc3545; font-weight: bold; }
+        .worksheet-section { background: white; border: 1px solid #dee2e6; padding: 20px; margin: 20px 0; border-radius: 8px; }
+        .worksheet-section h3 { color: #667eea; margin-bottom: 15px; border-bottom: 2px solid #667eea; padding-bottom: 10px; }
+        .task-time { background: #e7f3ff; padding: 10px; border-radius: 4px; margin-bottom: 15px; font-weight: 500; }
+        .checkbox-line { list-style: none; margin: 8px 0; }
+        .text-input { border: 1px dashed #ccc; min-height: 60px; padding: 10px; background: #fafafa; border-radius: 4px; margin: 10px 0; }
+    </style>
+</head>
+<body class="nav-fixed">
+    <!-- Navigation (auto-generated via js/init-navbar.js) -->
+
+    <!-- Main Content -->
+    <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article" style="margin-top: 80px;">
+        <main class="content" id="quarto-document-content">
+            <div class="crisis-container">
+                <div class="crisis-header">
+                    <img src="https://placeholder.com/1000x250?text=Crisis+1:+Data+Quality" alt="Data Quality Crisis" class="img-fluid rounded mb-4" style="max-height: 250px; object-fit: cover; width: 100%;">
+                    <h1><i class="bi bi-exclamation-triangle"></i> CRISIS 1: DATA QUALITY DISASTER</h1>
+                    <p style="margin: 10px 0 0 0; font-size: 1.1rem;">Monday, 8:00 AM - Week 1 of Live Deployment</p>
+                    <span class="badge bg-light text-dark">⏱️ 20 minutes to respond</span>
+                </div>
+
+                <!-- THE ALERT -->
+                <div class="alert alert-danger" role="alert">
+                    <h4 class="alert-heading"><i class="bi bi-exclamation-circle"></i> THE ALERT</h4>
+                    <p class="mb-2">You arrive at work Monday morning to find <strong>47 unread emails</strong> and <strong>12 urgent Slack messages</strong>.</p>
+                    <p class="mb-0">The customer service manager is in panic mode. Something went very wrong over the weekend.</p>
+                </div>
+
+                <!-- ESCALATION EMAILS -->
+                <h2 style="margin-top: 40px;"><i class="bi bi-envelope"></i> Escalation: Customer Service Manager</h2>
+
+                <div class="email-box">
+                    <div class="email-from">
+                        <i class="bi bi-person"></i> FROM: Sarah Chen, Customer Service Manager<br>
+                        <i class="bi bi-arrow-right"></i> TO: You<br>
+                        <i class="bi bi-alarm"></i> SENT: Sunday 9:47 PM
+                    </div>
+                    <div style="border-top: 1px solid #ccc; padding-top: 10px; margin-top: 10px;">
+                        <strong>SUBJECT:</strong> 🚨 URGENT - AI Bot Giving Dangerously Wrong Answers
+                    </div>
+                    <div style="margin-top: 15px; line-height: 1.6;">
+                        <p>I need to talk to you FIRST THING Monday morning. We have a serious problem.</p>
+
+                        <p>The AI chatbot gave <strong>completely incorrect information</strong> to at least 15 customers yesterday about our return policies. This is not a small glitch - these are answers that could expose us to legal liability.</p>
+
+                        <p><strong>Examples of what happened:</strong></p>
+                        <ul>
+                            <li>Told a customer they could return a clearance item (our policy: all clearance sales are FINAL)</li>
+                            <li>Told another customer returns must be within 7 days (our actual policy: 30 days for most items)</li>
+                            <li>Gave conflicting information about whether opened electronics can be returned</li>
+                        </ul>
+
+                        <p>My team is now dealing with angry, confused customers AND having to fix the bot's mistakes. This is creating MORE work for us, not less. Several team members are saying "I told you this AI thing wouldn't work."</p>
+
+                        <p><strong><span style="background: #ffe0e0; padding: 5px 10px; border-radius: 3px;">I'm pulling the plug on the chatbot this morning unless you can fix this IMMEDIATELY.</span></strong> We can't risk more customers getting wrong information.</p>
+
+                        <p>Call me as soon as you read this.<br>Sarah</p>
+                    </div>
+                </div>
+
+                <!-- SLACK MESSAGES -->
+                <h2 style="margin-top: 40px;"><i class="bi bi-chat"></i> Slack Escalations (#ai-pilot-project)</h2>
+
+                <div class="slack-box">
+                    <div class="slack-from"><i class="bi bi-person"></i> Data Scientist (2:34 AM)</div>
+                    <p>Just woke up to Sarah's email. Looking at the logs now. <strong>Model accuracy has dropped from 85% in testing to 62% over the weekend.</strong> Not immediately sure why. Will investigate first thing Monday.</p>
+                </div>
+
+                <div class="slack-box">
+                    <div class="slack-from"><i class="bi bi-person"></i> IT Support (6:15 AM)</div>
+                    <p>System uptime is fine, no server issues. Whatever the problem is, it's not infrastructure.</p>
+                </div>
+
+                <div class="slack-box" style="background: #fff3cd; border-left-color: #ffc107;">
+                    <div class="slack-from"><i class="bi bi-person"></i> Executive Sponsor (7:03 AM)</div>
+                    <p>Seeing Sarah's escalation. What's going on? This was supposed to IMPROVE customer experience, not create problems. <strong>Need an update by 10am.</strong></p>
+                </div>
+
+                <div class="slack-box" style="background: #ffe0e0; border-left-color: #dc3545;">
+                    <div class="slack-from"><i class="bi bi-person"></i> CEO (7:28 AM)</div>
+                    <p>Hearing complaints about the AI bot from customers AND from our team. [Executive Sponsor], I thought you said this was ready for prime time?</p>
+                </div>
+
+                <!-- CONVERSATION LOGS -->
+                <h2 style="margin-top: 40px;"><i class="bi bi-terminal"></i> Chatbot Conversation Logs (Past 48 Hours)</h2>
+
+                <div class="conversation-box">
+                    <strong>CONVERSATION #1</strong><br>
+                    <strong>Customer:</strong> "Can I return this dress? I bought it last week but it doesn't fit."<br>
+                    <strong>Bot Response:</strong> "Our return policy allows returns within 7 days of purchase with receipt."<br><br>
+                    <span style="color: #dc3545;"><strong>❌ ACTUAL POLICY:</strong> 30 days for regular-priced items, 14 days for sale items, with receipt</span><br>
+                    <strong>Impact:</strong> Customer thinks they're out of time. Might not attempt return and will be frustrated.
+                </div>
+
+                <div class="conversation-box">
+                    <strong>CONVERSATION #2</strong><br>
+                    <strong>Customer:</strong> "I want to return my clearance shoes - never worn them, still have tags."<br>
+                    <strong>Bot Response:</strong> "Yes, you can return clearance items within 30 days for a full refund with your receipt."<br><br>
+                    <span style="color: #dc3545;"><strong>❌ ACTUAL POLICY:</strong> All clearance and final sale items are NOT RETURNABLE under any circumstances.</span><br>
+                    <strong>Impact:</strong> Customer was given explicit permission to return non-returnable item. They'll be angry when store refuses. <strong>LEGAL EXPOSURE.</strong>
+                </div>
+
+                <div class="conversation-box">
+                    <strong>CONVERSATION #3</strong><br>
+                    <strong>Customer:</strong> "What's your return policy for online orders?"<br>
+                    <strong>Bot Response:</strong> "Online orders can be returned to any store or by mail within 14 days of purchase."<br><br>
+                    <span style="color: #dc3545;"><strong>❌ ACTUAL POLICY:</strong> 30 days. Mail returns accepted but customer pays $8.50 fee (or free to store).</span><br>
+                    <strong>Impact:</strong> Incomplete/incorrect info. Customer surprised by timeline and fees.
+                </div>
+
+                <div class="conversation-box">
+                    <strong>CONVERSATION #4</strong><br>
+                    <strong>Customer:</strong> "Can I exchange this item without a receipt? I paid cash."<br>
+                    <strong>Bot Response:</strong> <span style="color: #999;">[No response - bot timed out after 30 seconds]</span><br><br>
+                    <strong>Impact:</strong> Customer received no help. Frustrating.
+                </div>
+
+                <div class="conversation-box">
+                    <strong>CONVERSATION #5</strong><br>
+                    <strong>Customer:</strong> "I bought this jacket 3 months ago and just noticed a defect. Can I still return it?"<br>
+                    <strong>Bot Response:</strong> "Yes, all items can be returned within our standard return timeframe. Please bring your receipt to any store."<br><br>
+                    <span style="color: #dc3545;"><strong>❌ ACTUAL POLICY:</strong> Manufacturing defects covered for 1 year, but customer needs to explain issue. This is context-dependent.</span><br>
+                    <strong>Impact:</strong> Vague, potentially misleading. Doesn't address "defect" vs regular "return."
+                </div>
+
+                <div class="conversation-box">
+                    <strong>CONVERSATION #6</strong><br>
+                    <strong>Customer:</strong> "whats ur return policy for xmas gifts lol"<br>
+                    <strong>Bot Response:</strong> "I apologize, but I don't understand your question. Please rephrase or contact our customer service team."<br><br>
+                    <span style="color: #dc3545;"><strong>❌ ACTUAL POLICY:</strong> Holiday return policy exists (purchased Nov-Dec can return until Jan 31)</span><br>
+                    <strong>Impact:</strong> Bot couldn't parse informal text-speak. Frustrated customer.
+                </div>
+
+                <!-- PERFORMANCE DATA -->
+                <h2 style="margin-top: 40px;"><i class="bi bi-graph-up"></i> Performance Metrics: The Trend</h2>
+
+                <div style="overflow-x: auto;">
+                    <table class="table table-striped data-table">
+                        <thead class="table-dark">
+                            <tr>
+                                <th>Time Period</th>
+                                <th>Accuracy Rate</th>
+                                <th>Avg Response Time</th>
+                                <th>Customer Satisfaction</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Testing Phase (Week 6-7)</td>
+                                <td class="metric-good">87%</td>
+                                <td>1.8 min</td>
+                                <td class="metric-good">82% (test users)</td>
+                            </tr>
+                            <tr>
+                                <td>Launch Day (Last Monday)</td>
+                                <td class="metric-good">85%</td>
+                                <td>2.1 min</td>
+                                <td class="metric-good">79%</td>
+                            </tr>
+                            <tr>
+                                <td>Mid-Week (Wed-Fri)</td>
+                                <td>78%</td>
+                                <td>2.4 min</td>
+                                <td>74%</td>
+                            </tr>
+                            <tr style="background: #ffe0e0;">
+                                <td><strong>This Weekend (Sat-Sun)</strong></td>
+                                <td class="metric-bad">62%</td>
+                                <td>2.8 min</td>
+                                <td class="metric-bad">58%</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="alert alert-warning mt-3">
+                    <strong><i class="bi bi-exclamation-triangle"></i> PATTERN ALERT:</strong> Something changed over the weekend. Accuracy dropped 16 points in 48 hours.
+                </div>
+
+                <!-- GROUP TASK -->
+                <h2 style="margin-top: 50px; color: #667eea;"><i class="bi bi-people"></i> YOUR TASK: 20 Minutes</h2>
+
+                <div class="worksheet-section">
+                    <h3>STEP 1: DIAGNOSE (5 minutes)</h3>
+                    <p><strong>What's causing this problem?</strong></p>
+                    <p>Look at the patterns in the conversation logs. Consider:</p>
+                    <ul>
+                        <li>What types of mistakes is the bot making?</li>
+                        <li>Is it consistently wrong or randomly wrong?</li>
+                        <li>What changed over the weekend?</li>
+                        <li>Could this be training data? Deployment issue? Real-world data the model hasn't seen before?</li>
+                    </ul>
+                    
+                    <div style="margin: 20px 0; padding: 15px; background: #f0f0f0; border-radius: 5px;">
+                        <p><strong>Most Likely Root Cause:</strong></p>
+                        <div class="text-input"></div>
+                    </div>
+                </div>
+
+                <div class="worksheet-section">
+                    <h3>STEP 2: IMMEDIATE ACTION (5 minutes)</h3>
+                    <p><strong>What do you do RIGHT NOW (by 9am)?</strong></p>
+                    <p class="text-muted">Sarah wants to shut it down. CEO is demanding answers. You have minutes to decide.</p>
+                    
+                    <div style="margin: 20px 0;">
+                        <p><strong>Choose your approach:</strong></p>
+                        <ul style="list-style: none; padding: 0;">
+                            <li style="margin: 15px 0;">
+                                <label><input type="radio" name="action"> <strong>A) Shut down completely</strong> until fixed</label>
+                                <div style="margin-left: 30px; font-size: 0.9rem; color: #666;">Pros: No more bad data | Cons: No chatbot at all</div>
+                            </li>
+                            <li style="margin: 15px 0;">
+                                <label><input type="radio" name="action"> <strong>B) Partial shutdown</strong> - disable certain query types</label>
+                                <div style="margin-left: 30px; font-size: 0.9rem; color: #666;">Keep safe queries, disable risky ones</div>
+                            </li>
+                            <li style="margin: 15px 0;">
+                                <label><input type="radio" name="action"> <strong>C) Keep running</strong> with safeguards & monitoring</label>
+                                <div style="margin-left: 30px; font-size: 0.9rem; color: #666;">Trust your team to respond quickly if issues arise</div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div style="margin: 20px 0; padding: 15px; background: #fff3cd; border-radius: 5px;">
+                        <p><strong>Your Decision & Rationale (defend this to executives):</strong></p>
+                        <div class="text-input" style="min-height: 80px;"></div>
+                    </div>
+                </div>
+
+                <div class="worksheet-section">
+                    <h3>STEP 3: IMMEDIATE COMMUNICATIONS (5 minutes)</h3>
+                    <p><strong>What do you say to key stakeholders?</strong></p>
+                    
+                    <p style="margin-top: 20px;"><strong>Quick Message to Sarah (Customer Service Manager):</strong></p>
+                    <div class="text-input" style="min-height: 80px; font-size: 0.9rem;"></div>
+
+                    <p style="margin-top: 20px;"><strong>Slack Update to Executive Sponsor (for the 10am deadline):</strong></p>
+                    <div class="text-input" style="min-height: 60px; font-size: 0.9rem;"></div>
+
+                    <p style="margin-top: 20px;"><strong>Communication to Affected Customers:</strong></p>
+                    <p>How will you identify them?</p>
+                    <div class="text-input" style="min-height: 50px; font-size: 0.9rem;"></div>
+                </div>
+
+                <div class="worksheet-section">
+                    <h3>STEP 4: 48-HOUR FIX PLAN (5 minutes)</h3>
+                    <p><strong>What's your plan to fix the root cause?</strong></p>
+                    
+                    <p style="margin-top: 15px;"><strong>Hours 0-4 (This morning):</strong></p>
+                    <div class="text-input" style="min-height: 60px; font-size: 0.9rem;"></div>
+
+                    <p style="margin-top: 15px;"><strong>Hours 4-24 (Today-Tonight):</strong></p>
+                    <div class="text-input" style="min-height: 60px; font-size: 0.9rem;"></div>
+
+                    <p style="margin-top: 15px;"><strong>Hours 24-48 (Tomorrow):</strong></p>
+                    <div class="text-input" style="min-height: 60px; font-size: 0.9rem;"></div>
+
+                    <p style="margin-top: 20px;"><strong>Key Questions:</strong></p>
+                    <ul>
+                        <li>Who owns each action?</li>
+                        <li>What resources do you need?</li>
+                        <li>How will you prevent this in the future?</li>
+                    </ul>
+                </div>
+
+                <div class="alert alert-info mt-4">
+                    <strong><i class="bi bi-info-circle"></i> FACILITATOR WILL REVEAL:</strong><br>
+                    After your group completes this exercise, the facilitator will share:
+                    <ul class="mb-0" style="margin-top: 10px;">
+                        <li>The actual root cause (based on realistic AI failure modes)</li>
+                        <li>How different groups approached the problem</li>
+                        <li>What effective crisis management looks like</li>
+                    </ul>
+                </div>
+
+            </div>
+        </main>
+    </div>
+
+    <!-- Footer (auto-generated via js/init-footer-professional.js) -->
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../js/init-navbar.js"></script>
+    <script src="../js/init-footer-professional.js"></script>
+</body>
+</html>

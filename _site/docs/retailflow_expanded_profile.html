@@ -1,0 +1,1280 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.25">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>retailflow_expanded_profile – RetailFlow</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-ff63373b1067ca6f91cf1456aa1f00a2.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+
+
+<link rel="stylesheet" href="../styles.css">
+</head>
+
+<body class="nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a href="../index.html" class="navbar-brand navbar-brand-logo">
+    </a>
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">RetailFlow</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../consultant.html"> 
+<span class="menu-text">Consultant Dashboard</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-company" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Company</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-company">    
+        <li>
+    <a class="dropdown-item" href="../company/overview.html">
+ <span class="dropdown-text">Overview</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../company/team.html">
+ <span class="dropdown-text">Team</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-project" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Project</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-project">    
+        <li>
+    <a class="dropdown-item" href="../project/charter.html">
+ <span class="dropdown-text">Project Charter</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../project/timeline.html">
+ <span class="dropdown-text">Timeline</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-resources" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Resources</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-resources">    
+        <li>
+    <a class="dropdown-item" href="../resources/scenarios.html">
+ <span class="dropdown-text">Scenarios</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../resources/documents.html">
+ <span class="dropdown-text">Documents</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="../contact.html"> 
+<span class="menu-text">Contact</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../docs/retailflow_legal_disclaimer.html"> 
+<span class="menu-text">Education Site</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#retailflow-expanded-company-profile" id="toc-retailflow-expanded-company-profile" class="nav-link active" data-scroll-target="#retailflow-expanded-company-profile">RetailFlow: Expanded Company Profile</a>
+  <ul class="collapse">
+  <li><a href="#executive-summary" id="toc-executive-summary" class="nav-link" data-scroll-target="#executive-summary">EXECUTIVE SUMMARY</a></li>
+  <li><a href="#company-history-evolution" id="toc-company-history-evolution" class="nav-link" data-scroll-target="#company-history-evolution">COMPANY HISTORY &amp; EVOLUTION</a>
+  <ul class="collapse">
+  <li><a href="#founding-early-years-2008-2012" id="toc-founding-early-years-2008-2012" class="nav-link" data-scroll-target="#founding-early-years-2008-2012">Founding &amp; Early Years (2008-2012)</a></li>
+  <li><a href="#growth-consolidation-2013-2017" id="toc-growth-consolidation-2013-2017" class="nav-link" data-scroll-target="#growth-consolidation-2013-2017">Growth &amp; Consolidation (2013-2017)</a></li>
+  <li><a href="#digital-awakening-2018-2021" id="toc-digital-awakening-2018-2021" class="nav-link" data-scroll-target="#digital-awakening-2018-2021">Digital Awakening (2018-2021)</a></li>
+  <li><a href="#recent-leadership-change-2020-present" id="toc-recent-leadership-change-2020-present" class="nav-link" data-scroll-target="#recent-leadership-change-2020-present">Recent Leadership Change (2020-Present)</a></li>
+  </ul></li>
+  <li><a href="#organizational-structure" id="toc-organizational-structure" class="nav-link" data-scroll-target="#organizational-structure">ORGANIZATIONAL STRUCTURE</a>
+  <ul class="collapse">
+  <li><a href="#executive-leadership-report-to-board" id="toc-executive-leadership-report-to-board" class="nav-link" data-scroll-target="#executive-leadership-report-to-board">Executive Leadership (Report to Board)</a></li>
+  <li><a href="#executive-team-detail" id="toc-executive-team-detail" class="nav-link" data-scroll-target="#executive-team-detail">Executive Team Detail</a></li>
+  <li><a href="#operations-structure" id="toc-operations-structure" class="nav-link" data-scroll-target="#operations-structure">Operations Structure</a></li>
+  <li><a href="#key-departments" id="toc-key-departments" class="nav-link" data-scroll-target="#key-departments">Key Departments</a></li>
+  </ul></li>
+  <li><a href="#financial-details-key-metrics" id="toc-financial-details-key-metrics" class="nav-link" data-scroll-target="#financial-details-key-metrics">FINANCIAL DETAILS &amp; KEY METRICS</a>
+  <ul class="collapse">
+  <li><a href="#current-financial-year-fy2024" id="toc-current-financial-year-fy2024" class="nav-link" data-scroll-target="#current-financial-year-fy2024">Current Financial Year (FY2024)</a></li>
+  <li><a href="#key-performance-indicators" id="toc-key-performance-indicators" class="nav-link" data-scroll-target="#key-performance-indicators">Key Performance Indicators</a></li>
+  <li><a href="#budget-allocation-annual" id="toc-budget-allocation-annual" class="nav-link" data-scroll-target="#budget-allocation-annual">Budget Allocation (Annual)</a></li>
+  </ul></li>
+  <li><a href="#product-categories-brands" id="toc-product-categories-brands" class="nav-link" data-scroll-target="#product-categories-brands">PRODUCT CATEGORIES &amp; BRANDS</a>
+  <ul class="collapse">
+  <li><a href="#womens-fashion-40-of-revenue-aud-60m" id="toc-womens-fashion-40-of-revenue-aud-60m" class="nav-link" data-scroll-target="#womens-fashion-40-of-revenue-aud-60m">Women’s Fashion (40% of revenue, AUD $60M)</a></li>
+  <li><a href="#homewares-30-of-revenue-aud-45m" id="toc-homewares-30-of-revenue-aud-45m" class="nav-link" data-scroll-target="#homewares-30-of-revenue-aud-45m">Homewares (30% of revenue, AUD $45M)</a></li>
+  <li><a href="#mens-fashion-20-of-revenue-aud-30m" id="toc-mens-fashion-20-of-revenue-aud-30m" class="nav-link" data-scroll-target="#mens-fashion-20-of-revenue-aud-30m">Men’s Fashion (20% of revenue, AUD $30M)</a></li>
+  <li><a href="#other-10-of-revenue-aud-15m" id="toc-other-10-of-revenue-aud-15m" class="nav-link" data-scroll-target="#other-10-of-revenue-aud-15m">Other (10% of revenue, AUD $15M)</a></li>
+  <li><a href="#product-strategy-innovation" id="toc-product-strategy-innovation" class="nav-link" data-scroll-target="#product-strategy-innovation">Product Strategy &amp; Innovation</a></li>
+  </ul></li>
+  <li><a href="#competitive-positioning" id="toc-competitive-positioning" class="nav-link" data-scroll-target="#competitive-positioning">COMPETITIVE POSITIONING</a>
+  <ul class="collapse">
+  <li><a href="#competitive-landscape" id="toc-competitive-landscape" class="nav-link" data-scroll-target="#competitive-landscape">Competitive Landscape</a></li>
+  <li><a href="#retailflows-positioning" id="toc-retailflows-positioning" class="nav-link" data-scroll-target="#retailflows-positioning">RetailFlow’s Positioning</a></li>
+  <li><a href="#market-trends-working-foragainst-retailflow" id="toc-market-trends-working-foragainst-retailflow" class="nav-link" data-scroll-target="#market-trends-working-foragainst-retailflow">Market Trends Working For/Against RetailFlow</a></li>
+  <li><a href="#strategic-competitive-response" id="toc-strategic-competitive-response" class="nav-link" data-scroll-target="#strategic-competitive-response">Strategic Competitive Response</a></li>
+  </ul></li>
+  <li><a href="#strategic-challenges-opportunities" id="toc-strategic-challenges-opportunities" class="nav-link" data-scroll-target="#strategic-challenges-opportunities">STRATEGIC CHALLENGES &amp; OPPORTUNITIES</a>
+  <ul class="collapse">
+  <li><a href="#current-strategic-challenges" id="toc-current-strategic-challenges" class="nav-link" data-scroll-target="#current-strategic-challenges">Current Strategic Challenges</a></li>
+  <li><a href="#strategic-opportunities" id="toc-strategic-opportunities" class="nav-link" data-scroll-target="#strategic-opportunities">Strategic Opportunities</a></li>
+  </ul></li>
+  <li><a href="#technology-infrastructure" id="toc-technology-infrastructure" class="nav-link" data-scroll-target="#technology-infrastructure">TECHNOLOGY INFRASTRUCTURE</a>
+  <ul class="collapse">
+  <li><a href="#current-technology-stack" id="toc-current-technology-stack" class="nav-link" data-scroll-target="#current-technology-stack">Current Technology Stack</a></li>
+  <li><a href="#technology-challenges" id="toc-technology-challenges" class="nav-link" data-scroll-target="#technology-challenges">Technology Challenges</a></li>
+  <li><a href="#technology-roadmap-2025-2027" id="toc-technology-roadmap-2025-2027" class="nav-link" data-scroll-target="#technology-roadmap-2025-2027">Technology Roadmap (2025-2027)</a></li>
+  </ul></li>
+  <li><a href="#recent-company-initiatives-projects" id="toc-recent-company-initiatives-projects" class="nav-link" data-scroll-target="#recent-company-initiatives-projects">RECENT COMPANY INITIATIVES &amp; PROJECTS</a>
+  <ul class="collapse">
+  <li><a href="#in-progress" id="toc-in-progress" class="nav-link" data-scroll-target="#in-progress">In Progress</a></li>
+  <li><a href="#recently-completed-past-12-months" id="toc-recently-completed-past-12-months" class="nav-link" data-scroll-target="#recently-completed-past-12-months">Recently Completed (Past 12 Months)</a></li>
+  <li><a href="#proposed-under-consideration" id="toc-proposed-under-consideration" class="nav-link" data-scroll-target="#proposed-under-consideration">Proposed / Under Consideration</a></li>
+  <li><a href="#historical-project-performance" id="toc-historical-project-performance" class="nav-link" data-scroll-target="#historical-project-performance">Historical Project Performance</a></li>
+  </ul></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
+
+
+
+
+<section id="retailflow-expanded-company-profile" class="level1">
+<h1>RetailFlow: Expanded Company Profile</h1>
+<section id="executive-summary" class="level2">
+<h2 class="anchored" data-anchor-id="executive-summary">EXECUTIVE SUMMARY</h2>
+<p>RetailFlow is a mid-sized Australian multi-channel retailer headquartered in Perth, Western Australia. Founded in 2008, the company has grown to AUD $150 million in annual revenue across 50 stores and a thriving e-commerce platform. RetailFlow is known for its customer-first culture, contemporary product design, and strong brand loyalty across Australia’s urban centers.</p>
+<p>The company operates at a critical inflection point: traditional retail faces structural headwinds, but RetailFlow’s omnichannel positioning and financial stability provide the foundation for strategic digital transformation. Leadership has committed to leveraging AI and advanced analytics to enhance customer experience, optimize operations, and maintain competitive advantage.</p>
+<hr>
+</section>
+<section id="company-history-evolution" class="level2">
+<h2 class="anchored" data-anchor-id="company-history-evolution">COMPANY HISTORY &amp; EVOLUTION</h2>
+<section id="founding-early-years-2008-2012" class="level3">
+<h3 class="anchored" data-anchor-id="founding-early-years-2008-2012">Founding &amp; Early Years (2008-2012)</h3>
+<p>RetailFlow was founded by Sandra and Michael Richardson in Perth in 2008, during the global financial crisis. The couple had previously worked in retail merchandising for larger chains and identified an opportunity: affluent Australian consumers wanted contemporary design and quality at accessible price points, delivered through a curated shopping experience.</p>
+<p>The first RetailFlow store opened in Perth’s Hay Street Mall in 2008, featuring women’s fashion and homewares. Despite the GFC, the store gained traction with the “aspiring affluent” demographic—young professionals with disposable income seeking style without department store pretension. By 2011, the founders had opened 8 stores across Western Australia.</p>
+</section>
+<section id="growth-consolidation-2013-2017" class="level3">
+<h3 class="anchored" data-anchor-id="growth-consolidation-2013-2017">Growth &amp; Consolidation (2013-2017)</h3>
+<p>Between 2013 and 2017, RetailFlow expanded aggressively across Australia. Michael Richardson took the CEO role while Sandra managed design strategy. The company reached 40 stores by 2015, with significant presence in Sydney, Melbourne, and Brisbane. This period was marked by:</p>
+<ul>
+<li>Expansion into men’s fashion and beauty (2014)</li>
+<li>Launch of e-commerce platform on custom Magento build (2015)</li>
+<li>Investment in distribution infrastructure (2016): Built a 15,000 sqm distribution center in Melbourne</li>
+<li>Professionalization of the leadership team: Hired external executives for CFO and COO roles (2015-2016)</li>
+</ul>
+</section>
+<section id="digital-awakening-2018-2021" class="level3">
+<h3 class="anchored" data-anchor-id="digital-awakening-2018-2021">Digital Awakening (2018-2021)</h3>
+<p>A near-crisis in 2017 forced strategic reflection. During a severe inventory downturn, RetailFlow discovered that competitors using basic analytics were managing inventory far more effectively. Simultaneously, online pure-plays were capturing market share with superior tech experiences.</p>
+<p>The board made a pivotal decision: invest in digital capabilities or decline into mediocrity. This period saw:</p>
+<ul>
+<li>Recruitment of Marcus Kim as CIO (2019): Brought consulting experience in digital transformation</li>
+<li>Migration to Shopify Plus (2020): Expensive but successful, doubled online revenue</li>
+<li>Implementation of Salesforce CRM (2019): Painful initial rollout but now core to operations</li>
+<li>Launch of mobile app (2022): Took two iterations but now delivers 22% of online revenue</li>
+</ul>
+</section>
+<section id="recent-leadership-change-2020-present" class="level3">
+<h3 class="anchored" data-anchor-id="recent-leadership-change-2020-present">Recent Leadership Change (2020-Present)</h3>
+<p>Michael Richardson stepped back to Chairman in 2020. Emma Rodriguez, recruited from Myer, became CEO in 2020 with a mandate to “make RetailFlow a beacon of retail innovation.” Under Emma’s leadership:</p>
+<ul>
+<li>The company publicly embraced AI and digital transformation</li>
+<li>Established a formal innovation budget ($3 million annually)</li>
+<li>Began building a data science capability</li>
+<li>Board approved AI initiatives roadmap</li>
+</ul>
+<p>The company entered 2024 as a profitable, growing retailer with strong fundamentals, but facing intensifying competition and pressure to demonstrate digital sophistication to remain relevant.</p>
+<hr>
+</section>
+</section>
+<section id="organizational-structure" class="level2">
+<h2 class="anchored" data-anchor-id="organizational-structure">ORGANIZATIONAL STRUCTURE</h2>
+<section id="executive-leadership-report-to-board" class="level3">
+<h3 class="anchored" data-anchor-id="executive-leadership-report-to-board">Executive Leadership (Report to Board)</h3>
+<pre><code>BOARD OF DIRECTORS
+├── Sandra Richardson (Founder, Board Chair) - Retired from day-to-day
+├── Michael Richardson (Founder, Board Member) - Executive Chairman
+├── Emma Rodriguez (CEO)
+├── David Chen (CFO)
+├── Sarah Thompson (COO)
+├── Marcus Kim (CIO)
+├── Lisa Nguyen (Chief Customer Officer)
+├── External Board Members (3): Finance, Retail, Technology backgrounds</code></pre>
+</section>
+<section id="executive-team-detail" class="level3">
+<h3 class="anchored" data-anchor-id="executive-team-detail">Executive Team Detail</h3>
+<p><strong>Emma Rodriguez - Chief Executive Officer</strong> - Reports to: Board of Directors - Joined: 2020 - Tenure at RetailFlow: 4 years - Background: 12 years at Myer (GM E-Commerce, then VP Strategy) - Responsibility: Overall company performance, strategic direction, board relations</p>
+<p><strong>David Chen - Chief Financial Officer</strong> - Reports to: Emma Rodriguez (CEO) - Joined: 2016 - Tenure at RetailFlow: 8 years - Background: 10 years with Big 4 accounting firm, then 5 years at specialty retail chain - Responsibility: Financial planning, reporting, M&amp;A analysis, IT budgeting oversight</p>
+<p><strong>Sarah Thompson - Chief Operating Officer</strong> - Reports to: Emma Rodriguez (CEO) - Joined: 2008 (original team) - Tenure at RetailFlow: 16 years - Background: 15 years retail operations across multiple chains before founding - Responsibility: Store operations, logistics, supply chain, HR/culture, store staff</p>
+<p><strong>Marcus Kim - Chief Information Officer</strong> - Reports to: David Chen (CFO) - Joined: 2022 - Tenure at RetailFlow: 2 years - Background: 8 years at consulting firms (Deloitte, then Accenture), digital transformation focus - Responsibility: IT infrastructure, technology strategy, digital projects, vendor management</p>
+<p><strong>Lisa Nguyen - Chief Customer Officer</strong> - Reports to: Emma Rodriguez (CEO) - Joined: 2023 (new role) - Tenure at RetailFlow: 1 year - Background: 10 years in customer experience roles (Virgin Australia, then Amazon Australia) - Responsibility: Customer experience strategy, satisfaction metrics, customer-facing initiatives</p>
+</section>
+<section id="operations-structure" class="level3">
+<h3 class="anchored" data-anchor-id="operations-structure">Operations Structure</h3>
+<pre><code>CEO (Emma Rodriguez)
+│
+├── CFO (David Chen)
+│   ├── Controller (Finance Operations)
+│   ├── Business Analyst team (3 people)
+│   └── HR Manager
+│
+├── COO (Sarah Thompson)
+│   ├── Regional Store Managers (5 regions)
+│   ├── Distribution Center Manager
+│   ├── Supply Chain Manager
+│   ├── Store Operations Manager
+│   └── HR/Culture Lead
+│
+├── CIO (Marcus Kim)
+│   ├── Infrastructure Manager
+│   ├── Applications Manager
+│   ├── IT Security Manager (Rajesh Patel)
+│   └── IT Support team (6 people)
+│
+└── Chief Customer Officer (Lisa Nguyen)
+    ├── Customer Service Manager (Sarah Chen, 25-person team)
+    ├── Customer Insights Manager
+    └── Loyalty Program Manager</code></pre>
+</section>
+<section id="key-departments" class="level3">
+<h3 class="anchored" data-anchor-id="key-departments">Key Departments</h3>
+<p><strong>Customer Service (Reports to Lisa Nguyen, managed by Sarah Chen)</strong> - 25 full-time staff (20 customer service reps, 3 team leads, 2 trainers) - Located in Perth head office - Handles phone, email, chat inquiries - Currently operating at 95% capacity - High turnover (35% annually) - Average handle time: 8.2 minutes (phone), 26 hours (email)</p>
+<p><strong>Store Management (Reports to COO)</strong> - 50 stores divided into 5 regions (WA, NSW, VIC, QLD, SA) - Each region has 10-12 stores - Regional Manager oversees each region - Store Managers report to Regional Managers - Average store has 35 staff (Store Manager, 3-4 shift leads, 30-32 associates)</p>
+<p><strong>Distribution &amp; Logistics (Reports to COO)</strong> - Central distribution center in Melbourne (15,000 sqm) - 45 staff - 2,800 SKUs managed - Pick/pack rate: 400 orders/day - Serves both retail stores and online orders</p>
+<p><strong>IT &amp; Technology (Reports to CIO)</strong> - 15-person team - Infrastructure (4): Systems, networking, cloud - Applications (4): Development, support for core systems - Security (2): Marcus’s new hire, Rajesh Patel, plus junior - Support (5): Helpdesk, user support</p>
+<p><strong>Data &amp; Analytics (Reports to CIO, but matrixed to Finance/Customer Service)</strong> - Currently 2 people (Dr.&nbsp;Priya Sharma, Senior Data Scientist; 1 analyst) - Building capability in ML/AI - Provide analytics to Finance and Marketing</p>
+<hr>
+</section>
+</section>
+<section id="financial-details-key-metrics" class="level2">
+<h2 class="anchored" data-anchor-id="financial-details-key-metrics">FINANCIAL DETAILS &amp; KEY METRICS</h2>
+<section id="current-financial-year-fy2024" class="level3">
+<h3 class="anchored" data-anchor-id="current-financial-year-fy2024">Current Financial Year (FY2024)</h3>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Category</th>
+<th>Amount</th>
+<th>% of Revenue</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Total Revenue</strong></td>
+<td><strong>AUD $150.2M</strong></td>
+<td><strong>100%</strong></td>
+</tr>
+<tr class="even">
+<td>Store Revenue</td>
+<td>AUD $97.6M</td>
+<td>65%</td>
+</tr>
+<tr class="odd">
+<td>Online Revenue</td>
+<td>AUD $52.6M</td>
+<td>35%</td>
+</tr>
+<tr class="even">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><strong>Cost of Goods Sold</strong></td>
+<td>AUD $87.1M</td>
+<td>58%</td>
+</tr>
+<tr class="even">
+<td>Gross Profit</td>
+<td>AUD $63.1M</td>
+<td>42%</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><strong>Operating Expenses</strong></td>
+<td>AUD $52.8M</td>
+<td>35%</td>
+</tr>
+<tr class="odd">
+<td>Store Operations</td>
+<td>AUD $28.4M</td>
+<td>19%</td>
+</tr>
+<tr class="even">
+<td>Distribution &amp; Logistics</td>
+<td>AUD $8.2M</td>
+<td>5%</td>
+</tr>
+<tr class="odd">
+<td>Marketing &amp; Customer Acquisition</td>
+<td>AUD $7.8M</td>
+<td>5%</td>
+</tr>
+<tr class="even">
+<td>Corporate/Support Functions</td>
+<td>AUD $5.4M</td>
+<td>4%</td>
+</tr>
+<tr class="odd">
+<td>IT &amp; Technology</td>
+<td>AUD $4.5M</td>
+<td>3%</td>
+</tr>
+<tr class="even">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><strong>EBITDA</strong></td>
+<td>AUD $10.3M</td>
+<td>7%</td>
+</tr>
+<tr class="even">
+<td>Depreciation &amp; Amortization</td>
+<td>AUD $3.2M</td>
+<td>2%</td>
+</tr>
+<tr class="odd">
+<td><strong>Operating Profit</strong></td>
+<td><strong>AUD $7.1M</strong></td>
+<td><strong>4.7%</strong></td>
+</tr>
+<tr class="even">
+<td>Interest Expense</td>
+<td>AUD $0.8M</td>
+<td>0.5%</td>
+</tr>
+<tr class="odd">
+<td><strong>Net Profit Before Tax</strong></td>
+<td><strong>AUD $6.3M</strong></td>
+<td><strong>4.2%</strong></td>
+</tr>
+<tr class="even">
+<td>Tax (30%)</td>
+<td>AUD $1.9M</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><strong>Net Profit After Tax</strong></td>
+<td><strong>AUD $4.4M</strong></td>
+<td><strong>2.9%</strong></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="key-performance-indicators" class="level3">
+<h3 class="anchored" data-anchor-id="key-performance-indicators">Key Performance Indicators</h3>
+<p><strong>Revenue Metrics:</strong> - Year-over-year growth: 8% (target: 10%) - Online growth rate: 15% YoY (target: 18%) - Store same-store sales growth: 3% (flat to negative in some regions) - Average transaction value: AUD $87 (online), AUD $104 (store) - Conversion rate (online): 2.1% (target: 2.5%)</p>
+<p><strong>Customer Metrics:</strong> - Active customers: 284,000 - New customers acquired: 42,000 (annual) - Customer acquisition cost: AUD $42 - Customer lifetime value: AUD $1,840 (3-year) - Repeat purchase rate: 38% (target: 45%) - Average order frequency (online): 4.1 orders/year - Average store visit frequency: 3.2 visits/year</p>
+<p><strong>Operational Metrics:</strong> - Inventory turns: 4.2x (retail standard: 4.5x) - Markdown rate: 18% (target: 15%) - Distribution center efficiency: 85% (target: 90%) - Stock-out incidents: 8.3% of SKUs weekly (target: &lt;5%) - Online order fulfillment time: 2.1 days (target: 1 day)</p>
+<p><strong>Profitability Metrics:</strong> - Gross margin: 42% (down from 44% two years ago) - Operating margin: 4.7% (down from 5.2% two years ago) - Net margin: 2.9% (down from 3.8% two years ago) - Return on equity: 12.4% (declining) - Return on assets: 8.1% (declining)</p>
+<p><strong>Financial Position:</strong> - Cash reserves: AUD $12.2M (healthy) - Total debt: AUD $8.4M (long-term facility) - Debt-to-equity ratio: 0.28 (conservative) - Current ratio: 1.8 (healthy) - Working capital: AUD $14.6M</p>
+</section>
+<section id="budget-allocation-annual" class="level3">
+<h3 class="anchored" data-anchor-id="budget-allocation-annual">Budget Allocation (Annual)</h3>
+<p>Total annual operating budget: AUD $52.8M</p>
+<ul>
+<li>Store operations: 54% (AUD $28.4M)</li>
+<li>Distribution/logistics: 16% (AUD $8.2M)</li>
+<li>Marketing: 15% (AUD $7.8M)</li>
+<li>Corporate/support: 10% (AUD $5.4M)</li>
+<li>IT &amp; technology: 9% (AUD $4.5M)</li>
+</ul>
+<p><strong>Innovation Budget:</strong> AUD $3.0M (2% of revenue) - Data analytics: AUD $600K - AI/ML initiatives: AUD $900K (growing) - E-commerce enhancements: AUD $800K - Store technology: AUD $400K - Contingency: AUD $300K</p>
+<hr>
+</section>
+</section>
+<section id="product-categories-brands" class="level2">
+<h2 class="anchored" data-anchor-id="product-categories-brands">PRODUCT CATEGORIES &amp; BRANDS</h2>
+<section id="womens-fashion-40-of-revenue-aud-60m" class="level3">
+<h3 class="anchored" data-anchor-id="womens-fashion-40-of-revenue-aud-60m">Women’s Fashion (40% of revenue, AUD $60M)</h3>
+<p><strong>Brand Positioning:</strong> Contemporary, trend-aware, accessible luxury</p>
+<p><strong>Product Lines:</strong> - Everyday wear: Casual tops, jeans, basics (AUD $30-80) - Work wear: Blazers, trousers, business casual (AUD $60-180) - Evening/special occasion: Dresses, accessories (AUD $100-280) - Seasonal: Winter coats, summer dresses (AUD $50-200)</p>
+<p><strong>Suppliers:</strong> 60% sourced from Asia (Vietnam, China, India), 40% local/premium European labels</p>
+<p><strong>Key Metrics:</strong> - SKU count: 1,200 - Inventory turns: 4.8x (faster moving category) - Margin: 44% (highest margin category) - Top brands: Reiss, Saba, Bec &amp; Bridge (mixed owned and partnered)</p>
+</section>
+<section id="homewares-30-of-revenue-aud-45m" class="level3">
+<h3 class="anchored" data-anchor-id="homewares-30-of-revenue-aud-45m">Homewares (30% of revenue, AUD $45M)</h3>
+<p><strong>Brand Positioning:</strong> Contemporary design, quality, lifestyle focus</p>
+<p><strong>Product Lines:</strong> - Bedding &amp; linens: Quilt sets, sheets, pillows (AUD $60-280) - Furniture: Sofas, chairs, tables (AUD $200-1,200) - Decor &amp; accessories: Cushions, mirrors, artwork (AUD $20-400) - Kitchen &amp; dining: Dinnerware, glassware, cookware (AUD $30-150)</p>
+<p><strong>Suppliers:</strong> 70% imported (Europe, Asia), 30% local artisan/designers</p>
+<p><strong>Key Metrics:</strong> - SKU count: 800 - Inventory turns: 3.5x (slower moving) - Margin: 42% - Notable brands: Designer relationships with Australian furniture makers, European imports</p>
+</section>
+<section id="mens-fashion-20-of-revenue-aud-30m" class="level3">
+<h3 class="anchored" data-anchor-id="mens-fashion-20-of-revenue-aud-30m">Men’s Fashion (20% of revenue, AUD $30M)</h3>
+<p><strong>Brand Positioning:</strong> Casual to business casual, quality basics, contemporary styling</p>
+<p><strong>Product Lines:</strong> - Casual wear: T-shirts, polo shirts, casual trousers (AUD $40-120) - Business casual: Shirts, blazers, business trousers (AUD $70-250) - Accessories: Ties, belts, scarves, hats (AUD $25-80) - Shoes: Casual, business, formal (AUD $80-220)</p>
+<p><strong>Suppliers:</strong> Similar sourcing to women’s fashion</p>
+<p><strong>Key Metrics:</strong> - SKU count: 600 - Inventory turns: 4.1x - Margin: 40% - Growth rate: 12% YoY (fastest growing category)</p>
+</section>
+<section id="other-10-of-revenue-aud-15m" class="level3">
+<h3 class="anchored" data-anchor-id="other-10-of-revenue-aud-15m">Other (10% of revenue, AUD $15M)</h3>
+<ul>
+<li>Beauty products: Skincare, makeup, grooming (AUD $15-120)</li>
+<li>Gifts: Curated gift sets, seasonal items (AUD $25-150)</li>
+<li>Jewelry: Fashion jewelry, watches (AUD $40-400)</li>
+<li>Seasonal items: Holiday, Easter, winter/summer specials</li>
+</ul>
+<p><strong>Key Metrics:</strong> - Highly promotional - Margin: 35% (lowest due to competition) - Growth variable (seasonal)</p>
+</section>
+<section id="product-strategy-innovation" class="level3">
+<h3 class="anchored" data-anchor-id="product-strategy-innovation">Product Strategy &amp; Innovation</h3>
+<p><strong>Private Label Development:</strong> Developing RetailFlow-branded house lines (10% of revenue target) - Lower cost, better margins, brand control - Currently 5% of total SKUs - Growth target: 15% of SKUs by 2026</p>
+<p><strong>Sustainability Initiatives:</strong> Responding to customer demand - 20% of new products now featuring sustainable materials - Supplier audits in progress - Transparency reporting (launch Q2 2025)</p>
+<p><strong>Brand Partnerships:</strong> Strategic collaborations - Limited edition collections with emerging designers - Seasonal collaborations with lifestyle brands - Online exclusive partnerships</p>
+<hr>
+</section>
+</section>
+<section id="competitive-positioning" class="level2">
+<h2 class="anchored" data-anchor-id="competitive-positioning">COMPETITIVE POSITIONING</h2>
+<section id="competitive-landscape" class="level3">
+<h3 class="anchored" data-anchor-id="competitive-landscape">Competitive Landscape</h3>
+<p><strong>Market Segmentation:</strong></p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 22%">
+<col style="width: 20%">
+<col style="width: 22%">
+<col style="width: 22%">
+<col style="width: 14%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Competitor</th>
+<th>Position</th>
+<th>Strengths</th>
+<th>Weaknesses</th>
+<th>Share</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Myer</strong></td>
+<td>Department store, established</td>
+<td>Scale, brand, store estate</td>
+<td>Legacy tech, high costs, declining relevance</td>
+<td>22%</td>
+</tr>
+<tr class="even">
+<td><strong>Cotton On Group</strong></td>
+<td>Trendy, fast-fashion</td>
+<td>Growth, demographics, digital-native</td>
+<td>Less homewares, lower margin</td>
+<td>18%</td>
+</tr>
+<tr class="odd">
+<td><strong>Kmart</strong></td>
+<td>Value/budget</td>
+<td>Massive scale, EVERY category, convenience</td>
+<td>Discount positioning limits margins</td>
+<td>15%</td>
+</tr>
+<tr class="even">
+<td><strong>The Iconic</strong></td>
+<td>Pure online, design-focused</td>
+<td>Great tech, curation, free returns</td>
+<td>No physical presence, no homewares</td>
+<td>12%</td>
+</tr>
+<tr class="odd">
+<td><strong>ASOS</strong></td>
+<td>Online, youth-focused</td>
+<td>Global scale, tech, speed to market</td>
+<td>Delivery costs, limited local stock</td>
+<td>10%</td>
+</tr>
+<tr class="even">
+<td><strong>Amazon Australia</strong></td>
+<td>Everything, convenience</td>
+<td>Scale, logistics, prices</td>
+<td>Generic, not category-specialist</td>
+<td>8%</td>
+</tr>
+<tr class="odd">
+<td><strong>Specialty retailers</strong></td>
+<td>Category focus (Bed Bath Beyond, etc.)</td>
+<td>Expertise, range depth</td>
+<td>Limited geographic reach</td>
+<td>8%</td>
+</tr>
+<tr class="even">
+<td><strong>RetailFlow</strong></td>
+<td>Multi-channel, lifestyle, contemporary</td>
+<td><strong>Positioning below</strong></td>
+<td><strong>Positioning below</strong></td>
+<td>7%</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="retailflows-positioning" class="level3">
+<h3 class="anchored" data-anchor-id="retailflows-positioning">RetailFlow’s Positioning</h3>
+<p><strong>Sweet Spot:</strong> Mid-market, multi-channel, lifestyle-oriented retail for affluent urban Australians seeking contemporary design and convenient shopping across categories.</p>
+<p><strong>Competitive Advantages:</strong> 1. <strong>Omnichannel</strong>: 50 strategically located stores + strong e-commerce (most competitors focus on one channel) 2. <strong>Curation</strong>: Carefully selected products vs.&nbsp;broad “everything” approach (vs.&nbsp;Amazon, Kmart) 3. <strong>Design credentials</strong>: Contemporary positioning appeals to style-conscious consumers (vs.&nbsp;generic competitors) 4. <strong>Localized</strong>: Australian company with local insights (vs.&nbsp;international pure-plays) 5. <strong>Customer relationships</strong>: 284K active customers with reasonable loyalty 6. <strong>Financial stability</strong>: Profitable and patient capital (vs.&nbsp;venture-backed pure-plays)</p>
+<p><strong>Vulnerabilities:</strong> 1. <strong>Scale disadvantage</strong>: Can’t match Myer, Cotton On, Kmart on purchasing power 2. <strong>Tech gap</strong>: Behind ASOS, The Iconic, Cotton On on digital sophistication 3. <strong>Cost structure</strong>: 50 stores expensive vs.&nbsp;pure-play (1% of digital revenue needed for supply chain, they spend 3%) 4. <strong>Brand awareness</strong>: Strong in Perth, regional in other markets (vs.&nbsp;Myer, Cotton On national brand equity) 5. <strong>Speed to market</strong>: Multi-channel complexity means slower trend response than fast-fashion competitors 6. <strong>Specialization disadvantage</strong>: Being “good at everything” vs.&nbsp;specialists in each category</p>
+</section>
+<section id="market-trends-working-foragainst-retailflow" class="level3">
+<h3 class="anchored" data-anchor-id="market-trends-working-foragainst-retailflow">Market Trends Working For/Against RetailFlow</h3>
+<p><strong>Favorable Trends:</strong> - Omnichannel shopping increasingly expected (not niche) - Consumers valuing local/Australian businesses - Lifestyle retail (mixing fashion + homewares) resonating with consumers - Experience-driven retail (stores as showrooms, online for fulfillment) - Gen-Z authenticity preference (vs.&nbsp;mega-corporate)</p>
+<p><strong>Unfavorable Trends:</strong> - Structural retail decline (department stores, specialty retail declining) - E-commerce competition intensifying (new entrants, price compression) - Consumer preference for convenience over curation - Logistics costs rising (carbon pricing, labor costs) - Fashion fast-cycle accelerating (require faster trend response)</p>
+</section>
+<section id="strategic-competitive-response" class="level3">
+<h3 class="anchored" data-anchor-id="strategic-competitive-response">Strategic Competitive Response</h3>
+<p>RetailFlow’s leadership has identified three competitive strategies:</p>
+<ol type="1">
+<li><strong>Digital Excellence:</strong> Out-tech the tech-native competitors through AI, personalization, and superior data use (leveraging store data advantages)</li>
+<li><strong>Lifestyle Integration:</strong> Deepen cross-category selling (e.g., “Create Your Living Room” bundling fashion + homewares)</li>
+<li><strong>Local Authenticity:</strong> Build brand as “Australian design-savvy retailer” (vs.&nbsp;faceless global operators)</li>
+</ol>
+<p>The AI chatbot pilot is part of strategy #1—demonstrating RetailFlow can innovate with technology.</p>
+<hr>
+</section>
+</section>
+<section id="strategic-challenges-opportunities" class="level2">
+<h2 class="anchored" data-anchor-id="strategic-challenges-opportunities">STRATEGIC CHALLENGES &amp; OPPORTUNITIES</h2>
+<section id="current-strategic-challenges" class="level3">
+<h3 class="anchored" data-anchor-id="current-strategic-challenges">Current Strategic Challenges</h3>
+<p><strong>1. Profitability Pressure</strong> - Net margins declining (3.8% → 2.9% over 2 years) - Cost of goods rising (supplier inflation, logistics) - Gross margins compressed by heavy promotions/markdowns - Board questioning if multi-channel model is economically viable</p>
+<p><strong>2. Customer Experience Decline</strong> - NPS: 32 (industry average: 35) - Satisfaction: 68% (down from 78%) - Online reviews declining (3.8/5 stars) - Customer service metrics poor (26-hour email response, 12-min phone wait)</p>
+<p><strong>3. Competitive Intensity</strong> - Every competitor has more scale or more technology - Pure-plays outmoving on digital - Independents underpricing - Consolidation among competitors (Myer/Target, etc.)</p>
+<p><strong>4. Technology Debt</strong> - Legacy systems (inventory system from 2012, POS from 2016) - Limited data infrastructure - High reliance on external consultants - IT team capacity stretched</p>
+<p><strong>5. Talent &amp; Retention</strong> - Customer service turnover: 35% annually - Retail staff turnover: 28% annually - Difficulty attracting tech talent to Perth - Change fatigue from past implementations</p>
+<p><strong>6. Inventory Management</strong> - Forecasting accuracy: 72% (target: 85%) - Markdown rate: 18% (costing AUD $2.7M annually) - Stock-outs: 8.3% of SKUs weekly - Working capital tied up inefficiently</p>
+</section>
+<section id="strategic-opportunities" class="level3">
+<h3 class="anchored" data-anchor-id="strategic-opportunities">Strategic Opportunities</h3>
+<p><strong>1. AI-Powered Customer Service (Current Focus)</strong> - Reduce response times from 26 hours to &lt;2 hours - Handle 40% of inquiries without human involvement - Improve customer satisfaction scores - Reduce labor costs (AUD $1.2M annually for 25-person team)</p>
+<p><strong>2. Personalization at Scale</strong> - Use customer data for individualized recommendations - Similar to ASOS, but with store integration - Potential to increase average order value 15-20% - Build competitive moat (data advantage)</p>
+<p><strong>3. Inventory Demand Forecasting</strong> - Use AI to forecast demand more accurately - Reduce markdowns by 30% (AUD $800K opportunity) - Improve stock-out performance - Free up AUD $2-3M in working capital</p>
+<p><strong>4. Visual Search &amp; Image Recognition</strong> - “Find something similar” capability (in stores and online) - Photo-based shopping experience - Differentiator vs.&nbsp;competitors - Requires building computer vision capability</p>
+<p><strong>5. Dynamic Pricing</strong> - Optimize prices based on demand, inventory, competitor pricing - Especially valuable for homewares (slower-moving inventory) - Potential margin improvement: 1-2% (AUD $1.5-3M) - Requires careful implementation (brand/customer perception)</p>
+<p><strong>6. Staff Productivity Tools</strong> - In-store iPads with inventory/style recommendations - Employee-to-employee learning platform - Reduce training time, improve sales assist quality - Moderate investment, quick ROI</p>
+<p><strong>7. Supply Chain Optimization</strong> - Demand sensing across stores - Better allocation of inventory - Reduce transfer costs - Cross-store fulfillment (order from store B, ship from store A)</p>
+<p><strong>8. Marketplace Model</strong> - Allow third-party sellers to reach RetailFlow customers - Expand product range without capex - Increase commission revenue - Moderate risk (quality control needed)</p>
+<hr>
+</section>
+</section>
+<section id="technology-infrastructure" class="level2">
+<h2 class="anchored" data-anchor-id="technology-infrastructure">TECHNOLOGY INFRASTRUCTURE</h2>
+<section id="current-technology-stack" class="level3">
+<h3 class="anchored" data-anchor-id="current-technology-stack">Current Technology Stack</h3>
+<p><strong>Point of Sale &amp; Store Systems:</strong> - <strong>POS Platform:</strong> Retail Pro (deployed 2016, aging) - Runs on Windows servers in each store - Limited integration with online system - Difficult to extract real-time data - Replacement planned for 2026 (capital project)</p>
+<ul>
+<li><strong>Inventory Management:</strong> Custom-built system (2012)
+<ul>
+<li>Core application in SQL Server</li>
+<li>Manual data entry in many areas</li>
+<li>Limited integration with suppliers</li>
+<li>Major pain point (attempted rebuild in 2018, abandoned after $400K)</li>
+</ul></li>
+<li><strong>Store Operations:</strong> Mix of legacy systems and spreadsheets
+<ul>
+<li>Scheduling: Excel-based</li>
+<li>Performance tracking: Custom Access database</li>
+<li>Training: Paper-based + email</li>
+</ul></li>
+</ul>
+<p><strong>E-Commerce Platform:</strong> - <strong>Platform:</strong> Shopify Plus (migrated 2020) - Serving AUD $52.6M revenue (35% of business) - Mobile app on Shopify infrastructure - Good API integration, merchant-friendly - Relatively modern, well-maintained</p>
+<ul>
+<li><strong>Payment Processing:</strong> Stripe + local payment methods</li>
+<li><strong>CMS:</strong> Shopify Plus native</li>
+<li><strong>Shopping Cart:</strong> Shopify Plus native (recently upgraded)</li>
+</ul>
+<p><strong>Business Systems:</strong> - <strong>ERP:</strong> SAP Business One (implemented 2014) - Core financials, AR/AP, GL - Integrated with POS and online (partially) - Complex, limited customization capability - Staff proficiency variable</p>
+<ul>
+<li><strong>CRM:</strong> Salesforce (implemented 2019)
+<ul>
+<li>Customer database, interaction history</li>
+<li>Marketing automation integration</li>
+<li>Initially slow adoption, now core to operations</li>
+<li>Integrated with email marketing (Mailchimp)</li>
+</ul></li>
+<li><strong>HR/Payroll:</strong> ADP Workday
+<ul>
+<li>2,000 employee management</li>
+<li>Payroll processing</li>
+<li>Performance management module (minimal use)</li>
+</ul></li>
+<li><strong>Email &amp; Collaboration:</strong> Microsoft 365
+<ul>
+<li>Exchange, Teams, SharePoint</li>
+<li>Standard deployment, well-adopted</li>
+</ul></li>
+</ul>
+<p><strong>Data &amp; Analytics:</strong> - <strong>Data Warehouse:</strong> SQL Server (custom-built 2016) - Basic ETL from POS, e-commerce, SAP, Salesforce - No real-time capability - Performance degrading (needs upgrade)</p>
+<ul>
+<li><strong>Analytics Tools:</strong>
+<ul>
+<li>Power BI (2019): Self-service BI for managers</li>
+<li>Google Analytics: Website/app analytics</li>
+<li>Tableau: Limited use in specific teams</li>
+</ul></li>
+<li><strong>Data Lake:</strong> None (opportunity)</li>
+<li><strong>Machine Learning:</strong> No native capability (hiring Priya to build)</li>
+</ul>
+<p><strong>Security &amp; Infrastructure:</strong> - <strong>Cloud:</strong> AWS (basic—hosting some applications) - Shopify Plus in cloud (Shopify-managed) - Limited cloud strategy</p>
+<ul>
+<li><strong>On-Premise:</strong> Primary infrastructure
+<ul>
+<li>Data center in Perth (50 servers, aging)</li>
+<li>Store servers in each location</li>
+</ul></li>
+<li><strong>Security:</strong>
+<ul>
+<li>Firewalls, VPN for remote access</li>
+<li>Limited monitoring/alerting</li>
+<li>Recently hired Rajesh Patel as IT Security Manager (focus on modernizing)</li>
+<li>Compliance: Minimal (no formal GDPR or privacy program)</li>
+</ul></li>
+</ul>
+</section>
+<section id="technology-challenges" class="level3">
+<h3 class="anchored" data-anchor-id="technology-challenges">Technology Challenges</h3>
+<ol type="1">
+<li><strong>Integration gaps</strong>: Systems don’t talk to each other seamlessly</li>
+<li><strong>Data quality</strong>: Inconsistent customer data across systems</li>
+<li><strong>Scalability</strong>: Infrastructure struggling with e-commerce growth</li>
+<li><strong>Aging infrastructure</strong>: Multiple systems 8+ years old</li>
+<li><strong>Limited AI/ML capability</strong>: Data science team being built</li>
+<li><strong>High maintenance burden</strong>: Legacy systems consume 60% of IT budget</li>
+<li><strong>Vendor lock-in</strong>: Over-reliant on SAP, Shopify, AWS</li>
+<li><strong>Change management</strong>: Staff resistance to new systems</li>
+</ol>
+</section>
+<section id="technology-roadmap-2025-2027" class="level3">
+<h3 class="anchored" data-anchor-id="technology-roadmap-2025-2027">Technology Roadmap (2025-2027)</h3>
+<p><strong>2025 Priorities:</strong> - Complete customer service chatbot pilot (current project) - Begin POS platform replacement planning - Build data science team (Priya hired, 1 more analyst needed) - Modernize IT security (Rajesh’s mandate) - Expand analytics capability</p>
+<p><strong>2026 Priorities:</strong> - Implement new POS platform - Begin inventory forecasting AI project - Build data lake (consolidate data) - Implement personalization engine - Cloud migration strategy finalization</p>
+<p><strong>2027 Priorities:</strong> - Expand AI initiatives (dynamic pricing, visual search) - Complete legacy system replacement - Full cloud migration completed - Advanced analytics (predictive analytics, attribution modeling)</p>
+<p><strong>Investment Level:</strong> - 2025: AUD $4.5M (IT budget) - 2026: AUD $5.2M (includes POS replacement capex) - 2027: AUD $5.8M (continued investment in AI/analytics)</p>
+<hr>
+</section>
+</section>
+<section id="recent-company-initiatives-projects" class="level2">
+<h2 class="anchored" data-anchor-id="recent-company-initiatives-projects">RECENT COMPANY INITIATIVES &amp; PROJECTS</h2>
+<section id="in-progress" class="level3">
+<h3 class="anchored" data-anchor-id="in-progress">In Progress</h3>
+<p><strong>1. Customer Service Chatbot Pilot (CURRENT PROJECT)</strong> - Status: Week 2 of live deployment - Budget: AUD $150K - Timeline: 6 months (Sep 2024 - Feb 2025) - Executive sponsor: Lisa Nguyen (Chief Customer Officer) - Project manager: [Your role in the masterclass] - Goals: - Reduce email response time from 26 hours to &lt;2 hours - Handle 40% of inquiries without human intervention - Improve customer satisfaction scores - Validate AI capability for future projects - Current status: Operational but experiencing issues (described in crisis scenarios)</p>
+<p><strong>2. Sustainability Initiative</strong> - Status: In progress, public commitment made - Timeline: Ongoing - Goals: - 50% sustainable materials in new products by 2026 - Carbon neutral operations by 2030 - Supply chain transparency reporting - Current challenges: - Cost impact (3-5% higher product costs) - Supplier relationships strained - Consumer willingness to pay premium unclear</p>
+<p><strong>3. IT Security Modernization</strong> - Status: Recently kicked off - Lead: Rajesh Patel (new IT Security Manager, started Q1 2024) - Budget: AUD $300K annual (from IT budget) - Goals: - Implement zero-trust security model - Achieve SOC 2 compliance - Improve data privacy posture - Current challenges: - High cost of compliance - Business resistance to friction (authentication, access controls)</p>
+<p><strong>4. Store Visual Refresh</strong> - Status: Pilot stores completed, rolling out - Lead: Sarah Thompson (COO) - Budget: AUD $1.2M (capex) - Goals: - Modernize store experience - Improve brand perception - Integrate technology (digital signage, etc.) - Current status: 5 stores complete, 10 more in 2025</p>
+</section>
+<section id="recently-completed-past-12-months" class="level3">
+<h3 class="anchored" data-anchor-id="recently-completed-past-12-months">Recently Completed (Past 12 Months)</h3>
+<p><strong>1. Shopify Plus Optimization (Completed Q3 2024)</strong> - Upgraded e-commerce platform capabilities - Reduced page load times 30% - Improved mobile conversion 12% - Impact: Online revenue growth accelerated</p>
+<p><strong>2. Data Analytics Platform Upgrade (Completed Q2 2024)</strong> - Upgraded Power BI infrastructure - Trained 20 managers on self-service analytics - Reduced time to insight from 1 week to 1 day - Impact: Better informed decision-making</p>
+<p><strong>3. Customer Loyalty Program Relaunch (Completed Q1 2024)</strong> - New tiered loyalty program (Bronze, Silver, Gold) - Integrated with Salesforce CRM - Digital loyalty card in mobile app - Impact: 145K members enrolled (51% of active customers)</p>
+</section>
+<section id="proposed-under-consideration" class="level3">
+<h3 class="anchored" data-anchor-id="proposed-under-consideration">Proposed / Under Consideration</h3>
+<p><strong>1. Inventory Demand Forecasting AI</strong> - Status: Approved conceptually, detailed planning in progress - Timeline: 6 months development, start 2025 - Budget: AUD $200K - Expected ROI: AUD $800K annual (markdown reduction) - Lead: Dr.&nbsp;Priya Sharma (Data Scientist)</p>
+<p><strong>2. Dynamic Pricing System</strong> - Status: Approved for exploration, not yet greenlit for build - Potential budget: AUD $150K - Expected ROI: AUD $1.5-3M annual - Key concern: Brand perception risk - Dependency: Needs inventory forecasting first</p>
+<p><strong>3. Visual Search Capability</strong> - Status: Early-stage consideration - “Find similar items” image search - Estimated budget: AUD $120K - Lead: Marcus Kim (CIO) identifying vendors</p>
+<p><strong>4. Cross-Store Fulfillment Network</strong> - Status: Feasibility study in progress - Allows customers to order from store B, pick up from store A - Estimated cost: AUD $200K (system + training) - Expected ROI: Reduced logistics costs, improved availability - Challenge: Requires POS system replacement first</p>
+<p><strong>5. Staff Productivity Platform</strong> - Status: Vendor evaluation underway - In-store mobile tools, training, performance tracking - Estimated budget: AUD $80K - Expected impact: 5-10% improvement in sales productivity - Pilot: 5 stores in 2025</p>
+</section>
+<section id="historical-project-performance" class="level3">
+<h3 class="anchored" data-anchor-id="historical-project-performance">Historical Project Performance</h3>
+<p><strong>Successful Projects:</strong> - Shopify Plus migration (2020): On time, under budget, exceeded expectations - Microsoft 365 rollout (2021): Smooth adoption, positive user feedback - Salesforce CRM (2019): Slow start, now core system, good ROI - Loyalty program relaunch (2</p>
+
+
+</section>
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+<footer class="footer py-4 bg-dark text-light">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4">
+        <h5>RetailFlow</h5>
+        <p>Australia's fastest-growing retail destination, connecting millions of customers with the products they love.</p>
+        <div class="social-links">
+          <a href="#" class="text-light me-3"><i class="bi bi-facebook"></i></a>
+          <a href="#" class="text-light me-3"><i class="bi bi-twitter"></i></a>
+          <a href="#" class="text-light me-3"><i class="bi bi-instagram"></i></a>
+          <a href="#" class="text-light"><i class="bi bi-linkedin"></i></a>
+        </div>
+      </div>
+      
+      <div class="col-md-2">
+        <h6>Shop</h6>
+        <ul class="list-unstyled">
+          <li><a href="#" class="text-light text-decoration-none">New Arrivals</a></li>
+          <li><a href="#" class="text-light text-decoration-none">Best Sellers</a></li>
+          <li><a href="#" class="text-light text-decoration-none">Sale Items</a></li>
+          <li><a href="#" class="text-light text-decoration-none">Gift Cards</a></li>
+        </ul>
+      </div>
+      
+      <div class="col-md-2">
+        <h6>Customer Service</h6>
+        <ul class="list-unstyled">
+          <li><a href="contact.html" class="text-light text-decoration-none">Contact Us</a></li>
+          <li><a href="#" class="text-light text-decoration-none">Shipping Info</a></li>
+          <li><a href="#" class="text-light text-decoration-none">Returns</a></li>
+          <li><a href="#" class="text-light text-decoration-none">FAQ</a></li>
+        </ul>
+      </div>
+      
+      <div class="col-md-2">
+        <h6>About</h6>
+        <ul class="list-unstyled">
+          <li><a href="company/overview.html" class="text-light text-decoration-none">Our Story</a></li>
+          <li><a href="company/team.html" class="text-light text-decoration-none">Leadership</a></li>
+          <li><a href="#" class="text-light text-decoration-none">Careers</a></li>
+          <li><a href="#" class="text-light text-decoration-none">Press</a></li>
+        </ul>
+      </div>
+      
+      <div class="col-md-2">
+        <h6>Legal</h6>
+        <ul class="list-unstyled">
+          <li><a href="#" class="text-light text-decoration-none">Privacy Policy</a></li>
+          <li><a href="#" class="text-light text-decoration-none">Terms of Service</a></li>
+          <li><a href="docs/retailflow_legal_disclaimer.html" class="text-light text-decoration-none">Education Site</a></li>
+        </ul>
+      </div>
+    </div>
+    
+    <hr class="my-4 border-secondary">
+    
+    <div class="row align-items-center">
+      <div class="col-md-6">
+        <p class="mb-0">© 2024 RetailFlow. All rights reserved.</p>
+      </div>
+      <div class="col-md-6 text-md-end">
+        <p class="mb-0">
+          <small class="text-muted">ABN: 123 456 789 000 | ACN: 123 456 789</small>
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+<style>
+.footer {
+  margin-top: 3rem;
+}
+
+.footer a:hover {
+  color: var(--retailflow-accent) !important;
+}
+
+.social-links a {
+  font-size: 1.2rem;
+  transition: color 0.2s;
+}
+
+.social-links a:hover {
+  color: var(--retailflow-accent) !important;
+}
+</style>
+
+
+
+
+</body></html>

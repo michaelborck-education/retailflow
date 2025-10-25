@@ -1,0 +1,1547 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.25">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>retailflow_website_architecture – RetailFlow</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-ff63373b1067ca6f91cf1456aa1f00a2.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+
+
+<link rel="stylesheet" href="../styles.css">
+</head>
+
+<body class="nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a href="../index.html" class="navbar-brand navbar-brand-logo">
+    </a>
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">RetailFlow</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../consultant.html"> 
+<span class="menu-text">Consultant Dashboard</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-company" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Company</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-company">    
+        <li>
+    <a class="dropdown-item" href="../company/overview.html">
+ <span class="dropdown-text">Overview</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../company/team.html">
+ <span class="dropdown-text">Team</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-project" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Project</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-project">    
+        <li>
+    <a class="dropdown-item" href="../project/charter.html">
+ <span class="dropdown-text">Project Charter</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../project/timeline.html">
+ <span class="dropdown-text">Timeline</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-resources" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Resources</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-resources">    
+        <li>
+    <a class="dropdown-item" href="../resources/scenarios.html">
+ <span class="dropdown-text">Scenarios</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../resources/documents.html">
+ <span class="dropdown-text">Documents</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="../contact.html"> 
+<span class="menu-text">Contact</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../docs/retailflow_legal_disclaimer.html"> 
+<span class="menu-text">Education Site</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#retailflow-virtual-company-website-architecture" id="toc-retailflow-virtual-company-website-architecture" class="nav-link active" data-scroll-target="#retailflow-virtual-company-website-architecture">RetailFlow Virtual Company Website Architecture</a>
+  <ul class="collapse">
+  <li><a href="#overview" id="toc-overview" class="nav-link" data-scroll-target="#overview">OVERVIEW</a></li>
+  <li><a href="#website-structure-strategy" id="toc-website-structure-strategy" class="nav-link" data-scroll-target="#website-structure-strategy">WEBSITE STRUCTURE &amp; STRATEGY</a>
+  <ul class="collapse">
+  <li><a href="#home-page-landing" id="toc-home-page-landing" class="nav-link" data-scroll-target="#home-page-landing">Home Page (Landing)</a></li>
+  </ul></li>
+  <li><a href="#main-navigation-structure" id="toc-main-navigation-structure" class="nav-link" data-scroll-target="#main-navigation-structure">MAIN NAVIGATION STRUCTURE</a></li>
+  <li><a href="#content-strategy-what-becomes-what" id="toc-content-strategy-what-becomes-what" class="nav-link" data-scroll-target="#content-strategy-what-becomes-what">CONTENT STRATEGY: WHAT BECOMES WHAT</a>
+  <ul class="collapse">
+  <li><a href="#tier-1-summary-pages-website-content" id="toc-tier-1-summary-pages-website-content" class="nav-link" data-scroll-target="#tier-1-summary-pages-website-content"><strong>TIER 1: SUMMARY PAGES (Website Content)</strong></a></li>
+  <li><a href="#tier-2-detailed-documents-pdfdownloadable" id="toc-tier-2-detailed-documents-pdfdownloadable" class="nav-link" data-scroll-target="#tier-2-detailed-documents-pdfdownloadable"><strong>TIER 2: DETAILED DOCUMENTS (PDF/Downloadable)</strong></a></li>
+  <li><a href="#tier-3-interactive-experiences-embedded-jstools" id="toc-tier-3-interactive-experiences-embedded-jstools" class="nav-link" data-scroll-target="#tier-3-interactive-experiences-embedded-jstools"><strong>TIER 3: INTERACTIVE EXPERIENCES (Embedded JS/Tools)</strong></a></li>
+  </ul></li>
+  <li><a href="#detailed-implementation-plan" id="toc-detailed-implementation-plan" class="nav-link" data-scroll-target="#detailed-implementation-plan">DETAILED IMPLEMENTATION PLAN</a>
+  <ul class="collapse">
+  <li><a href="#homepage-structure" id="toc-homepage-structure" class="nav-link" data-scroll-target="#homepage-structure">Homepage Structure</a></li>
+  <li><a href="#company-overview-page-companyoverview" id="toc-company-overview-page-companyoverview" class="nav-link" data-scroll-target="#company-overview-page-companyoverview">Company Overview Page (<code>/company/overview</code>)</a></li>
+  <li><a href="#team-directory-page-companyteam" id="toc-team-directory-page-companyteam" class="nav-link" data-scroll-target="#team-directory-page-companyteam">Team Directory Page (<code>/company/team</code>)</a></li>
+  <li><a href="#project-overview-page-projectoverview" id="toc-project-overview-page-projectoverview" class="nav-link" data-scroll-target="#project-overview-page-projectoverview">Project Overview Page (<code>/project/overview</code>)</a></li>
+  <li><a href="#interact---chatbot-page-interactchatbot" id="toc-interact---chatbot-page-interactchatbot" class="nav-link" data-scroll-target="#interact---chatbot-page-interactchatbot">Interact - Chatbot Page (<code>/interact/chatbot</code>)</a></li>
+  <li><a href="#interact---team-bots-page-interactteam" id="toc-interact---team-bots-page-interactteam" class="nav-link" data-scroll-target="#interact---team-bots-page-interactteam">Interact - Team Bots Page (<code>/interact/team</code>)</a></li>
+  <li><a href="#scenarios-page-interactscenarios" id="toc-scenarios-page-interactscenarios" class="nav-link" data-scroll-target="#scenarios-page-interactscenarios">Scenarios Page (<code>/interact/scenarios</code>)</a></li>
+  <li><a href="#documents-section-documents" id="toc-documents-section-documents" class="nav-link" data-scroll-target="#documents-section-documents">Documents Section (<code>/documents/</code>)</a></li>
+  <li><a href="#dashboard-page-dashboard" id="toc-dashboard-page-dashboard" class="nav-link" data-scroll-target="#dashboard-page-dashboard">Dashboard Page (<code>/dashboard/</code>)</a></li>
+  </ul></li>
+  <li><a href="#implementation-roadmap" id="toc-implementation-roadmap" class="nav-link" data-scroll-target="#implementation-roadmap">IMPLEMENTATION ROADMAP</a>
+  <ul class="collapse">
+  <li><a href="#phase-1-foundation-week-1" id="toc-phase-1-foundation-week-1" class="nav-link" data-scroll-target="#phase-1-foundation-week-1">Phase 1: Foundation (Week 1)</a></li>
+  <li><a href="#phase-2-content-week-2-3" id="toc-phase-2-content-week-2-3" class="nav-link" data-scroll-target="#phase-2-content-week-2-3">Phase 2: Content (Week 2-3)</a></li>
+  <li><a href="#phase-3-interactivity-week-4-5" id="toc-phase-3-interactivity-week-4-5" class="nav-link" data-scroll-target="#phase-3-interactivity-week-4-5">Phase 3: Interactivity (Week 4-5)</a></li>
+  <li><a href="#phase-4-polish-week-6" id="toc-phase-4-polish-week-6" class="nav-link" data-scroll-target="#phase-4-polish-week-6">Phase 4: Polish (Week 6)</a></li>
+  </ul></li>
+  <li><a href="#technology-stack" id="toc-technology-stack" class="nav-link" data-scroll-target="#technology-stack">TECHNOLOGY STACK</a></li>
+  <li><a href="#github-structure" id="toc-github-structure" class="nav-link" data-scroll-target="#github-structure">GITHUB STRUCTURE</a></li>
+  <li><a href="#key-principles" id="toc-key-principles" class="nav-link" data-scroll-target="#key-principles">KEY PRINCIPLES</a></li>
+  <li><a href="#next-steps" id="toc-next-steps" class="nav-link" data-scroll-target="#next-steps">NEXT STEPS</a></li>
+  <li><a href="#example-flow-for-participants" id="toc-example-flow-for-participants" class="nav-link" data-scroll-target="#example-flow-for-participants">EXAMPLE FLOW FOR PARTICIPANTS</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
+
+
+
+
+<section id="retailflow-virtual-company-website-architecture" class="level1">
+<h1>RetailFlow Virtual Company Website Architecture</h1>
+<section id="overview" class="level2">
+<h2 class="anchored" data-anchor-id="overview">OVERVIEW</h2>
+<p>A static website hosted on GitHub with a custom domain that presents RetailFlow as an <strong>immersive, interactive virtual company experience</strong>. Visitors explore the company as if they’re consultants/employees, with the chatbots as virtual “colleagues” they can interact with.</p>
+<hr>
+</section>
+<section id="website-structure-strategy" class="level2">
+<h2 class="anchored" data-anchor-id="website-structure-strategy">WEBSITE STRUCTURE &amp; STRATEGY</h2>
+<section id="home-page-landing" class="level3">
+<h3 class="anchored" data-anchor-id="home-page-landing">Home Page (Landing)</h3>
+<p><strong>Purpose:</strong> Introduce RetailFlow and set context</p>
+<p><strong>Content:</strong> - Company mission/vision statement - One-liner: “Australia’s multi-channel retailer solving customer service challenges with AI” - Call-to-action: “Explore the Company” or “Meet the Team” - Dashboard preview: Real-time metrics snapshot - Video intro (optional): 1-min overview of the challenge</p>
+<p><strong>Design:</strong> Professional, contemporary retail feel. Perth-based Australian aesthetic.</p>
+<hr>
+</section>
+</section>
+<section id="main-navigation-structure" class="level2">
+<h2 class="anchored" data-anchor-id="main-navigation-structure">MAIN NAVIGATION STRUCTURE</h2>
+<pre><code>RetailFlow.com/
+├── /
+│   └── Home (landing page)
+├── /company/
+│   ├── overview/        (Company profile summary)
+│   ├── history/         (Company history + evolution)
+│   ├── team/            (Employee directory - clickable profiles)
+│   ├── culture/         (Vision, values, culture)
+│   └── financials/      (Q2 summary, key metrics)
+├── /project/
+│   ├── overview/        (Chatbot project charter summary)
+│   ├── timeline/        (Interactive project timeline)
+│   ├── team/            (Project team structure)
+│   ├── budget/          (Budget breakdown visualization)
+│   ├── metrics/         (Success criteria dashboard)
+│   └── risks/           (Risk register)
+├── /insights/
+│   ├── market/          (Competitive analysis)
+│   ├── customers/       (Customer satisfaction data)
+│   ├── challenges/      (Strategic challenges)
+│   └── opportunities/   (Strategic opportunities)
+├── /interact/
+│   ├── chatbot/         (Main RetailBot interaction)
+│   ├── team/            (Interact with "bots" - employees as AI agents)
+│   └── scenarios/       (Customer service scenarios as simulations)
+├── /documents/
+│   ├── company-profile/
+│   ├── employee-profiles/
+│   ├── internal-documents/
+│   ├── project-charter/
+│   ├── customer-scenarios/
+│   └── bot-profiles/
+├── /dashboard/
+│   └── live-metrics/    (Real-time project KPIs)
+└── /about/
+    └── About this exercise</code></pre>
+<hr>
+</section>
+<section id="content-strategy-what-becomes-what" class="level2">
+<h2 class="anchored" data-anchor-id="content-strategy-what-becomes-what">CONTENT STRATEGY: WHAT BECOMES WHAT</h2>
+<section id="tier-1-summary-pages-website-content" class="level3">
+<h3 class="anchored" data-anchor-id="tier-1-summary-pages-website-content"><strong>TIER 1: SUMMARY PAGES (Website Content)</strong></h3>
+<p>These are <strong>simplified, engaging web pages</strong> extracted from the detailed documents:</p>
+<section id="companyoverview" class="level4">
+<h4 class="anchored" data-anchor-id="companyoverview">/company/overview</h4>
+<ul>
+<li>Extracted from: Expanded Company Profile</li>
+<li>Content: 300-word summary of RetailFlow’s business model</li>
+<li>Includes: Founded 2008, 50 stores, AUD $150M revenue, multi-channel focus</li>
+<li>CTA: “Meet the Team” or “Explore Our Business”</li>
+</ul>
+</section>
+<section id="companyteam" class="level4">
+<h4 class="anchored" data-anchor-id="companyteam">/company/team</h4>
+<ul>
+<li>Extracted from: Employee Profiles</li>
+<li>Presents: Interactive employee directory (cards/grid)</li>
+<li>Each employee has: Photo placeholder, name, title, 1-line bio</li>
+<li>On click: Modal or slide-out with full profile</li>
+<li>Shows org structure visually (hierarchical chart)</li>
+</ul>
+</section>
+<section id="projectoverview" class="level4">
+<h4 class="anchored" data-anchor-id="projectoverview">/project/overview</h4>
+<ul>
+<li>Extracted from: Chatbot Project Charter</li>
+<li>Content: 400-word project summary</li>
+<li>Includes: Budget, timeline, objectives, stakeholders</li>
+<li>Visual: Project phases timeline</li>
+</ul>
+</section>
+<section id="insightsmarket" class="level4">
+<h4 class="anchored" data-anchor-id="insightsmarket">/insights/market</h4>
+<ul>
+<li>Extracted from: Competitive Analysis</li>
+<li>Content: Competitive landscape summary</li>
+<li>Visual: Positioning map (RetailFlow vs.&nbsp;competitors)</li>
+<li>Includes: Key competitive insights</li>
+</ul>
+</section>
+<section id="insightscustomers" class="level4">
+<h4 class="anchored" data-anchor-id="insightscustomers">/insights/customers</h4>
+<ul>
+<li>Extracted from: Customer Satisfaction Survey</li>
+<li>Content: Key findings visualized</li>
+<li>Charts: CSAT trends, satisfaction by channel, top complaints</li>
+<li>CTA: “See the Customer Scenarios”</li>
+</ul>
+<hr>
+</section>
+</section>
+<section id="tier-2-detailed-documents-pdfdownloadable" class="level3">
+<h3 class="anchored" data-anchor-id="tier-2-detailed-documents-pdfdownloadable"><strong>TIER 2: DETAILED DOCUMENTS (PDF/Downloadable)</strong></h3>
+<p>These are the <strong>original markdown documents</strong> reformatted for easy access:</p>
+<p>Location: <code>/documents/</code> section</p>
+<p><strong>Available as:</strong> 1. <strong>Markdown viewer</strong> (browser-readable version) 2. <strong>PDF downloads</strong> (for offline access) 3. <strong>Rich HTML versions</strong> (formatted nicely)</p>
+<p><strong>Documents:</strong> - retailflow-company-profile.md - retailflow-employee-profiles.md - retailflow-internal-documents.md - retailflow-chatbot-project.md - retailflow-customer-scenarios.md - retailflow-bot-profiles.md</p>
+<hr>
+</section>
+<section id="tier-3-interactive-experiences-embedded-jstools" class="level3">
+<h3 class="anchored" data-anchor-id="tier-3-interactive-experiences-embedded-jstools"><strong>TIER 3: INTERACTIVE EXPERIENCES (Embedded JS/Tools)</strong></h3>
+<p>These are where participants <strong>engage with the simulation</strong>:</p>
+<section id="interactchatbot" class="level4">
+<h4 class="anchored" data-anchor-id="interactchatbot">/interact/chatbot</h4>
+<ul>
+<li><strong>Embed: RetailBot chatbot</strong> (your JS implementation)</li>
+<li>Purpose: Experience the actual AI chatbot as customers would</li>
+<li>Participants can test queries, see responses</li>
+<li>Track: “Conversations” logged for learning</li>
+</ul>
+</section>
+<section id="interactteam" class="level4">
+<h4 class="anchored" data-anchor-id="interactteam">/interact/team</h4>
+<ul>
+<li><strong>Embed: Interactive “Employee Bots”</strong></li>
+<li>Each of the 6 bots (RetailBot, DataAnalyzer, PolicyAdvisor, etc.)</li>
+<li>Or even the 9 human employees as “askable” AI agents</li>
+<li>Participants ask them questions and get responses</li>
+<li>Example:
+<ul>
+<li>“Ask Emma (CEO) about the project”</li>
+<li>“Ask Sarah Chen about team morale”</li>
+<li>“Ask DataAnalyzer for current metrics”</li>
+</ul></li>
+<li>Behind scenes: LLM-powered responses based on their character profiles</li>
+</ul>
+</section>
+<section id="interactscenarios" class="level4">
+<h4 class="anchored" data-anchor-id="interactscenarios">/interact/scenarios</h4>
+<ul>
+<li><strong>Embed: Scenario simulator/quiz</strong></li>
+<li>Presents customer service scenarios (from Scenario document)</li>
+<li>Participant decides: “What would you do?”</li>
+<li>Shows: What chatbot would do vs.&nbsp;what human would do</li>
+<li>Feedback: Explanation of good/poor choices</li>
+<li>Learning: Understanding bot vs.&nbsp;human boundaries</li>
+</ul>
+</section>
+<section id="dashboard" class="level4">
+<h4 class="anchored" data-anchor-id="dashboard">/dashboard</h4>
+<ul>
+<li><strong>Embed: Live metrics dashboard</strong></li>
+<li>Real-time project KPIs (simulated or real)</li>
+<li>Pulls from: DataAnalyzer analytics</li>
+<li>Shows: Response times, satisfaction, chatbot handling rate</li>
+<li>Updates: Refreshes periodically (can be pre-set data or actual)</li>
+</ul>
+<hr>
+</section>
+</section>
+</section>
+<section id="detailed-implementation-plan" class="level2">
+<h2 class="anchored" data-anchor-id="detailed-implementation-plan">DETAILED IMPLEMENTATION PLAN</h2>
+<section id="homepage-structure" class="level3">
+<h3 class="anchored" data-anchor-id="homepage-structure">Homepage Structure</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode html code-with-copy"><code class="sourceCode html"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">header</span><span class="dt">&gt;</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  RetailFlow | Virtual Company Simulation</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  [Navigation Menu]</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">header</span><span class="dt">&gt;</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">hero</span><span class="dt">&gt;</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>  "RetailFlow: Solving Retail's Customer Service Crisis"</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>  [Tagline about the AI project]</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>  [2 CTAs: "Explore the Company" | "Start Simulation"]</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">hero</span><span class="dt">&gt;</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">metrics-snapshot</span><span class="dt">&gt;</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>  Quick stats (in cards):</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>  - 50 stores across Australia</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>  - AUD $150M revenue</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>  - 2,000 employees</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>  - 68% customer satisfaction (declining issue)</span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>  - Week 2 of AI chatbot pilot</span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">metrics-snapshot</span><span class="dt">&gt;</span></span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">context-section</span><span class="dt">&gt;</span></span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>  Problem: Customer service is overwhelmed</span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>  Solution: AI chatbot pilot launched</span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>  Your Role: Help manage this project through real challenges</span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">context-section</span><span class="dt">&gt;</span></span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">navigation-cards</span><span class="dt">&gt;</span></span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a>  [Card: Explore Company]</span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a>    → /company/overview</span>
+<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a>    "Learn about RetailFlow's business, team, and challenges"</span>
+<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a>  [Card: Understand the Project]</span>
+<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a>    → /project/overview</span>
+<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a>    "Review the AUD $150K chatbot project details"</span>
+<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a>  [Card: Meet the Team]</span>
+<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a>    → /company/team</span>
+<span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a>    "Interactive employee directory (9 team members)"</span>
+<span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb2-40"><a href="#cb2-40" aria-hidden="true" tabindex="-1"></a>  [Card: Start Simulation]</span>
+<span id="cb2-41"><a href="#cb2-41" aria-hidden="true" tabindex="-1"></a>    → /interact/chatbot</span>
+<span id="cb2-42"><a href="#cb2-42" aria-hidden="true" tabindex="-1"></a>    "Interact with the AI chatbot and team"</span>
+<span id="cb2-43"><a href="#cb2-43" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb2-44"><a href="#cb2-44" aria-hidden="true" tabindex="-1"></a>  [Card: View Scenarios]</span>
+<span id="cb2-45"><a href="#cb2-45" aria-hidden="true" tabindex="-1"></a>    → /interact/scenarios</span>
+<span id="cb2-46"><a href="#cb2-46" aria-hidden="true" tabindex="-1"></a>    "Test your knowledge with customer service scenarios"</span>
+<span id="cb2-47"><a href="#cb2-47" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb2-48"><a href="#cb2-48" aria-hidden="true" tabindex="-1"></a>  [Card: Access Documents]</span>
+<span id="cb2-49"><a href="#cb2-49" aria-hidden="true" tabindex="-1"></a>    → /documents/</span>
+<span id="cb2-50"><a href="#cb2-50" aria-hidden="true" tabindex="-1"></a>    "Download full company documents"</span>
+<span id="cb2-51"><a href="#cb2-51" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">navigation-cards</span><span class="dt">&gt;</span></span>
+<span id="cb2-52"><a href="#cb2-52" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-53"><a href="#cb2-53" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">footer</span><span class="dt">&gt;</span></span>
+<span id="cb2-54"><a href="#cb2-54" aria-hidden="true" tabindex="-1"></a>  Copyright, About, Links</span>
+<span id="cb2-55"><a href="#cb2-55" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">footer</span><span class="dt">&gt;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<hr>
+</section>
+<section id="company-overview-page-companyoverview" class="level3">
+<h3 class="anchored" data-anchor-id="company-overview-page-companyoverview">Company Overview Page (<code>/company/overview</code>)</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode html code-with-copy"><code class="sourceCode html"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">hero</span><span class="dt">&gt;</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  RetailFlow: Australia's Contemporary Multi-Channel Retailer</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">hero</span><span class="dt">&gt;</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">content</span><span class="dt">&gt;</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">section1</span><span class="dt">&gt;</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    The Business (300 words extracted from profile)</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>    - Founded 2008 during GFC</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>    - 50 stores across Australia</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>    - 35% online revenue (growing fast)</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>    - Known for: Design-focused, contemporary, customer-first</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;/</span><span class="kw">section1</span><span class="dt">&gt;</span></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">section2</span><span class="dt">&gt;</span></span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>    Strategic Challenge</span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>    - Customer satisfaction: 68% (down from 78%)</span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>    - Response times: 26 hours (unacceptable)</span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>    - Competitive pressure: Pure-plays and giants</span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>    - Solution: AI chatbot pilot (this is where you come in)</span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;/</span><span class="kw">section2</span><span class="dt">&gt;</span></span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">section3</span><span class="dt">&gt;</span></span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>    The Opportunity</span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a>    - Prove retail can innovate with AI</span>
+<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a>    - Improve customer satisfaction</span>
+<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a>    - Build organizational confidence in technology</span>
+<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a>    - Set foundation for broader AI roadmap</span>
+<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;/</span><span class="kw">section3</span><span class="dt">&gt;</span></span>
+<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">content</span><span class="dt">&gt;</span></span>
+<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">cta-section</span><span class="dt">&gt;</span></span>
+<span id="cb3-32"><a href="#cb3-32" aria-hidden="true" tabindex="-1"></a>  [Button: Meet the Team] → /company/team</span>
+<span id="cb3-33"><a href="#cb3-33" aria-hidden="true" tabindex="-1"></a>  [Button: Understand the Project] → /project/overview</span>
+<span id="cb3-34"><a href="#cb3-34" aria-hidden="true" tabindex="-1"></a>  [Button: Download Full Profile] → /documents/company-profile/</span>
+<span id="cb3-35"><a href="#cb3-35" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">cta-section</span><span class="dt">&gt;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<hr>
+</section>
+<section id="team-directory-page-companyteam" class="level3">
+<h3 class="anchored" data-anchor-id="team-directory-page-companyteam">Team Directory Page (<code>/company/team</code>)</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode html code-with-copy"><code class="sourceCode html"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">hero</span><span class="dt">&gt;</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  Meet the RetailFlow Team</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  "The people making decisions about your project"</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">hero</span><span class="dt">&gt;</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">org-chart</span><span class="dt">&gt;</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>  Visual org chart showing:</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>  - Emma Rodriguez (CEO) at top</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>  - David Chen (CFO), Sarah Thompson (COO), Marcus Kim (CIO), </span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>    Lisa Nguyen (CCO) reporting to Emma</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>  - Key project roles highlighted</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>  - On click: Shows full profile modal</span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">org-chart</span><span class="dt">&gt;</span></span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">team-grid</span><span class="dt">&gt;</span></span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>  9 team member cards:</span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>  [Card: Emma Rodriguez]</span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>    Title: CEO</span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>    Role in Project: Sponsor (wants results)</span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>    One-liner: "Visionary, pragmatic, under board pressure"</span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>    [View Full Profile] → Modal or /profile/emma-rodriguez</span>
+<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a>  [Card: David Chen]</span>
+<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a>    Title: CFO</span>
+<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a>    Role: Budget oversight (ROI focus)</span>
+<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a>    One-liner: "Conservative, wants proof points"</span>
+<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb4-29"><a href="#cb4-29" aria-hidden="true" tabindex="-1"></a>  [Card: Sarah Thompson]</span>
+<span id="cb4-30"><a href="#cb4-30" aria-hidden="true" tabindex="-1"></a>    Title: COO</span>
+<span id="cb4-31"><a href="#cb4-31" aria-hidden="true" tabindex="-1"></a>    One-liner: "Operations backbone, protective of staff"</span>
+<span id="cb4-32"><a href="#cb4-32" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb4-33"><a href="#cb4-33" aria-hidden="true" tabindex="-1"></a>  [Card: Marcus Kim]</span>
+<span id="cb4-34"><a href="#cb4-34" aria-hidden="true" tabindex="-1"></a>    Title: CIO</span>
+<span id="cb4-35"><a href="#cb4-35" aria-hidden="true" tabindex="-1"></a>    One-liner: "Tech enthusiast, sometimes impatient"</span>
+<span id="cb4-36"><a href="#cb4-36" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb4-37"><a href="#cb4-37" aria-hidden="true" tabindex="-1"></a>  [Card: Lisa Nguyen]</span>
+<span id="cb4-38"><a href="#cb4-38" aria-hidden="true" tabindex="-1"></a>    Title: Chief Customer Officer</span>
+<span id="cb4-39"><a href="#cb4-39" aria-hidden="true" tabindex="-1"></a>    One-liner: "Executive sponsor, customer-focused"</span>
+<span id="cb4-40"><a href="#cb4-40" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb4-41"><a href="#cb4-41" aria-hidden="true" tabindex="-1"></a>  [Card: Sarah Chen]</span>
+<span id="cb4-42"><a href="#cb4-42" aria-hidden="true" tabindex="-1"></a>    Title: Customer Service Manager</span>
+<span id="cb4-43"><a href="#cb4-43" aria-hidden="true" tabindex="-1"></a>    One-liner: "Frontline leader, team advocate"</span>
+<span id="cb4-44"><a href="#cb4-44" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb4-45"><a href="#cb4-45" aria-hidden="true" tabindex="-1"></a>  [Card: Dr. Priya Sharma]</span>
+<span id="cb4-46"><a href="#cb4-46" aria-hidden="true" tabindex="-1"></a>    Title: Senior Data Scientist</span>
+<span id="cb4-47"><a href="#cb4-47" aria-hidden="true" tabindex="-1"></a>    One-liner: "AI model builder, quality-focused"</span>
+<span id="cb4-48"><a href="#cb4-48" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb4-49"><a href="#cb4-49" aria-hidden="true" tabindex="-1"></a>  [Card: Rajesh Patel]</span>
+<span id="cb4-50"><a href="#cb4-50" aria-hidden="true" tabindex="-1"></a>    Title: IT Security Manager</span>
+<span id="cb4-51"><a href="#cb4-51" aria-hidden="true" tabindex="-1"></a>    One-liner: "Security advocate, sometimes cautious"</span>
+<span id="cb4-52"><a href="#cb4-52" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb4-53"><a href="#cb4-53" aria-hidden="true" tabindex="-1"></a>  [Card: Michael Torres]</span>
+<span id="cb4-54"><a href="#cb4-54" aria-hidden="true" tabindex="-1"></a>    Title: Store Manager</span>
+<span id="cb4-55"><a href="#cb4-55" aria-hidden="true" tabindex="-1"></a>    One-liner: "Frontline perspective on changes"</span>
+<span id="cb4-56"><a href="#cb4-56" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">team-grid</span><span class="dt">&gt;</span></span>
+<span id="cb4-57"><a href="#cb4-57" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-58"><a href="#cb4-58" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">profile-modal</span><span class="dt">&gt;</span></span>
+<span id="cb4-59"><a href="#cb4-59" aria-hidden="true" tabindex="-1"></a>  (On card click - shows full profile)</span>
+<span id="cb4-60"><a href="#cb4-60" aria-hidden="true" tabindex="-1"></a>  - Name, title, background, personality</span>
+<span id="cb4-61"><a href="#cb4-61" aria-hidden="true" tabindex="-1"></a>  - Their perspective on AI</span>
+<span id="cb4-62"><a href="#cb4-62" aria-hidden="true" tabindex="-1"></a>  - Hidden motivations and concerns</span>
+<span id="cb4-63"><a href="#cb4-63" aria-hidden="true" tabindex="-1"></a>  - Key relationships</span>
+<span id="cb4-64"><a href="#cb4-64" aria-hidden="true" tabindex="-1"></a>  - What they care about</span>
+<span id="cb4-65"><a href="#cb4-65" aria-hidden="true" tabindex="-1"></a>  [Close]</span>
+<span id="cb4-66"><a href="#cb4-66" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">profile-modal</span><span class="dt">&gt;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<hr>
+</section>
+<section id="project-overview-page-projectoverview" class="level3">
+<h3 class="anchored" data-anchor-id="project-overview-page-projectoverview">Project Overview Page (<code>/project/overview</code>)</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode html code-with-copy"><code class="sourceCode html"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">hero</span><span class="dt">&gt;</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  The Chatbot Pilot Project</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  "AUD $150K, 6 months, high stakes"</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">hero</span><span class="dt">&gt;</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">quick-facts</span><span class="dt">&gt;</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>  Cards showing:</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>  - Budget: AUD $150,000</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>  - Timeline: 6 months (Sept 2024 - Feb 2025)</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>  - Status: Week 2 of pilot deployment</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>  - Sponsor: Lisa Nguyen</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>  - Team: 6 people</span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>  - Objective: Reduce email response from 26 hours to <span class="er">&lt;</span>2 hours</span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">quick-facts</span><span class="dt">&gt;</span></span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">timeline</span><span class="dt">&gt;</span></span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>  Interactive/visual timeline:</span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>  Phase 1: Discovery <span class="er">&amp;</span> Planning (2 weeks)</span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>  Phase 2: Development (10 weeks)</span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a>  Phase 3: Pilot Launch (12 weeks)</span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a>  [Current phase highlighted]</span>
+<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">timeline</span><span class="dt">&gt;</span></span>
+<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">objectives</span><span class="dt">&gt;</span></span>
+<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a>  Primary objectives (extracted):</span>
+<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a>  1. Reduce response time</span>
+<span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a>  2. Improve customer satisfaction</span>
+<span id="cb5-28"><a href="#cb5-28" aria-hidden="true" tabindex="-1"></a>  3. Handle 40% of inquiries automatically</span>
+<span id="cb5-29"><a href="#cb5-29" aria-hidden="true" tabindex="-1"></a>  4. Validate AI capability for broader rollout</span>
+<span id="cb5-30"><a href="#cb5-30" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">objectives</span><span class="dt">&gt;</span></span>
+<span id="cb5-31"><a href="#cb5-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-32"><a href="#cb5-32" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">budget-breakdown</span><span class="dt">&gt;</span></span>
+<span id="cb5-33"><a href="#cb5-33" aria-hidden="true" tabindex="-1"></a>  Visual breakdown (pie chart):</span>
+<span id="cb5-34"><a href="#cb5-34" aria-hidden="true" tabindex="-1"></a>  - AI Platform <span class="er">&amp;</span> Tools: 30%</span>
+<span id="cb5-35"><a href="#cb5-35" aria-hidden="true" tabindex="-1"></a>  - Internal Labor: 23%</span>
+<span id="cb5-36"><a href="#cb5-36" aria-hidden="true" tabindex="-1"></a>  - External Consulting: 17%</span>
+<span id="cb5-37"><a href="#cb5-37" aria-hidden="true" tabindex="-1"></a>  - Training <span class="er">&amp;</span> Documentation: 12%</span>
+<span id="cb5-38"><a href="#cb5-38" aria-hidden="true" tabindex="-1"></a>  - Infrastructure: 10%</span>
+<span id="cb5-39"><a href="#cb5-39" aria-hidden="true" tabindex="-1"></a>  - Contingency: 8%</span>
+<span id="cb5-40"><a href="#cb5-40" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">budget-breakdown</span><span class="dt">&gt;</span></span>
+<span id="cb5-41"><a href="#cb5-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-42"><a href="#cb5-42" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">success-criteria</span><span class="dt">&gt;</span></span>
+<span id="cb5-43"><a href="#cb5-43" aria-hidden="true" tabindex="-1"></a>  Dashboard showing targets vs. current (Week 2):</span>
+<span id="cb5-44"><a href="#cb5-44" aria-hidden="true" tabindex="-1"></a>  - Email response time: Target <span class="er">&lt;</span>2 hrs, Current 8.3 hrs</span>
+<span id="cb5-45"><a href="#cb5-45" aria-hidden="true" tabindex="-1"></a>  - CSAT: Target 75%, Current 68%</span>
+<span id="cb5-46"><a href="#cb5-46" aria-hidden="true" tabindex="-1"></a>  - Chatbot handling: Target 40%, Current 15%</span>
+<span id="cb5-47"><a href="#cb5-47" aria-hidden="true" tabindex="-1"></a>  - NPS: Target 38, Current 32</span>
+<span id="cb5-48"><a href="#cb5-48" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">success-criteria</span><span class="dt">&gt;</span></span>
+<span id="cb5-49"><a href="#cb5-49" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-50"><a href="#cb5-50" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">cta</span><span class="dt">&gt;</span></span>
+<span id="cb5-51"><a href="#cb5-51" aria-hidden="true" tabindex="-1"></a>  [Download Full Charter] → /documents/project-charter/</span>
+<span id="cb5-52"><a href="#cb5-52" aria-hidden="true" tabindex="-1"></a>  [View Risks] → /project/risks/</span>
+<span id="cb5-53"><a href="#cb5-53" aria-hidden="true" tabindex="-1"></a>  [Meet the Team] → /project/team/</span>
+<span id="cb5-54"><a href="#cb5-54" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">cta</span><span class="dt">&gt;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<hr>
+</section>
+<section id="interact---chatbot-page-interactchatbot" class="level3">
+<h3 class="anchored" data-anchor-id="interact---chatbot-page-interactchatbot">Interact - Chatbot Page (<code>/interact/chatbot</code>)</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode html code-with-copy"><code class="sourceCode html"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">hero</span><span class="dt">&gt;</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  Chat with RetailBot</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  "Experience the AI chatbot that's transforming customer service"</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">hero</span><span class="dt">&gt;</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">chat-interface</span><span class="dt">&gt;</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>  [Embed your JavaScript chatbot here]</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>  Frame: "You are a customer of RetailFlow. What would you ask?"</span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>  Suggested queries:</span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>  - "Where is my order RF-2024-08-15743?"</span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>  - "What's your return policy?"</span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>  - "I received a damaged item"</span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>  - "When will my delivery arrive?"</span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>  [Chat window]</span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>  [Input field]</span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">chat-interface</span><span class="dt">&gt;</span></span>
+<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">info-section</span><span class="dt">&gt;</span></span>
+<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a>  About RetailBot:</span>
+<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a>  - Built using AI (LLM-powered)</span>
+<span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a>  - Trained on 500+ customer inquiries</span>
+<span id="cb6-25"><a href="#cb6-25" aria-hidden="true" tabindex="-1"></a>  - Can handle: Tracking, product info, policy questions</span>
+<span id="cb6-26"><a href="#cb6-26" aria-hidden="true" tabindex="-1"></a>  - Escalates: Complex issues to human team</span>
+<span id="cb6-27"><a href="#cb6-27" aria-hidden="true" tabindex="-1"></a>  - Current success rate: 38% fully resolved without escalation</span>
+<span id="cb6-28"><a href="#cb6-28" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">info-section</span><span class="dt">&gt;</span></span>
+<span id="cb6-29"><a href="#cb6-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-30"><a href="#cb6-30" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">next-steps</span><span class="dt">&gt;</span></span>
+<span id="cb6-31"><a href="#cb6-31" aria-hidden="true" tabindex="-1"></a>  [Explore Other Bots] → /interact/team/</span>
+<span id="cb6-32"><a href="#cb6-32" aria-hidden="true" tabindex="-1"></a>  [Try Scenarios] → /interact/scenarios/</span>
+<span id="cb6-33"><a href="#cb6-33" aria-hidden="true" tabindex="-1"></a>  [View Bot Profile] → /documents/bot-profiles/#retailbot</span>
+<span id="cb6-34"><a href="#cb6-34" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">next-steps</span><span class="dt">&gt;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<hr>
+</section>
+<section id="interact---team-bots-page-interactteam" class="level3">
+<h3 class="anchored" data-anchor-id="interact---team-bots-page-interactteam">Interact - Team Bots Page (<code>/interact/team</code>)</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode html code-with-copy"><code class="sourceCode html"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">hero</span><span class="dt">&gt;</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  Ask the Team</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  "Interact with team members and AI agents as if they're your colleagues"</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">hero</span><span class="dt">&gt;</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">bot-selector</span><span class="dt">&gt;</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>  6 tabs or cards:</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>  1. RetailBot (Customer Service AI)</span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>     "Ask about chatbot performance, customer inquiries"</span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>  2. DataAnalyzer (Metrics AI)</span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>     "Ask about project metrics, ROI, performance"</span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>  3. PolicyAdvisor (Policy AI)</span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a>     "Ask about company policies and procedures"</span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a>  4. TrendSpotter (Pattern Analysis AI)</span>
+<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a>     "Ask about emerging issues and trends"</span>
+<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a>  5. ScheduleBot (Capacity Planning AI)</span>
+<span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a>     "Ask about staffing and workload"</span>
+<span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb7-24"><a href="#cb7-24" aria-hidden="true" tabindex="-1"></a>  6. ComplianceChecker (Ethics AI)</span>
+<span id="cb7-25"><a href="#cb7-25" aria-hidden="true" tabindex="-1"></a>     "Ask about compliance, fairness, risks"</span>
+<span id="cb7-26"><a href="#cb7-26" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">bot-selector</span><span class="dt">&gt;</span></span>
+<span id="cb7-27"><a href="#cb7-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-28"><a href="#cb7-28" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">chat-interface</span><span class="dt">&gt;</span></span>
+<span id="cb7-29"><a href="#cb7-29" aria-hidden="true" tabindex="-1"></a>  [Selected bot displays]</span>
+<span id="cb7-30"><a href="#cb7-30" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb7-31"><a href="#cb7-31" aria-hidden="true" tabindex="-1"></a>  [Personalized greeting based on bot character]</span>
+<span id="cb7-32"><a href="#cb7-32" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb7-33"><a href="#cb7-33" aria-hidden="true" tabindex="-1"></a>  [Chat window for conversation]</span>
+<span id="cb7-34"><a href="#cb7-34" aria-hidden="true" tabindex="-1"></a>  [Input field: "Ask [Bot Name] a question..."]</span>
+<span id="cb7-35"><a href="#cb7-35" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb7-36"><a href="#cb7-36" aria-hidden="true" tabindex="-1"></a>  Example prompts for each:</span>
+<span id="cb7-37"><a href="#cb7-37" aria-hidden="true" tabindex="-1"></a>  - RetailBot: "How many inquiries are you handling?"</span>
+<span id="cb7-38"><a href="#cb7-38" aria-hidden="true" tabindex="-1"></a>  - DataAnalyzer: "What's our current CSAT score?"</span>
+<span id="cb7-39"><a href="#cb7-39" aria-hidden="true" tabindex="-1"></a>  - PolicyAdvisor: "Can I return an item after 40 days?"</span>
+<span id="cb7-40"><a href="#cb7-40" aria-hidden="true" tabindex="-1"></a>  - etc.</span>
+<span id="cb7-41"><a href="#cb7-41" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">chat-interface</span><span class="dt">&gt;</span></span>
+<span id="cb7-42"><a href="#cb7-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-43"><a href="#cb7-43" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">bot-profiles</span><span class="dt">&gt;</span></span>
+<span id="cb7-44"><a href="#cb7-44" aria-hidden="true" tabindex="-1"></a>  Quick reference for each bot's specialty:</span>
+<span id="cb7-45"><a href="#cb7-45" aria-hidden="true" tabindex="-1"></a>  [Accordion or cards showing]</span>
+<span id="cb7-46"><a href="#cb7-46" aria-hidden="true" tabindex="-1"></a>  - What each bot knows</span>
+<span id="cb7-47"><a href="#cb7-47" aria-hidden="true" tabindex="-1"></a>  - What each bot is bad at</span>
+<span id="cb7-48"><a href="#cb7-48" aria-hidden="true" tabindex="-1"></a>  - Known limitations</span>
+<span id="cb7-49"><a href="#cb7-49" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">bot-profiles</span><span class="dt">&gt;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<hr>
+</section>
+<section id="scenarios-page-interactscenarios" class="level3">
+<h3 class="anchored" data-anchor-id="scenarios-page-interactscenarios">Scenarios Page (<code>/interact/scenarios</code>)</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode html code-with-copy"><code class="sourceCode html"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">hero</span><span class="dt">&gt;</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  Customer Service Scenarios</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  "Test your judgment against the AI chatbot"</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">hero</span><span class="dt">&gt;</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">scenario-selector</span><span class="dt">&gt;</span></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>  Filter options:</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>  - Difficulty: Simple | Moderate | Complex</span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>  - Category: Order Tracking | Returns | Complaints | Edge Cases</span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>  Scenario list (clickable):</span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>  1. Order Tracking (Simple)</span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>  2. Return Request - Standard (Moderate)</span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>  3. Damaged Item - Service Recovery (Complex)</span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a>  ... etc</span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">scenario-selector</span><span class="dt">&gt;</span></span>
+<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">scenario-view</span><span class="dt">&gt;</span></span>
+<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a>  Selected scenario displays:</span>
+<span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb8-21"><a href="#cb8-21" aria-hidden="true" tabindex="-1"></a>  [Scenario Title]</span>
+<span id="cb8-22"><a href="#cb8-22" aria-hidden="true" tabindex="-1"></a>  [Customer Query (text)]</span>
+<span id="cb8-23"><a href="#cb8-23" aria-hidden="true" tabindex="-1"></a>  [Context (situation details)]</span>
+<span id="cb8-24"><a href="#cb8-24" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb8-25"><a href="#cb8-25" aria-hidden="true" tabindex="-1"></a>  Your Decision:</span>
+<span id="cb8-26"><a href="#cb8-26" aria-hidden="true" tabindex="-1"></a>  [Radio buttons with options]</span>
+<span id="cb8-27"><a href="#cb8-27" aria-hidden="true" tabindex="-1"></a>  - Option A: [Choice]</span>
+<span id="cb8-28"><a href="#cb8-28" aria-hidden="true" tabindex="-1"></a>  - Option B: [Choice]</span>
+<span id="cb8-29"><a href="#cb8-29" aria-hidden="true" tabindex="-1"></a>  - Option C: [Choice]</span>
+<span id="cb8-30"><a href="#cb8-30" aria-hidden="true" tabindex="-1"></a>  - Option D: [Choice]</span>
+<span id="cb8-31"><a href="#cb8-31" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb8-32"><a href="#cb8-32" aria-hidden="true" tabindex="-1"></a>  [Submit Answer]</span>
+<span id="cb8-33"><a href="#cb8-33" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb8-34"><a href="#cb8-34" aria-hidden="true" tabindex="-1"></a>  [Reveals: What chatbot would do]</span>
+<span id="cb8-35"><a href="#cb8-35" aria-hidden="true" tabindex="-1"></a>  [Reveals: What human would do]</span>
+<span id="cb8-36"><a href="#cb8-36" aria-hidden="true" tabindex="-1"></a>  [Explanation: Why this matters]</span>
+<span id="cb8-37"><a href="#cb8-37" aria-hidden="true" tabindex="-1"></a>  [Learning: Key insights]</span>
+<span id="cb8-38"><a href="#cb8-38" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb8-39"><a href="#cb8-39" aria-hidden="true" tabindex="-1"></a>  [Next Scenario] or [Return to List]</span>
+<span id="cb8-40"><a href="#cb8-40" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">scenario-view</span><span class="dt">&gt;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<hr>
+</section>
+<section id="documents-section-documents" class="level3">
+<h3 class="anchored" data-anchor-id="documents-section-documents">Documents Section (<code>/documents/</code>)</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode html code-with-copy"><code class="sourceCode html"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">hero</span><span class="dt">&gt;</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  RetailFlow Company Documents</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  "Access detailed company information"</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">hero</span><span class="dt">&gt;</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">document-grid</span><span class="dt">&gt;</span></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>  6 documents, each with:</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>  [Document Card: Company Profile]</span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>    Description: "Comprehensive company history, financials, structure"</span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>    Size: 15 pages</span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>    [View Online] [Download PDF] [Download MD]</span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>  [Document Card: Employee Profiles]</span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a>    Description: "Detailed backstories for 9 key team members"</span>
+<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a>    Size: 12 pages</span>
+<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a>    [View Online] [Download PDF] [Download MD]</span>
+<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a>  [Document Card: Internal Documents]</span>
+<span id="cb9-20"><a href="#cb9-20" aria-hidden="true" tabindex="-1"></a>    Description: "Memos, financial summaries, surveys, meeting notes"</span>
+<span id="cb9-21"><a href="#cb9-21" aria-hidden="true" tabindex="-1"></a>    Size: 18 pages</span>
+<span id="cb9-22"><a href="#cb9-22" aria-hidden="true" tabindex="-1"></a>    [View Online] [Download PDF] [Download MD]</span>
+<span id="cb9-23"><a href="#cb9-23" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb9-24"><a href="#cb9-24" aria-hidden="true" tabindex="-1"></a>  [Document Card: Chatbot Project]</span>
+<span id="cb9-25"><a href="#cb9-25" aria-hidden="true" tabindex="-1"></a>    Description: "Full project charter, timeline, risks, budget"</span>
+<span id="cb9-26"><a href="#cb9-26" aria-hidden="true" tabindex="-1"></a>    Size: 20 pages</span>
+<span id="cb9-27"><a href="#cb9-27" aria-hidden="true" tabindex="-1"></a>    [View Online] [Download PDF] [Download MD]</span>
+<span id="cb9-28"><a href="#cb9-28" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb9-29"><a href="#cb9-29" aria-hidden="true" tabindex="-1"></a>  [Document Card: Customer Scenarios]</span>
+<span id="cb9-30"><a href="#cb9-30" aria-hidden="true" tabindex="-1"></a>    Description: "20 realistic customer service scenarios for analysis"</span>
+<span id="cb9-31"><a href="#cb9-31" aria-hidden="true" tabindex="-1"></a>    Size: 16 pages</span>
+<span id="cb9-32"><a href="#cb9-32" aria-hidden="true" tabindex="-1"></a>    [View Online] [Download PDF] [Download MD]</span>
+<span id="cb9-33"><a href="#cb9-33" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb9-34"><a href="#cb9-34" aria-hidden="true" tabindex="-1"></a>  [Document Card: Bot Profiles]</span>
+<span id="cb9-35"><a href="#cb9-35" aria-hidden="true" tabindex="-1"></a>    Description: "AI agent personalities, capabilities, limitations"</span>
+<span id="cb9-36"><a href="#cb9-36" aria-hidden="true" tabindex="-1"></a>    Size: 14 pages</span>
+<span id="cb9-37"><a href="#cb9-37" aria-hidden="true" tabindex="-1"></a>    [View Online] [Download PDF] [Download MD]</span>
+<span id="cb9-38"><a href="#cb9-38" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">document-grid</span><span class="dt">&gt;</span></span>
+<span id="cb9-39"><a href="#cb9-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-40"><a href="#cb9-40" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">document-viewer</span><span class="dt">&gt;</span></span>
+<span id="cb9-41"><a href="#cb9-41" aria-hidden="true" tabindex="-1"></a>  (When clicking a document)</span>
+<span id="cb9-42"><a href="#cb9-42" aria-hidden="true" tabindex="-1"></a>  - Display formatted HTML version</span>
+<span id="cb9-43"><a href="#cb9-43" aria-hidden="true" tabindex="-1"></a>  - Syntax highlighting for technical sections</span>
+<span id="cb9-44"><a href="#cb9-44" aria-hidden="true" tabindex="-1"></a>  - Table of contents (clickable)</span>
+<span id="cb9-45"><a href="#cb9-45" aria-hidden="true" tabindex="-1"></a>  - Download options (PDF, MD, TXT)</span>
+<span id="cb9-46"><a href="#cb9-46" aria-hidden="true" tabindex="-1"></a>  - Full-screen reading mode</span>
+<span id="cb9-47"><a href="#cb9-47" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">document-viewer</span><span class="dt">&gt;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<hr>
+</section>
+<section id="dashboard-page-dashboard" class="level3">
+<h3 class="anchored" data-anchor-id="dashboard-page-dashboard">Dashboard Page (<code>/dashboard/</code>)</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode html code-with-copy"><code class="sourceCode html"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">hero</span><span class="dt">&gt;</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  Project Dashboard</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  "Real-time metrics for the chatbot pilot"</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">hero</span><span class="dt">&gt;</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">metrics-grid</span><span class="dt">&gt;</span></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>  Cards showing live/simulated metrics:</span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>  [Card: Email Response Time]</span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>    Current: 8.3 hours</span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>    Target: <span class="er">&lt;</span>2 hours</span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>    Status: ⚠️ Below target</span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>    Trend: ↓ Improving (was 12 hours Week 1)</span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a>  [Card: Chatbot Handling Rate]</span>
+<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a>    Current: 38%</span>
+<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a>    Target: 40%</span>
+<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a>    Status: ✅ On track</span>
+<span id="cb10-19"><a href="#cb10-19" aria-hidden="true" tabindex="-1"></a>    Trend: ↑ Improving</span>
+<span id="cb10-20"><a href="#cb10-20" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb10-21"><a href="#cb10-21" aria-hidden="true" tabindex="-1"></a>  [Card: Customer Satisfaction]</span>
+<span id="cb10-22"><a href="#cb10-22" aria-hidden="true" tabindex="-1"></a>    Current: 68%</span>
+<span id="cb10-23"><a href="#cb10-23" aria-hidden="true" tabindex="-1"></a>    Target: 75%</span>
+<span id="cb10-24"><a href="#cb10-24" aria-hidden="true" tabindex="-1"></a>    Status: ⚠️ Below target</span>
+<span id="cb10-25"><a href="#cb10-25" aria-hidden="true" tabindex="-1"></a>    Trend: ↑ Slightly improving</span>
+<span id="cb10-26"><a href="#cb10-26" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb10-27"><a href="#cb10-27" aria-hidden="true" tabindex="-1"></a>  [Card: Escalation Rate]</span>
+<span id="cb10-28"><a href="#cb10-28" aria-hidden="true" tabindex="-1"></a>    Current: 24%</span>
+<span id="cb10-29"><a href="#cb10-29" aria-hidden="true" tabindex="-1"></a>    Target: <span class="er">&lt;</span>15%</span>
+<span id="cb10-30"><a href="#cb10-30" aria-hidden="true" tabindex="-1"></a>    Status: ❌ Above target</span>
+<span id="cb10-31"><a href="#cb10-31" aria-hidden="true" tabindex="-1"></a>    Trend: ↓ Improving</span>
+<span id="cb10-32"><a href="#cb10-32" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb10-33"><a href="#cb10-33" aria-hidden="true" tabindex="-1"></a>  [Card: Team Utilization]</span>
+<span id="cb10-34"><a href="#cb10-34" aria-hidden="true" tabindex="-1"></a>    Current: 87%</span>
+<span id="cb10-35"><a href="#cb10-35" aria-hidden="true" tabindex="-1"></a>    Target: 75-80%</span>
+<span id="cb10-36"><a href="#cb10-36" aria-hidden="true" tabindex="-1"></a>    Status: ⚠️ High (burnout risk)</span>
+<span id="cb10-37"><a href="#cb10-37" aria-hidden="true" tabindex="-1"></a>    Trend: ↓ Improving as chatbot helps</span>
+<span id="cb10-38"><a href="#cb10-38" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb10-39"><a href="#cb10-39" aria-hidden="true" tabindex="-1"></a>  [Card: Weekly Inquiries]</span>
+<span id="cb10-40"><a href="#cb10-40" aria-hidden="true" tabindex="-1"></a>    Current: 2,640</span>
+<span id="cb10-41"><a href="#cb10-41" aria-hidden="true" tabindex="-1"></a>    Previous: 2,620</span>
+<span id="cb10-42"><a href="#cb10-42" aria-hidden="true" tabindex="-1"></a>    Trend: Slight increase</span>
+<span id="cb10-43"><a href="#cb10-43" aria-hidden="true" tabindex="-1"></a>    Handled by chatbot: 1,000/week</span>
+<span id="cb10-44"><a href="#cb10-44" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb10-45"><a href="#cb10-45" aria-hidden="true" tabindex="-1"></a>  [Card: Project Spend]</span>
+<span id="cb10-46"><a href="#cb10-46" aria-hidden="true" tabindex="-1"></a>    Current: AUD $28,500 / AUD $150,000</span>
+<span id="cb10-47"><a href="#cb10-47" aria-hidden="true" tabindex="-1"></a>    Burn rate: 19% (on track for 6-month project)</span>
+<span id="cb10-48"><a href="#cb10-48" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb10-49"><a href="#cb10-49" aria-hidden="true" tabindex="-1"></a>  [Card: ROI Projection]</span>
+<span id="cb10-50"><a href="#cb10-50" aria-hidden="true" tabindex="-1"></a>    Annualized cost savings: AUD $285K</span>
+<span id="cb10-51"><a href="#cb10-51" aria-hidden="true" tabindex="-1"></a>    Projected ROI: 190% in 12 months</span>
+<span id="cb10-52"><a href="#cb10-52" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">metrics-grid</span><span class="dt">&gt;</span></span>
+<span id="cb10-53"><a href="#cb10-53" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-54"><a href="#cb10-54" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">chart-section</span><span class="dt">&gt;</span></span>
+<span id="cb10-55"><a href="#cb10-55" aria-hidden="true" tabindex="-1"></a>  Multiple charts:</span>
+<span id="cb10-56"><a href="#cb10-56" aria-hidden="true" tabindex="-1"></a>  - Response time trend (line chart)</span>
+<span id="cb10-57"><a href="#cb10-57" aria-hidden="true" tabindex="-1"></a>  - Chatbot handling rate (line chart)</span>
+<span id="cb10-58"><a href="#cb10-58" aria-hidden="true" tabindex="-1"></a>  - Satisfaction trend (line chart)</span>
+<span id="cb10-59"><a href="#cb10-59" aria-hidden="true" tabindex="-1"></a>  - Daily inquiry volume (bar chart)</span>
+<span id="cb10-60"><a href="#cb10-60" aria-hidden="true" tabindex="-1"></a>  - Budget spend (progress bar)</span>
+<span id="cb10-61"><a href="#cb10-61" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb10-62"><a href="#cb10-62" aria-hidden="true" tabindex="-1"></a>  [Date range picker: Week / Month / All]</span>
+<span id="cb10-63"><a href="#cb10-63" aria-hidden="true" tabindex="-1"></a>  [Compare periods]</span>
+<span id="cb10-64"><a href="#cb10-64" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">chart-section</span><span class="dt">&gt;</span></span>
+<span id="cb10-65"><a href="#cb10-65" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-66"><a href="#cb10-66" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">notes</span><span class="dt">&gt;</span></span>
+<span id="cb10-67"><a href="#cb10-67" aria-hidden="true" tabindex="-1"></a>  Weekly summary:</span>
+<span id="cb10-68"><a href="#cb10-68" aria-hidden="true" tabindex="-1"></a>  "Week 2 Update: Strong progress on response times. Chatbot </span>
+<span id="cb10-69"><a href="#cb10-69" aria-hidden="true" tabindex="-1"></a>  handling 38% of inquiries (close to 40% target). Team morale </span>
+<span id="cb10-70"><a href="#cb10-70" aria-hidden="true" tabindex="-1"></a>  improving as workload decreases. Focus areas: Escalation rate </span>
+<span id="cb10-71"><a href="#cb10-71" aria-hidden="true" tabindex="-1"></a>  still high; need to refine escalation logic."</span>
+<span id="cb10-72"><a href="#cb10-72" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">notes</span><span class="dt">&gt;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<hr>
+</section>
+</section>
+<section id="implementation-roadmap" class="level2">
+<h2 class="anchored" data-anchor-id="implementation-roadmap">IMPLEMENTATION ROADMAP</h2>
+<section id="phase-1-foundation-week-1" class="level3">
+<h3 class="anchored" data-anchor-id="phase-1-foundation-week-1">Phase 1: Foundation (Week 1)</h3>
+<ul class="task-list">
+<li><label><input type="checkbox">Set up GitHub Pages repository</label></li>
+<li><label><input type="checkbox">Create base HTML structure / CSS framework</label></li>
+<li><label><input type="checkbox">Design template for consistent pages</label></li>
+<li><label><input type="checkbox">Set up custom domain DNS</label></li>
+</ul>
+</section>
+<section id="phase-2-content-week-2-3" class="level3">
+<h3 class="anchored" data-anchor-id="phase-2-content-week-2-3">Phase 2: Content (Week 2-3)</h3>
+<ul class="task-list">
+<li><label><input type="checkbox">Extract and write summary pages</label></li>
+<li><label><input type="checkbox">Create team profile pages/modals</label></li>
+<li><label><input type="checkbox">Set up document viewer/PDF generation</label></li>
+<li><label><input type="checkbox">Build navigation and menu system</label></li>
+</ul>
+</section>
+<section id="phase-3-interactivity-week-4-5" class="level3">
+<h3 class="anchored" data-anchor-id="phase-3-interactivity-week-4-5">Phase 3: Interactivity (Week 4-5)</h3>
+<ul class="task-list">
+<li><label><input type="checkbox">Embed RetailBot chatbot JS</label></li>
+<li><label><input type="checkbox">Create scenario interactive quiz</label></li>
+<li><label><input type="checkbox">Build dashboard with data display</label></li>
+<li><label><input type="checkbox">Create bot interaction interface (if LLM-powered)</label></li>
+</ul>
+</section>
+<section id="phase-4-polish-week-6" class="level3">
+<h3 class="anchored" data-anchor-id="phase-4-polish-week-6">Phase 4: Polish (Week 6)</h3>
+<ul class="task-list">
+<li><label><input type="checkbox">Design refinements</label></li>
+<li><label><input type="checkbox">Performance optimization</label></li>
+<li><label><input type="checkbox">Mobile responsiveness</label></li>
+<li><label><input type="checkbox">Testing and QA</label></li>
+</ul>
+<hr>
+</section>
+</section>
+<section id="technology-stack" class="level2">
+<h2 class="anchored" data-anchor-id="technology-stack">TECHNOLOGY STACK</h2>
+<p><strong>Static Site Generator Options:</strong> 1. <strong>Next.js (Recommended)</strong> - React-based, easy to embed JS, great for GitHub Pages 2. <strong>Hugo</strong> - Fast, simple, good for static sites 3. <strong>Jekyll</strong> - GitHub native, simple 4. <strong>HTML/CSS/JS</strong> - Pure vanilla if keeping very simple</p>
+<p><strong>Hosting:</strong> - GitHub Pages (free, supports custom domain) - Vercel (next.js native, free tier generous) - Netlify (good for static sites)</p>
+<p><strong>Embedding:</strong> - Chatbot JS embed as <code>&lt;script&gt;</code> tag - React component if using Next.js - Vanilla JS module otherwise</p>
+<p><strong>Data/CMS:</strong> - GitHub repo (markdown files for content) - Optional: Simple JSON files for metrics/data - Optional: Contentful or similar if needing dynamic content later</p>
+<hr>
+</section>
+<section id="github-structure" class="level2">
+<h2 class="anchored" data-anchor-id="github-structure">GITHUB STRUCTURE</h2>
+<pre><code>retailflow-website/
+├── public/
+│   ├── documents/          (Original markdown files)
+│   │   ├── company-profile.md
+│   │   ├── employee-profiles.md
+│   │   └── ... (6 total)
+│   ├── images/            (Team photos, logos, diagrams)
+│   └── data/              (Metrics JSON, etc.)
+├── src/
+│   ├── pages/
+│   │   ├── index.jsx      (Homepage)
+│   │   ├── company/
+│   │   │   ├── overview.jsx
+│   │   │   ├── team.jsx
+│   │   │   ├── [employee].jsx  (Dynamic profile pages)
+│   │   ├── project/
+│   │   │   ├── overview.jsx
+│   │   │   ├── timeline.jsx
+│   │   ├── interact/
+│   │   │   ├── chatbot.jsx
+│   │   │   ├── team.jsx
+│   │   │   ├── scenarios.jsx
+│   │   ├── dashboard/
+│   │   │   └── index.jsx
+│   │   ├── documents/
+│   │   │   ├── index.jsx
+│   │   │   └── [doc].jsx   (Dynamic document viewer)
+│   ├── components/
+│   │   ├── Navigation.jsx
+│   │   ├── ProfileModal.jsx
+│   │   ├── ChatInterface.jsx (wrapper for your bot)
+│   │   ├── MetricsCard.jsx
+│   │   └── ScenarioQuiz.jsx
+│   ├── styles/
+│   │   └── globals.css
+│   └── utils/
+│       ├── markdownToHtml.js
+│       └── docUtils.js
+├── README.md
+├── next.config.js (if using Next.js)
+└── package.json</code></pre>
+<hr>
+</section>
+<section id="key-principles" class="level2">
+<h2 class="anchored" data-anchor-id="key-principles">KEY PRINCIPLES</h2>
+<ol type="1">
+<li><strong>Immersive Simulation</strong>: Website feels like exploring a real company</li>
+<li><strong>Document-Driven</strong>: All content sourced from detailed documents</li>
+<li><strong>Interactive Elements</strong>: Bots, scenarios, dashboards make it dynamic</li>
+<li><strong>Scalable</strong>: Easy to add more pages, scenarios, docs</li>
+<li><strong>Accessible</strong>: Mobile-friendly, readable, navigable</li>
+<li><strong>Embeddable JS</strong>: Your chatbot integrates cleanly</li>
+<li><strong>Static Generation</strong>: Fast, secure, easy to deploy</li>
+</ol>
+<hr>
+</section>
+<section id="next-steps" class="level2">
+<h2 class="anchored" data-anchor-id="next-steps">NEXT STEPS</h2>
+<ol type="1">
+<li><strong>Choose tech stack</strong> (recommend Next.js)</li>
+<li><strong>Set up GitHub repo</strong> with base template</li>
+<li><strong>Start with homepage</strong> to establish design system</li>
+<li><strong>Build pages incrementally</strong> (1-2 per week)</li>
+<li><strong>Integrate your chatbot JS</strong> when ready</li>
+<li><strong>Add interactivity</strong> (scenarios, bots, dashboard)</li>
+<li><strong>Launch and iterate</strong></li>
+</ol>
+<hr>
+</section>
+<section id="example-flow-for-participants" class="level2">
+<h2 class="anchored" data-anchor-id="example-flow-for-participants">EXAMPLE FLOW FOR PARTICIPANTS</h2>
+<ol type="1">
+<li><strong>Visit website</strong> → Lands on homepage</li>
+<li><strong>Clicks “Explore Company”</strong> → Reads overview</li>
+<li><strong>Clicks “Meet the Team”</strong> → Explores 9 employee profiles</li>
+<li><strong>Clicks “Understand Project”</strong> → Reviews project charter summary</li>
+<li><strong>Clicks “Start Simulation”</strong> → Interacts with RetailBot chatbot</li>
+<li><strong>Clicks “Ask the Team”</strong> → Asks DataAnalyzer about metrics</li>
+<li><strong>Clicks “Scenarios”</strong> → Does 3-5 scenario challenges</li>
+<li><strong>Clicks “Dashboard”</strong> → Reviews project KPIs</li>
+<li><strong>Downloads “Full Documents”</strong> → Gets detailed PDFs for reference</li>
+</ol>
+<p>The website is the <strong>onramp to the simulation</strong>. The documents are available but the web experience guides them through an engaging journey.</p>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+<footer class="footer py-4 bg-dark text-light">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4">
+        <h5>RetailFlow</h5>
+        <p>Australia's fastest-growing retail destination, connecting millions of customers with the products they love.</p>
+        <div class="social-links">
+          <a href="#" class="text-light me-3"><i class="bi bi-facebook"></i></a>
+          <a href="#" class="text-light me-3"><i class="bi bi-twitter"></i></a>
+          <a href="#" class="text-light me-3"><i class="bi bi-instagram"></i></a>
+          <a href="#" class="text-light"><i class="bi bi-linkedin"></i></a>
+        </div>
+      </div>
+      
+      <div class="col-md-2">
+        <h6>Shop</h6>
+        <ul class="list-unstyled">
+          <li><a href="#" class="text-light text-decoration-none">New Arrivals</a></li>
+          <li><a href="#" class="text-light text-decoration-none">Best Sellers</a></li>
+          <li><a href="#" class="text-light text-decoration-none">Sale Items</a></li>
+          <li><a href="#" class="text-light text-decoration-none">Gift Cards</a></li>
+        </ul>
+      </div>
+      
+      <div class="col-md-2">
+        <h6>Customer Service</h6>
+        <ul class="list-unstyled">
+          <li><a href="contact.html" class="text-light text-decoration-none">Contact Us</a></li>
+          <li><a href="#" class="text-light text-decoration-none">Shipping Info</a></li>
+          <li><a href="#" class="text-light text-decoration-none">Returns</a></li>
+          <li><a href="#" class="text-light text-decoration-none">FAQ</a></li>
+        </ul>
+      </div>
+      
+      <div class="col-md-2">
+        <h6>About</h6>
+        <ul class="list-unstyled">
+          <li><a href="company/overview.html" class="text-light text-decoration-none">Our Story</a></li>
+          <li><a href="company/team.html" class="text-light text-decoration-none">Leadership</a></li>
+          <li><a href="#" class="text-light text-decoration-none">Careers</a></li>
+          <li><a href="#" class="text-light text-decoration-none">Press</a></li>
+        </ul>
+      </div>
+      
+      <div class="col-md-2">
+        <h6>Legal</h6>
+        <ul class="list-unstyled">
+          <li><a href="#" class="text-light text-decoration-none">Privacy Policy</a></li>
+          <li><a href="#" class="text-light text-decoration-none">Terms of Service</a></li>
+          <li><a href="docs/retailflow_legal_disclaimer.html" class="text-light text-decoration-none">Education Site</a></li>
+        </ul>
+      </div>
+    </div>
+    
+    <hr class="my-4 border-secondary">
+    
+    <div class="row align-items-center">
+      <div class="col-md-6">
+        <p class="mb-0">© 2024 RetailFlow. All rights reserved.</p>
+      </div>
+      <div class="col-md-6 text-md-end">
+        <p class="mb-0">
+          <small class="text-muted">ABN: 123 456 789 000 | ACN: 123 456 789</small>
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+<style>
+.footer {
+  margin-top: 3rem;
+}
+
+.footer a:hover {
+  color: var(--retailflow-accent) !important;
+}
+
+.social-links a {
+  font-size: 1.2rem;
+  transition: color 0.2s;
+}
+
+.social-links a:hover {
+  color: var(--retailflow-accent) !important;
+}
+</style>
+
+
+
+
+</body></html>

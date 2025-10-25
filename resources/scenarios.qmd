@@ -1,0 +1,296 @@
+---
+title: "Customer Service Scenarios"
+---
+
+# Customer Service Scenarios for AI Testing
+
+## Overview
+
+These scenarios represent the types of customer inquiries that the AI chatbot will need to handle. They are categorized by complexity to help test the system's capabilities and limitations.
+
+## Simple Scenarios (AI Should Handle Easily)
+
+### Scenario 1: Order Status Inquiry
+**Customer Query**: "Where is my order? Order #12345"
+
+**Expected AI Response**: 
+- Check order status in system
+- Provide current location and estimated delivery
+- Offer tracking link
+- Handle follow-up questions
+
+**Human Touch Points**: None required for standard inquiries
+
+---
+
+### Scenario 2: Product Information
+**Customer Query**: "Do you have the iPhone 15 Pro in stock?"
+
+**Expected AI Response**:
+- Check inventory system
+- Confirm availability at local stores
+- Provide pricing and specifications
+- Offer to reserve or purchase
+
+**Human Touch Points**: Complex product comparisons may need human assistance
+
+---
+
+### Scenario 3: Store Hours & Location
+**Customer Query**: "What time does your Sydney store close?"
+
+**Expected AI Response**:
+- Provide store hours
+- Give address and contact information
+- Offer directions
+- Suggest best times to visit
+
+**Human Touch Points**: None required
+
+---
+
+### Scenario 4: Return Policy
+**Customer Query**: "What's your return policy for electronics?"
+
+**Expected AI Response**:
+- Explain standard return policy
+- Detail timeframes and conditions
+- Provide return process steps
+- Answer specific policy questions
+
+**Human Touch Points**: Exception handling may need human review
+
+---
+
+### Scenario 5: Warranty Information
+**Customer Query**: "How long is the warranty on this TV?"
+
+**Expected AI Response**:
+- Provide warranty period
+- Explain coverage details
+- Outline claim process
+- Offer extended warranty options
+
+**Human Touch Points**: Complex warranty claims need human processing
+
+---
+
+## Moderate Complexity Scenarios (AI + Human Collaboration)
+
+### Scenario 6: Return Processing
+**Customer Query**: "I want to return my laptop, it's not working properly"
+
+**Expected AI Response**:
+- Initiate return process
+- Ask diagnostic questions
+- Generate return label
+- Schedule pickup if needed
+
+**Human Touch Points**: Technical assessment and final approval
+
+---
+
+### Scenario 7: Price Matching
+**Customer Query**: "Can you match this price from Competitor X?"
+
+**Expected AI Response**:
+- Check price matching policy
+- Verify competitor pricing
+- Process match if eligible
+- Explain limitations
+
+**Human Touch Points**: Manager approval for large differences
+
+---
+
+### Scenario 8: Delivery Issues
+**Customer Query**: "My package was damaged in transit"
+
+**Expected AI Response**:
+- Apologize and document issue
+- Check delivery status
+- Initiate claim process
+- Offer replacement options
+
+**Human Touch Points**: Investigation and compensation decisions
+
+---
+
+### Scenario 9: Account Problems
+**Customer Query**: "I can't log into my account"
+
+**Expected AI Response**:
+- Guide through password reset
+- Check account status
+- Identify common issues
+- Escalate if technical problem
+
+**Human Touch Points**: Technical support for complex issues
+
+---
+
+### Scenario 10: Product Defects
+**Customer Query**: "My new phone keeps crashing"
+
+**Expected AI Response**:
+- Troubleshoot common issues
+- Check for known problems
+- Offer repair/replacement options
+- Schedule service if needed
+
+**Human Touch Points**: Technical diagnosis and repair coordination
+
+---
+
+## Complex Scenarios (Human-Led with AI Support)
+
+### Scenario 11: Service Recovery
+**Customer Query**: "This is the third time I've called about my broken refrigerator!"
+
+**Expected AI Response**:
+- Recognize customer history
+- Express sincere apology
+- Immediately escalate to senior agent
+- Document all previous interactions
+
+**Human Touch Points**: Relationship repair and compensation decisions
+
+---
+
+### Scenario 12: Complex Complaints
+**Customer Query**: "Your salesperson misled me about this product and now I'm stuck"
+
+**Expected AI Response**:
+- Acknowledge the serious concern
+- Document detailed complaint
+- Immediately transfer to human specialist
+- Provide reference number
+
+**Human Touch Points**: Investigation and resolution planning
+
+---
+
+### Scenario 13: Financial Hardship
+**Customer Query**: "I lost my job and can't make my payment, what can I do?"
+
+**Expected AI Response**:
+- Express empathy
+- Explain available assistance programs
+- Connect to financial specialist
+- Provide immediate options
+
+**Human Touch Points**: Personalized solutions and arrangements
+
+---
+
+### Scenario 14: Legal Issues
+**Customer Query**: "I'm considering legal action over this product"
+
+**Expected AI Response**:
+- Acknowledge serious nature
+- Immediately escalate to legal team
+- Document all details carefully
+- Provide formal complaint process
+
+**Human Touch Points**: Legal review and response
+
+---
+
+### Scenario 15: Multiple Issues
+**Customer Query**: "My order is late, the wrong item arrived, and I was overcharged"
+
+**Expected AI Response**:
+- Recognize multiple problems
+- Prioritize and categorize issues
+- Escalate to human specialist
+- Provide timeline for resolution
+
+**Human Touch Points**: Complex problem resolution
+
+---
+
+## Edge Cases (Human Essential)
+
+### Scenario 16: Accessibility Needs
+**Customer Query**: "I'm visually impaired, can you help me navigate your website?"
+
+**Expected AI Response**:
+- Recognize accessibility requirement
+- Provide alternative access methods
+- Connect to accessibility specialist
+- Offer personalized assistance
+
+**Human Touch Points**: Accessibility accommodations
+
+---
+
+### Scenario 17: Mental Health Support
+**Customer Query**: "I'm really struggling and just need someone to talk to"
+
+**Expected AI Response**:
+- Recognize emotional distress
+- Provide crisis resources
+- Immediately connect to human support
+- Express genuine concern
+
+**Human Touch Points**: Emotional support and appropriate referrals
+
+---
+
+### Scenario 18: Fraud Reports
+**Customer Query**: "Someone used my credit card on your website"
+
+**Expected AI Response**:
+- Treat as urgent security matter
+- Immediately escalate to security team
+- Guide through account protection
+- Document all details
+
+**Human Touch Points**: Security investigation and fraud prevention
+
+---
+
+### Scenario 19: Subjective Advice
+**Customer Query**: "Which TV should I buy for my family?"
+
+**Expected AI Response**:
+- Provide objective comparisons
+- Explain features and benefits
+- Suggest consultation with expert
+- Avoid making subjective recommendations
+
+**Human Touch Points**: Personalized recommendations
+
+---
+
+### Scenario 20: Ethical Dilemmas
+**Customer Query**: "Can you help me return something I clearly damaged?"
+
+**Expected AI Response**:
+- Explain policies clearly and fairly
+- Avoid encouraging dishonesty
+- Offer legitimate options
+- Maintain ethical standards
+
+**Human Touch Points**: Judgment calls and policy exceptions
+
+---
+
+## Testing Framework
+
+### Success Metrics for Each Scenario
+1. **First Contact Resolution**: Can the issue be resolved initially?
+2. **Customer Satisfaction**: Is the customer happy with the outcome?
+3. **Efficiency**: How long does resolution take?
+4. **Cost**: What's the cost per resolution?
+5. **Escalation Rate**: When is human intervention necessary?
+
+### Performance Targets
+- **Simple Scenarios**: 90% AI resolution, < 2 minutes
+- **Moderate Scenarios**: 60% AI resolution, < 5 minutes
+- **Complex Scenarios**: 20% AI support, < 10 minutes to human
+- **Edge Cases**: 0% AI resolution, immediate human escalation
+
+---
+
+[Documents](documents.qmd) | [Consultant Dashboard](../consultant.qmd) | [Company Overview](../company/overview.qmd)
