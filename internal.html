@@ -1,0 +1,894 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RetailFlow Internal Portal | Staff Access Only</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1e40af;
+            --secondary: #10b981;
+            --accent: #f59e0b;
+            --dark: #1f2937;
+            --light: #f3f4f6;
+            --white: #ffffff;
+            --text: #374151;
+            --border: #e5e7eb;
+            --warn: #ef4444;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background: var(--light);
+        }
+
+        /* Login Gate Styles */
+        #login-gate {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            padding: 20px;
+        }
+
+        .login-box {
+            background: var(--white);
+            padding: 3rem;
+            border-radius: 12px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            max-width: 450px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .login-box h1 {
+            color: var(--primary);
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .login-box p {
+            color: var(--text);
+            margin-bottom: 2rem;
+            font-size: 0.95rem;
+        }
+
+        .lock-icon {
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .input-group {
+            margin-bottom: 1.5rem;
+            text-align: left;
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: var(--dark);
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border: 2px solid var(--border);
+            border-radius: 6px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        .input-group input:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+
+        .btn-login {
+            width: 100%;
+            padding: 0.875rem;
+            background: var(--primary);
+            color: var(--white);
+            border: none;
+            border-radius: 6px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .btn-login:hover {
+            background: var(--primary-dark);
+        }
+
+        .error-message {
+            background: #fee;
+            color: var(--warn);
+            padding: 0.75rem;
+            border-radius: 6px;
+            margin-top: 1rem;
+            display: none;
+            font-size: 0.9rem;
+        }
+
+        .hint {
+            margin-top: 1.5rem;
+            padding: 1rem;
+            background: var(--light);
+            border-radius: 6px;
+            font-size: 0.85rem;
+            color: #666;
+        }
+
+        /* Portal Content Styles */
+        #portal-content {
+            display: none;
+        }
+
+        header {
+            background: var(--white);
+            border-bottom: 1px solid var(--border);
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .nav-right {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .btn-logout {
+            padding: 0.5rem 1rem;
+            background: var(--warn);
+            color: var(--white);
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 500;
+        }
+
+        .btn-logout:hover {
+            background: #dc2626;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem 20px;
+        }
+
+        .page-header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: var(--white);
+            padding: 2rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .page-header h1 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .page-header p {
+            opacity: 0.95;
+        }
+
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .dashboard-card {
+            background: var(--white);
+            padding: 1.5rem;
+            border-radius: 8px;
+            border-left: 4px solid var(--primary);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .dashboard-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+        }
+
+        .dashboard-card h3 {
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .dashboard-card p {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .dashboard-card a {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background: var(--primary);
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: background 0.3s;
+        }
+
+        .dashboard-card a:hover {
+            background: var(--primary-dark);
+        }
+
+        .coming-soon {
+            opacity: 0.6;
+            border-left-color: #ccc;
+        }
+
+        .coming-soon h3 {
+            color: #999;
+        }
+
+        .coming-soon a {
+            background: #ccc;
+            cursor: not-allowed;
+        }
+
+        .alert-info {
+            background: #e0f2fe;
+            border-left: 4px solid #0284c7;
+            padding: 1rem;
+            border-radius: 6px;
+            margin-bottom: 2rem;
+        }
+
+        .alert-info strong {
+            color: #0369a1;
+        }
+
+        /* Dashboard iframe */
+        #dashboard-iframe {
+            display: none;
+            margin-top: 2rem;
+        }
+
+        #dashboard-iframe iframe {
+            width: 100%;
+            border: none;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            background: white;
+        }
+    </style>
+</head>
+<body>
+    <!-- Login Gate -->
+    <div id="login-gate">
+        <div class="login-box">
+            <div class="lock-icon">🔒</div>
+            <h1>RetailFlow Internal Portal</h1>
+            <p>This area is restricted to staff and authorized consultants only.</p>
+
+            <div class="input-group">
+                <label for="access-code">Access Code:</label>
+                <input type="password" id="access-code" placeholder="Enter your access code" />
+            </div>
+
+            <button class="btn-login" onclick="checkAccess()">Access Portal</button>
+
+            <div class="error-message" id="error-message">
+                ❌ Invalid access code. Please try again or contact your facilitator.
+            </div>
+
+            <div class="hint">
+                <strong>💡 Hint:</strong> Your facilitator will provide the access code when needed for the exercise.
+            </div>
+        </div>
+    </div>
+
+    <!-- Portal Content (Hidden until authenticated) -->
+    <div id="portal-content">
+        <header>
+            <nav>
+                <a href="index.html" class="logo">RetailFlow Internal</a>
+                <div class="nav-right">
+                    <span style="color: #666; font-size: 0.9rem;">👤 Staff Access</span>
+                    <button class="btn-logout" onclick="logout()">Logout</button>
+                </div>
+            </nav>
+        </header>
+
+        <div class="container">
+            <div class="page-header">
+                <h1>🏢 Welcome to the Internal Portal</h1>
+                <p>Access project resources, data, and internal documentation</p>
+            </div>
+
+            <div class="alert-info">
+                <strong>📋 For Masterclass Participants:</strong> This portal provides access to RetailFlow internal resources needed for your exercises. Navigate to the AI Pilot Dashboard for Activity 4 (Scale/Pivot/Kill decision).
+            </div>
+
+            <div class="dashboard-grid">
+                <div class="dashboard-card">
+                    <h3>📊 AI Pilot Dashboard</h3>
+                    <p>Week 6 performance data and metrics for the AI customer service pilot. Use this for your Scale/Pivot/Kill decision.</p>
+                    <a href="#dashboard" onclick="showDashboard(); return false;">View Dashboard</a>
+                </div>
+
+                <div class="dashboard-card coming-soon">
+                    <h3>📁 Project Documentation</h3>
+                    <p>Access pilot scoping documents, meeting notes, and project timelines.</p>
+                    <a href="#" onclick="return false;">Coming Soon</a>
+                </div>
+
+                <div class="dashboard-card coming-soon">
+                    <h3>💰 Budget Tracking</h3>
+                    <p>View current spend, projected costs, and ROI calculations for the AI pilot.</p>
+                    <a href="#" onclick="return false;">Coming Soon</a>
+                </div>
+
+                <div class="dashboard-card coming-soon">
+                    <h3>👥 Stakeholder Updates</h3>
+                    <p>Executive summaries, board presentations, and stakeholder communication logs.</p>
+                    <a href="#" onclick="return false;">Coming Soon</a>
+                </div>
+
+                <div class="dashboard-card coming-soon">
+                    <h3>📧 Team Feedback</h3>
+                    <p>Survey results, agent feedback, and team adoption metrics over time.</p>
+                    <a href="#" onclick="return false;">Coming Soon</a>
+                </div>
+
+                <div class="dashboard-card coming-soon">
+                    <h3>⚠️ Incident Log</h3>
+                    <p>Track and review all incidents, escalations, and their resolutions.</p>
+                    <a href="#" onclick="return false;">Coming Soon</a>
+                </div>
+            </div>
+
+            <div id="dashboard-iframe">
+                <h2 style="margin-bottom: 1rem; color: var(--primary);">📊 AI Pilot Performance Dashboard</h2>
+                <iframe id="dashboard-frame" height="4000px"></iframe>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Password: pilot2024
+        function checkAccess() {
+            const code = document.getElementById('access-code').value;
+            const errorMsg = document.getElementById('error-message');
+
+            if (code === 'pilot2024') {
+                // Hide login gate
+                document.getElementById('login-gate').style.display = 'none';
+                // Show portal content
+                document.getElementById('portal-content').style.display = 'block';
+                // Store auth in session
+                sessionStorage.setItem('authenticated', 'true');
+            } else {
+                // Show error
+                errorMsg.style.display = 'block';
+                document.getElementById('access-code').value = '';
+                document.getElementById('access-code').focus();
+            }
+        }
+
+        // Allow Enter key to submit
+        document.getElementById('access-code')?.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                checkAccess();
+            }
+        });
+
+        // Logout function
+        function logout() {
+            sessionStorage.removeItem('authenticated');
+            document.getElementById('login-gate').style.display = 'flex';
+            document.getElementById('portal-content').style.display = 'none';
+            document.getElementById('access-code').value = '';
+            document.getElementById('error-message').style.display = 'none';
+            document.getElementById('dashboard-iframe').style.display = 'none';
+        }
+
+        // Show dashboard function
+        function showDashboard() {
+            const dashboardDiv = document.getElementById('dashboard-iframe');
+            const iframe = document.getElementById('dashboard-frame');
+
+            // Set the dashboard content directly
+            iframe.srcdoc = `<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RetailFlow Pilot Data</title>
+    <style>
+${document.querySelector('style').textContent}
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: white;
+            color: #333;
+            padding: 20px;
+            margin: 0;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+            border-radius: 8px;
+            margin-bottom: 30px;
+        }
+
+        .header h1 {
+            font-size: 2em;
+            margin-bottom: 10px;
+        }
+
+        .section {
+            margin-bottom: 40px;
+        }
+
+        .section h2 {
+            color: #667eea;
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 8px;
+        }
+
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+
+        .metric-card {
+            background: #f8f9fa;
+            border-left: 5px solid #667eea;
+            padding: 18px;
+            border-radius: 6px;
+        }
+
+        .metric-card h3 {
+            color: #333;
+            margin-bottom: 8px;
+            font-size: 1em;
+        }
+
+        .metric-values {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+        }
+
+        .metric-value {
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+
+        .target { color: #999; }
+        .actual { color: #667eea; }
+
+        .status {
+            display: inline-block;
+            padding: 4px 10px;
+            border-radius: 15px;
+            font-size: 0.85em;
+            font-weight: bold;
+        }
+
+        .status.met { background: #d4edda; color: #155724; }
+        .status.close { background: #fff3cd; color: #856404; }
+        .status.miss { background: #f8d7da; color: #721c24; }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 25px;
+            background: white;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+        }
+
+        th {
+            background: #f8f9fa;
+            padding: 12px;
+            text-align: left;
+            font-weight: 600;
+            border-bottom: 2px solid #667eea;
+        }
+
+        td {
+            padding: 10px 12px;
+            border-bottom: 1px solid #e9ecef;
+        }
+
+        tr:hover {
+            background: #f8f9fa;
+        }
+
+        .insight {
+            background: #e7f3ff;
+            border-left: 5px solid #2196F3;
+            padding: 18px;
+            margin-bottom: 18px;
+            border-radius: 6px;
+        }
+
+        .insight strong {
+            color: #1565c0;
+        }
+
+        .column-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+        }
+
+        .quote {
+            background: white;
+            border-left: 4px solid #764ba2;
+            padding: 12px;
+            border-radius: 4px;
+        }
+
+        @media (max-width: 900px) {
+            .column-2 { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>RetailFlow AI Pilot - Data Summary</h1>
+        <p>6-Week Pilot Performance Review | Decision Point: Scale, Pivot, or Kill?</p>
+    </div>
+
+    <div class="section">
+        <h2>📊 Key Performance Metrics (Week 6)</h2>
+        <div class="metrics-grid">
+            <div class="metric-card">
+                <h3>AI Accuracy</h3>
+                <div class="metric-values">
+                    <span class="target">Target: 90%</span>
+                    <span class="actual">Actual: 88%</span>
+                </div>
+                <span class="status close">⚠️ Close but Below</span>
+                <p style="margin-top: 8px; font-size: 0.9em; color: #666;">Data scientist: Can hit 92% in 4 more weeks</p>
+            </div>
+
+            <div class="metric-card">
+                <h3>Customer Satisfaction</h3>
+                <div class="metric-values">
+                    <span class="target">Target: 80%</span>
+                    <span class="actual">Actual: 82%</span>
+                </div>
+                <span class="status met">✓ MET</span>
+                <p style="margin-top: 8px; font-size: 0.9em; color: #666;">Customers prefer 3.5-hour AI response to 26-hour human</p>
+            </div>
+
+            <div class="metric-card">
+                <h3>Response Time</h3>
+                <div class="metric-values">
+                    <span class="target">Target: <4 hours</span>
+                    <span class="actual">Actual: 3.5 hrs</span>
+                </div>
+                <span class="status met">✓ MET</span>
+                <p style="margin-top: 8px; font-size: 0.9em; color: #666;">Major improvement from 26-hour baseline</p>
+            </div>
+
+            <div class="metric-card">
+                <h3>Cost Per Query</h3>
+                <div class="metric-values">
+                    <span class="target">Target: $12</span>
+                    <span class="actual">Actual: $14</span>
+                </div>
+                <span class="status close">⚠️ Above Target</span>
+                <p style="margin-top: 8px; font-size: 0.9em; color: #666;">Will improve at 60%+ scale. Projected $11.50</p>
+            </div>
+
+            <div class="metric-card">
+                <h3>Team Adoption</h3>
+                <div class="metric-values">
+                    <span class="target">Target: 80%+</span>
+                    <span class="actual">Actual: 75%</span>
+                </div>
+                <span class="status close">⚠️ Close</span>
+                <p style="margin-top: 8px; font-size: 0.9em; color: #666;">3 of 5 agents fully using. 2 agents hesitant</p>
+            </div>
+
+            <div class="metric-card">
+                <h3>Escalation Rate</h3>
+                <div class="metric-values">
+                    <span class="target">Target: <2%</span>
+                    <span class="actual">Actual: 3.5%</span>
+                </div>
+                <span class="status miss">❌ Above Target</span>
+                <p style="margin-top: 8px; font-size: 0.9em; color: #666;">Spiked Week 3, normalized Week 4-6</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>📈 Weekly Performance Trend</h2>
+        <table>
+            <tr>
+                <th>Week</th>
+                <th>Accuracy</th>
+                <th>Satisfaction</th>
+                <th>Response Time</th>
+                <th>Escalations</th>
+                <th>Team Adoption</th>
+            </tr>
+            <tr>
+                <td><strong>Week 1</strong></td>
+                <td>85%</td>
+                <td>78%</td>
+                <td>6 hours</td>
+                <td>8%</td>
+                <td>40% (crisis)</td>
+            </tr>
+            <tr>
+                <td><strong>Week 2</strong></td>
+                <td>86%</td>
+                <td>79%</td>
+                <td>5.5 hours</td>
+                <td>4%</td>
+                <td>65% (resistance)</td>
+            </tr>
+            <tr>
+                <td><strong>Week 3</strong></td>
+                <td>87%</td>
+                <td>80%</td>
+                <td>4.5 hours</td>
+                <td>5%</td>
+                <td>70%</td>
+            </tr>
+            <tr>
+                <td><strong>Week 4</strong></td>
+                <td>87%</td>
+                <td>81%</td>
+                <td>4 hours</td>
+                <td>3.5%</td>
+                <td>75% (stabilizing)</td>
+            </tr>
+            <tr>
+                <td><strong>Week 5</strong></td>
+                <td>88%</td>
+                <td>82%</td>
+                <td>3.8 hours</td>
+                <td>3.5%</td>
+                <td>75% (stable)</td>
+            </tr>
+            <tr style="background: #f0f0f0;">
+                <td><strong>Week 6</strong></td>
+                <td><strong>88%</strong></td>
+                <td><strong>82%</strong></td>
+                <td><strong>3.5 hours</strong></td>
+                <td><strong>3.5%</strong></td>
+                <td><strong>75% (stable)</strong></td>
+            </tr>
+        </table>
+        <p style="font-size: 0.9em; color: #666;"><strong>Insight:</strong> Accuracy and satisfaction trending upward. Response time and adoption plateauing. Escalations normalized after Week 3 spike.</p>
+    </div>
+
+    <div class="section">
+        <h2>🔍 Query Type Performance (Week 6)</h2>
+        <table>
+            <tr>
+                <th>Query Type</th>
+                <th>% of Volume</th>
+                <th>AI Accuracy</th>
+                <th>Customer Satisfaction</th>
+                <th>Escalations</th>
+            </tr>
+            <tr>
+                <td><strong>Order Status/Tracking</strong></td>
+                <td>25%</td>
+                <td style="color: green;"><strong>94%</strong></td>
+                <td>85%</td>
+                <td>1.2%</td>
+            </tr>
+            <tr>
+                <td><strong>Returns/Refunds Policy</strong></td>
+                <td>20%</td>
+                <td style="color: green;"><strong>91%</strong></td>
+                <td>84%</td>
+                <td>1.8%</td>
+            </tr>
+            <tr>
+                <td><strong>Product Care & Sizing</strong></td>
+                <td>30%</td>
+                <td style="color: red;"><strong>78%</strong></td>
+                <td>78%</td>
+                <td>6.5%</td>
+            </tr>
+            <tr>
+                <td><strong>Website/App Technical</strong></td>
+                <td>10%</td>
+                <td>85%</td>
+                <td>80%</td>
+                <td>2.1%</td>
+            </tr>
+            <tr>
+                <td><strong>Complaints/Escalations</strong></td>
+                <td>5%</td>
+                <td>N/A (Human only)</td>
+                <td>N/A</td>
+                <td>N/A</td>
+            </tr>
+            <tr>
+                <td><strong>Other</strong></td>
+                <td>10%</td>
+                <td>87%</td>
+                <td>81%</td>
+                <td>2.4%</td>
+            </tr>
+        </table>
+        <p style="font-size: 0.9em; color: #666;"><strong>Key Insight:</strong> AI excels at order tracking (94%) and returns (91%). Struggles with product care/sizing (78%)—requires nuance and expertise.</p>
+    </div>
+
+    <div class="section">
+        <h2>💬 Leadership & Team Feedback</h2>
+        <div class="column-2">
+            <div>
+                <h3 style="color: #667eea; margin-bottom: 12px;">CEO (VP of Operations)</h3>
+                <div class="quote">
+                    <p><strong>"Good progress on response times. Still want to see accuracy at 90% before we scale. Cost savings below projections. If we get accuracy up and volume up, this scales. Otherwise, we pivot or kill."</strong></p>
+                    <p style="margin-top: 8px; font-size: 0.85em; color: #666;"><strong>Priority:</strong> Accuracy + ROI visibility</p>
+                </div>
+            </div>
+            <div>
+                <h3 style="color: #667eea; margin-bottom: 12px;">CFO (Finance)</h3>
+                <div class="quote">
+                    <p><strong>"Cost per query is $14 vs. $12 target. At current scale, not seeing ROI. Need 60%+ AI coverage for meaningful savings. Budget on track so far."</strong></p>
+                    <p style="margin-top: 8px; font-size: 0.85em; color: #666;"><strong>Priority:</strong> Cost efficiency, scale to profitability</p>
+                </div>
+            </div>
+        </div>
+        <div class="column-2" style="margin-top: 18px;">
+            <div>
+                <h3 style="color: #667eea; margin-bottom: 12px;">Data Scientist</h3>
+                <div class="quote">
+                    <p><strong>"Accuracy bottleneck is product care (78% vs. 90%+ for other types). With 4 more weeks of refinement and product data, I can get to 92% overall. After that, we can confidently scale."</strong></p>
+                    <p style="margin-top: 8px; font-size: 0.85em; color: #666;"><strong>Priority:</strong> Model quality, technical feasibility</p>
+                </div>
+            </div>
+            <div>
+                <h3 style="color: #667eea; margin-bottom: 12px;">Customer Service Manager</h3>
+                <div class="quote">
+                    <p><strong>"Team is engaged. Initial resistance from Sarah resolved. Adoption steady at 75%. If accuracy improves, remaining agents will fully adopt. No blockers from operations."</strong></p>
+                    <p style="margin-top: 8px; font-size: 0.85em; color: #666;"><strong>Priority:</strong> Team adoption, smooth operations</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>⚠️ Incidents & Resolutions</h2>
+        <table>
+            <tr>
+                <th>Week</th>
+                <th>Incident</th>
+                <th>Status</th>
+                <th>Resolution</th>
+            </tr>
+            <tr>
+                <td><strong>Week 1</strong></td>
+                <td>Data quality issue (wrong tracking)</td>
+                <td><span class="status met">RESOLVED</span></td>
+                <td>Paused AI, retrained with clean data</td>
+            </tr>
+            <tr>
+                <td><strong>Week 2</strong></td>
+                <td>Team resistance (Sarah & 3 agents)</td>
+                <td><span class="status met">RESOLVED</span></td>
+                <td>Engaged Sarah, included in feedback process</td>
+            </tr>
+            <tr>
+                <td><strong>Week 3</strong></td>
+                <td>Escalation spike (4.5%)</td>
+                <td><span class="status met">RESOLVED</span></td>
+                <td>Normalized as agents learned AI limits</td>
+            </tr>
+            <tr>
+                <td><strong>Week 4-6</strong></td>
+                <td>Stable operations</td>
+                <td><span class="status met">ONGOING</span></td>
+                <td>No major incidents. System stable & improving</td>
+            </tr>
+        </table>
+        <p style="font-size: 0.9em; color: #666;"><strong>Key Learning:</strong> Issues in weeks 1-3 were solvable. Current state is stable and improving.</p>
+    </div>
+
+    <div class="section">
+        <h2>🎯 Summary: What The Data Shows</h2>
+        <div class="insight">
+            <strong>✓ WHAT'S WORKING:</strong><br>
+            • Speed: 3.5-hour response beats 26-hour baseline<br>
+            • Satisfaction: 82% proves value exists<br>
+            • Team adoption: 75% is solid for new technology<br>
+            • Stability: Weeks 4-6 show no major issues<br>
+            • Clear scope: AI excels at routine queries (order tracking, policy)
+        </div>
+        <div class="insight" style="background: #fff3cd; border-left-color: #ff9800;">
+            <strong>⚠️ CHALLENGES:</strong><br>
+            • Accuracy: 88% vs. 90% target (2 points away—solvable)<br>
+            • Cost: $14 vs. $12 target (will improve with volume)<br>
+            • Escalations: 3.5% vs. <2% target (normalized, but still high)<br>
+            • Product care: 78% accuracy (maybe out of scope?)<br>
+            • Team adoption: 75% not 80% (2 agents still hesitant)
+        </div>
+        <div class="insight" style="background: #e8f5e9; border-left-color: #4caf50;">
+            <strong>→ CLEAR NEXT STEPS:</strong><br>
+            • Data scientist: 4 more weeks of model refinement → 92% accuracy<br>
+            • Operations: Add Phase 2 scope (return policy) → increase AI volume<br>
+            • Leadership: Assess at Week 10 with better data<br>
+            • Team: Continue feedback process, monitor adoption
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>🤔 Your Decision: Scale, Pivot, or Kill?</h2>
+        <p style="font-size: 1.05em; margin-bottom: 16px;">Using your Go/No-Go criteria from Pilot Scoping:</p>
+        <div class="insight" style="background: #f3e5f5; border-left-color: #9c27b0;">
+            <strong>How many of your success criteria did you actually meet?</strong><br><br>
+            ✓ Customer satisfaction (82%) — MET<br>
+            ✓ Response time (3.5 hours) — MET<br>
+            ⚠️ Accuracy (88%) — CLOSE<br>
+            ⚠️ Cost per query ($14) — CLOSE<br>
+            ⚠️ Team adoption (75%) — CLOSE<br>
+            ❌ Escalations (3.5%) — ABOVE TARGET<br><br>
+            <strong>Score: 2 of 6 fully met. 3 of 6 close. 1 of 6 above target.</strong>
+        </div>
+    </div>
+</body>
+</html>`;
+
+            dashboardDiv.style.display = 'block';
+            dashboardDiv.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Check if already authenticated on page load
+        window.addEventListener('DOMContentLoaded', function() {
+            if (sessionStorage.getItem('authenticated') === 'true') {
+                document.getElementById('login-gate').style.display = 'none';
+                document.getElementById('portal-content').style.display = 'block';
+            }
+        });
+    </script>
+</body>
+</html>
